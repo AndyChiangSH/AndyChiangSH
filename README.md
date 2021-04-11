@@ -18,3 +18,5 @@
 ![](https://github-profile-summary-cards.vercel.app/api/cards/most-commit-language?username=AndyChiangSH&theme=vue)
 
 ![](https://komarev.com/ghpvc/?username=AndyChiangSH)
+
+![](https://img.shields.io/github/followers/AndyChiangSH?style=social)
