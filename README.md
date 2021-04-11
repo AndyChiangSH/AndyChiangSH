@@ -5,7 +5,7 @@
 
 - 📫 How to reach me **andy10801@gmail.com**
 
-- 💻 You can go to [my website](https://reurl.cc/9Zqy3O) to get more information about me!
+- 💻 You can go to **[my website](https://reurl.cc/9Zqy3O)** to get more information about me!
 
 
 <h3 align="left">Languages and Tools:</h3>
