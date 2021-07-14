@@ -1,4 +1,4 @@
-<h1 align="center">Hi 👋, I'm AndyChiang</h1>
+<h1 align="center">Hi 👋, I'm AndyChiang (江尚軒)</h1>
 <h3 align="center">A student at NCHU, Taiwan.</h3>
 
 - 🌱 I’m currently learning **Front-end, Python, Flutter, Machine Learning**
