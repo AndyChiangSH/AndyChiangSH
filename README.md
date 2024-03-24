@@ -1,5 +1,5 @@
 <h1 align="center">Hi! My name is Andy Chiang (江尚軒). 👋</h1>
-<h2 align="center">I am a master's student of Computer Science at NYCU, Hsinchu, Taiwan.</h2>
+<h3 align="center">I am a master's student of Computer Science at NYCU, Hsinchu, Taiwan.</h3>
 
 - 🛠️ My skills are **Web Front-end, Web Back-end, Web Crawler, Data Mining, Machine Learning, Natural Language Processing...**
 
