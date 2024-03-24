@@ -1,11 +1,11 @@
 <h1 align="center">Hi! My name is Andy Chiang (江尚軒). 👋</h1>
-<h3 align="center">A master student of CS @ NYCU, Hsinchu, Taiwan.</h3>
+<h2 align="center">I am a master's student of Computer Science at NYCU, Hsinchu, Taiwan.</h2>
 
-- 👨‍💻 I major in **Web Front-end, Web Back-end, Web Crawler, Data Mining, Machine Learning, Natural Language Processing…**
+- 🛠️ My skills are **Web Front-end, Web Back-end, Web Crawler, Data Mining, Machine Learning, Natural Language Processing...**
 
-- 💬 My hobbies are **coding, playing badminton, and traveling.**
+- ❤ My hobbies are **coding 👨‍💻, playing badminton 🏸, and traveling ✈**.
 
-- 📫 How to reach me: **andy10801@gmail.com**
+- ✉ How to reach me: **andy10801@gmail.com**
 
 - 📝 Here is **[my blog](https://chitosblog26.blogspot.com/)**
 
