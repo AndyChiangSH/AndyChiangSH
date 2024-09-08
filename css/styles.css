@@ -11451,3 +11451,9 @@ section.resume-section .resume-section-content {
     justify-content: center;
   }
 }
+
+.national-flag {
+  width: 40px;
+  height: 40px;
+  vertical-align: top;
+}

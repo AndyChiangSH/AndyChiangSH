@@ -41,11 +41,14 @@
                 <li class="nav-item"><a class="nav-link js-scroll-trigger" href="#competitions">🏆 COMPETITIONS</a></li>
                 <li class="nav-item"><a class="nav-link js-scroll-trigger" href="#projects">💻 PROJECTS</a></li>
                 <li class="nav-item"><a class="nav-link js-scroll-trigger" href="#skills">🛠️ SKILLS</a></li>
+                <li class="nav-item"><a class="nav-link js-scroll-trigger" href="#travels">✈️ TRAVELS</a></li>
             </ul>
         </div>
     </nav>
+
     <!-- Page Content-->
     <div class="container-fluid p-0">
+        
         <!-- PROFILE -->
         <section class="resume-section" id="profile">
             <div class="resume-section-content">
@@ -58,7 +61,7 @@
                     <li>Hi! My name is Andy Chiang (江尚軒). 👋</li>
                     <li>I am a master's student of Computer Science at NYCU, Hsinchu, Taiwan.</li>
                     <li>My skills are Web Front-end, Web Back-end, Web Crawler, Data Mining, Machine Learning, Natural Language Processing...</li>
-                    <li>My hobbies are coding 👨‍💻, playing badminton 🏸, and traveling ✈.</li>
+                    <li>My hobbies are coding 👨‍💻, playing badminton 🏸, and traveling ✈️.</li>
                     <li>If you have any questions, feel free to contact me!</li>
                 </ul>
                 <div class="social-icons">
@@ -78,6 +81,7 @@
             </div>
         </section>
         <hr class="m-0" />
+
         <!-- MOTTO-->
         <section class="resume-section" id="motto">
             <div class="resume-section-content" data-aos="fade-right">
@@ -87,6 +91,7 @@
             </div>
         </section>
         <hr class="m-0" />
+
         <!-- EDUCATIONS-->
         <section class="resume-section" id="educations">
             <div class="resume-section-content" data-aos="fade-right">
@@ -115,25 +120,102 @@
             </div>
         </section>
         <hr class="m-0" />
+        
         <!-- PUBLICATIONS-->
         <section class="resume-section" id="publications">
             <div class="resume-section-content" data-aos="fade-right">
                 <h2 class="my-5">📜 PUBLICATIONS</h2>
                 <div class="accordion accordion-flush resume-section-content" id="accordionFlushExample">
                     <div class="accordion-item">
-                        <div class="accordion-header" id="flush-heading1">
+                        <div class="accordion-header" id="flush-heading-3">
+                            <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse"
+                                data-bs-target="#flush-collapse-3" aria-expanded="false" aria-controls="flush-collapse-3">
+                                <div class="my-3">
+                                    <h3 class="mb-3">BADGE: BADminton report Generation and Evaluation with LLM</h3>
+                                    <h4 class="subheading"><a href="https://ijcai24.org/" target="_blank">IJCAI 2024 Workshop</a>: <a href="https://wasn.csie.ncu.edu.tw/workshop/IT4PSS2024.html" target="_blank">The 2nd International Workshop on Intelligent Technologies for Precision Sports Science (IT4PSS)</a></h4>
+                                    <h4 class="subheading mb-3"><b>Shang-Hsuan Chiang</b>, Lin-Wei Chao, Kuang-Da Wang, Chih-Chuan Wang, Wen-Chih Peng</h4>
+                                    <p class="text-primary mb-0">2024/08</p>
+                                </div>
+                            </button>
+                        </div>
+                        <div id="flush-collapse-3" class="accordion-collapse collapse" aria-labelledby="flush-heading-3"
+                            data-bs-parent="#accordionFlushExample">
+                            <div class="accordion-body py-4">
+                                <p>
+                                    Badminton enjoys widespread popularity, and reports on matches generally include details such as player names, game
+                                    scores, and ball types, providing audiences with a comprehensive view of the games. However, writing these reports can
+                                    be a time-consuming task. This challenge led us to explore whether a Large Language Model (LLM) could automate the
+                                    generation and evaluation of badminton reports. We introduce a novel framework named <b>BADGE</b>, designed for this purpose
+                                    using LLM. Our method consists of two main phases: Report Generation and Report Evaluation. Initially, badminton-related
+                                    data is processed by the LLM, which then generates a detailed report of the match. We tested different Input Data Types,
+                                    In-Context Learning (ICL), and LLM, finding that GPT-4 performs best when using CSV data type and the Chain of Thought
+                                    prompting. Following report generation, the LLM evaluates and scores the reports to assess their quality. Our
+                                    comparisons between the scores evaluated by GPT-4 and human judges show a tendency to prefer GPT-4 generated reports.
+                                    Since the application of LLM in badminton reporting remains largely unexplored, our research serves as a foundational
+                                    step for future advancements in this area. Moreover, our method can be extended to other sports games, thereby enhancing
+                                    sports promotion. For more details, please refer to <a href="https://github.com/AndyChiangSH/BADGE" target="_blank">this https URL</a>.
+                                </p>
+                                <div>
+                                    <a class="btn btn-outline-success" href="https://arxiv.org/abs/2406.18116" target="_blank">arXiv</a>
+                                    <a class="btn btn-outline-success" href="https://github.com/AndyChiangSH/BADGE" target="_blank">GitHub</a>
+                                    <a class="btn btn-outline-success" href="https://andychiangsh.github.io/BADGE/demo/" target="_blank">Demo</a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="accordion-item">
+                        <div class="accordion-header" id="flush-heading-2">
+                            <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse"
+                                data-bs-target="#flush-collapse-2" aria-expanded="false" aria-controls="flush-collapse-2">
+                                <div class="my-3">
+                                    <h3 class="mb-3">Team Trifecta at Factify5WQA: Setting the Standard in Fact Verification with
+                                        Fine-Tuning</h3>
+                                    <h4 class="subheading"><a href="https://aaai.org/aaai-24-conference/" target="_blank">AAAI 2024 Workshop</a>: <a href="https://defactify.com/factify3.html" target="_blank">FACTIFY 3.0 - Workshop Series on Multimodal Fact-Checking and Hate Speech Detection</a></h4>
+                                    <h4 class="subheading mb-3"><b>Shang-Hsuan Chiang</b>, Ming-Chih Lo, Lin-Wei Chao, Wen-Chih Peng</h4>
+                                    <p class="text-primary mb-0">2024/02</p>
+                                </div>
+                            </button>
+                        </div>
+                        <div id="flush-collapse-2" class="accordion-collapse collapse" aria-labelledby="flush-heading-2"
+                            data-bs-parent="#accordionFlushExample">
+                            <div class="accordion-body py-4">
+                                <p>
+                                    In this paper, we present <b>Pre-CoFactv3</b>, a comprehensive framework comprised of Question Answering
+                                    and Text
+                                    Classification components for fact verification. Leveraging In-Context Learning, Fine-tuned Large
+                                    Language Models
+                                    (LLMs), and the FakeNet model, we address the challenges of fact verification. Our experiments explore
+                                    diverse
+                                    approaches, comparing different Pre-trained LLMs, introducing FakeNet, and implementing various ensemble
+                                    methods.
+                                    Notably, our team, Trifecta, secured <b>first place</b> in the <b>AAAI-24 Factify 3.0 Workshop</b>,
+                                    surpassing the baseline accuracy
+                                    by 103% and maintaining a 70% lead over the second competitor. This success underscores the efficacy of
+                                    our approach and
+                                    its potential contributions to advancing fact verification research.
+                                </p>
+                                <div>
+                                    <a class="btn btn-outline-success" href="https://arxiv.org/abs/2403.10281" target="_blank">arXiv</a>
+                                    <a class="btn btn-outline-success" href="https://github.com/AndyChiangSH/Pre-CoFactv3"
+                                        target="_blank">GitHub</a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="accordion-item">
+                        <div class="accordion-header" id="flush-heading-1">
                             <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse"
                                 data-bs-target="#flush-collapse-1" aria-expanded="false" aria-controls="flush-collapse-1">
                                 <div class="my-3">
                                     <h3 class="mb-3">CDGP: Automatic Cloze Distractor Generation based on Pre-trained Language Model
                                     </h3>
-                                    <h4 class="subheading">Findings of short paper, EMNLP 2022</h4>
+                                    <h4 class="subheading"><a href="https://2022.emnlp.org/" target="_blank">EMNLP 2022</a>: Findings of short paper</h4>
                                     <h4 class="subheading mb-3"><b>Shang-Hsuan Chiang</b>, Ssu-Cheng Wang, Yao-Chung Fan</h4>
                                     <p class="text-primary mb-0">2022/12</p>
                                 </div>
                             </button>
                         </div>
-                        <div id="flush-collapse-1" class="accordion-collapse collapse" aria-labelledby="flush-heading1"
+                        <div id="flush-collapse-1" class="accordion-collapse collapse" aria-labelledby="flush-heading-1"
                             data-bs-parent="#accordionFlushExample">
                             <div class="accordion-body py-4">
                                 <p>
@@ -154,57 +236,34 @@
                             </div>
                         </div>
                     </div>
-                    <div class="accordion-item">
-                        <div class="accordion-header" id="flush-heading1">
-                            <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse"
-                                data-bs-target="#flush-collapse-2" aria-expanded="false" aria-controls="flush-collapse-2">
-                                <div class="my-3">
-                                    <h3 class="mb-3">Team Trifecta at Factify5WQA: Setting the Standard in Fact Verification with Fine-Tuning</h3>
-                                    <h4 class="subheading">AAAI 2024 Workshop: FACTIFY 3.0 - Workshop Series on Multimodal Fact-Checking and Hate Speech Detection</h4>
-                                    <h4 class="subheading mb-3"><b>Shang-Hsuan Chiang</b>, Ming-Chih Lo, Lin-Wei Chao, Wen-Chih Peng</h4>
-                                    <p class="text-primary mb-0">2024/02</p>
-                                </div>
-                            </button>
-                        </div>
-                        <div id="flush-collapse-2" class="accordion-collapse collapse" aria-labelledby="flush-heading1"
-                            data-bs-parent="#accordionFlushExample">
-                            <div class="accordion-body py-4">
-                                <p>
-                                    In this paper, we present <b>Pre-CoFactv3</b>, a comprehensive framework comprised of Question Answering and Text
-                                    Classification components for fact verification. Leveraging In-Context Learning, Fine-tuned Large Language Models
-                                    (LLMs), and the FakeNet model, we address the challenges of fact verification. Our experiments explore diverse
-                                    approaches, comparing different Pre-trained LLMs, introducing FakeNet, and implementing various ensemble methods.
-                                    Notably, our team, Trifecta, secured <b>first place</b> in the <b><a href="https://defactify.com/factify3.html" target="_blank">AAAI-24 Factify 3.0 Workshop</a></b>, surpassing the baseline accuracy
-                                    by 103% and maintaining a 70% lead over the second competitor. This success underscores the efficacy of our approach and
-                                    its potential contributions to advancing fact verification research.
-                                </p>
-                                <div>
-                                    <a class="btn btn-outline-success" href="https://arxiv.org/abs/2403.10281" target="_blank">arXiv</a>
-                                    <a class="btn btn-outline-success" href="https://github.com/AndyChiangSH/Pre-CoFactv3" target="_blank">GitHub</a>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
                 </div>
             </div>
         </section>
         <hr class="m-0" />
+
         <!-- EXPERIENCES-->
         <section class="resume-section" id="experiences">
             <div class="resume-section-content" data-aos="fade-right">
                 <h2 class="my-5">💼 EXPERIENCES</h2>
                 <div class="d-flex flex-column flex-md-row justify-content-between my-5">
                     <div class="flex-grow-1">
+                        <h3>IJCAI 2024, Jeju, South Korea <a href="https://ijcai24.org/" target="_blank"><i class="fas fa-link ms-2"></i></a></h3>
+                        <h4 class="subheading mb-3">Presenter</h4>
+                    </div>
+                    <div class="flex-shrink-0"><span class="text-primary">2024/08</span></div>
+                </div>
+                <div class="d-flex flex-column flex-md-row justify-content-between my-5">
+                    <div class="flex-grow-1">
                         <h3>Intro. to Artificial Intelligence, NYCU</h3>
                         <h4 class="subheading mb-3">Teaching Assistant</h4>
                     </div>
-                    <div class="flex-shrink-0"><span class="text-primary">2024/02 - Now</span></div>
+                    <div class="flex-shrink-0"><span class="text-primary">2024/02 - 2024/06</span></div>
                 </div>
                 <div class="d-flex flex-column flex-md-row justify-content-between my-5">
                     <div class="flex-grow-1">
                         <h3>AAAI 2024, Vancouver, Canada
-                            <a href="https://aaai.org/aaai-conference/" target="_blank"><i class="fas fa-link ms-2"></i></a></h3>
-                        <h4 class="subheading mb-3">Volunteer</h4>
+                            <a href="https://aaai.org/aaai-24-conference/" target="_blank"><i class="fas fa-link ms-2"></i></a></h3>
+                        <h4 class="subheading mb-3">Presenter & Volunteer</h4>
                     </div>
                     <div class="flex-shrink-0"><span class="text-primary">2024/02</span></div>
                 </div>
@@ -212,13 +271,13 @@
                     <div class="flex-grow-1">
                         <h3>Design and Implementation of Ai-Enabled Social Media Publishers and Badminton Courts for Badminton Sport Analysis (II)<a href="https://www.grb.gov.tw/search/planDetail?id=15956754" target="_blank"><i
                                     class="fas fa-link ms-2"></i></a></h3>
-                        <h4 class="subheading mb-3">Badminton Editor</h4>
+                        <h4 class="subheading mb-3">Sub-project 1: Badminton Reporter</h4>
                     </div>
                     <div class="flex-shrink-0"><span class="text-primary">2023/09 - Now</span></div>
                 </div>
                 <div class="d-flex flex-column flex-md-row justify-content-between my-5">
                     <div class="flex-grow-1">
-                        <h3>ADSL, NYCU<a href="https://sites.google.com/view/nycu-adsl" target="_blank"><i
+                        <h3>ADSL, NYCU<a href="https://lab-adsl-website.vercel.app/" target="_blank"><i
                                     class="fas fa-link ms-2"></i></a></h3>
                         <h4 class="subheading mb-3">System Manager</h4>
                     </div>
@@ -364,6 +423,7 @@
             </div>
         </section>
         <hr class="m-0" />
+
         <!-- COMPETITIONS-->
         <section class="resume-section" id="competitions">
             <div class="resume-section-content" data-aos="fade-right">
@@ -404,7 +464,7 @@
                 </div>
                 <div class="d-flex flex-column flex-md-row justify-content-between my-5">
                     <div class="flex-grow-1">
-                        <h3>iThome ironman 30 days challange 2021<a
+                        <h3>iThome Ironman 30 Days Challange 2021<a
                                 href="https://ithelp.ithome.com.tw/users/20135033/ironman/3874" target="_blank"><i
                                     class="fas fa-link ms-2"></i></a></h3>
                         <h4 class="subheading mb-3">Challange complete - “A 30-days journey from HTML to Python crawler”
@@ -414,7 +474,7 @@
                 </div>
                 <div class="d-flex flex-column flex-md-row justify-content-between my-5">
                     <div class="flex-grow-1">
-                        <h3>NCHU iGEM wiki<a href="https://2021.igem.org/Team:NCHU_Taichung" target="_blank"><i
+                        <h3>NCHU iGEM Wiki<a href="https://2021.igem.org/Team:NCHU_Taichung" target="_blank"><i
                                     class="fas fa-link ms-2"></i></a></h3>
                         <h4 class="subheading mb-3">Gold Medal</h4>
                     </div>
@@ -423,6 +483,7 @@
             </div>
         </section>
         <hr class="m-0" />
+
         <!-- PROJECTS-->
         <section class="resume-section" id="projects">
             <div class="resume-section-content" data-aos="fade-right">
@@ -563,6 +624,7 @@
             </div>
         </section>
         <hr class="m-0" />
+
         <!-- SKILLS-->
         <section class="resume-section" id="skills">
             <div class="resume-section-content" data-aos="fade-right">
@@ -619,8 +681,8 @@
                 <h3 class="my-3">Notes</h3>
                 <ul class="my-3 fs-5">
                     <li>Markdown</li>
-                    <li>Notion</li>
                     <li>HackMD</li>
+                    <li>Notion</li>
                     <li>Blogger</li>
                 </ul>
                 <h3 class="my-3">Languages</h3>
@@ -642,25 +704,114 @@
             </div>
         </section>
         <hr class="m-0" />
+
+        <!-- TRAVELS-->
+        <section class="resume-section" id="travels">
+            <div class="resume-section-content" data-aos="fade-right">
+                <h2 class="my-5">✈️ TRAVELS</h2>
+                <div class="d-flex flex-column flex-md-row justify-content-between my-5">
+                    <div class="flex-grow-1">
+                        <h3><img src="img/south-korea.png" alt="south-korea" class="national-flag"> Jeju, South Korea</h3>
+                    </div>
+                    <div class="flex-shrink-0"><span class="text-primary">2024/08</span></div>
+                </div>
+                <div class="d-flex flex-column flex-md-row justify-content-between my-5">
+                    <div class="flex-grow-1">
+                        <h3><img src="img/united-states.png" alt="united-states" class="national-flag"> San Francisco, USA</h3>
+                        <h3><img src="img/canada.png" alt="canada" class="national-flag"> Vancouver, Canada</h3>
+                    </div>
+                    <div class="flex-shrink-0"><span class="text-primary">2024/02</span></div>
+                </div>
+                <div class="d-flex flex-column flex-md-row justify-content-between my-5">
+                    <div class="flex-grow-1">
+                        <h3><img src="img/japan.png" alt="japan" class="national-flag"> Tokyo, Japan</h3>
+                    </div>
+                    <div class="flex-shrink-0"><span class="text-primary">2023/03</span></div>
+                </div>
+                <div class="d-flex flex-column flex-md-row justify-content-between my-5">
+                    <div class="flex-grow-1">
+                        <h3><img src="img/united-arab-emirates.png" alt="united-arab-emirates" class="national-flag"> Dubai, UAE</h3>
+                        <h3><img src="img/united-arab-emirates.png" alt="united-arab-emirates" class="national-flag"> Abu Dhabi, UAE</h3>
+                    </div>
+                    <div class="flex-shrink-0"><span class="text-primary">2022/12</span></div>
+                </div>
+                <div class="d-flex flex-column flex-md-row justify-content-between my-5">
+                    <div class="flex-grow-1">
+                        <h3><img src="img/thailand.png" alt="thailand" class="national-flag"> Bangkok, Thailand</h3>
+                    </div>
+                    <div class="flex-shrink-0"><span class="text-primary">2018/07</span></div>
+                </div>
+                <div class="d-flex flex-column flex-md-row justify-content-between my-5">
+                    <div class="flex-grow-1">
+                        <h3><img src="img/japan.png" alt="japan" class="national-flag"> Nagoya, Japan</h3>
+                    </div>
+                    <div class="flex-shrink-0"><span class="text-primary">2017/06 - 2017/07</span></div>
+                </div>
+                <div class="d-flex flex-column flex-md-row justify-content-between my-5">
+                    <div class="flex-grow-1">
+                        <h3><img src="img/japan.png" alt="japan" class="national-flag"> Tokyo, Japan</h3>
+                    </div>
+                    <div class="flex-shrink-0"><span class="text-primary">2016/07</span></div>
+                </div>
+                <div class="d-flex flex-column flex-md-row justify-content-between my-5">
+                    <div class="flex-grow-1">
+                        <h3><img src="img/japan.png" alt="japan" class="national-flag"> Kyushu, Japan</h3>
+                    </div>
+                    <div class="flex-shrink-0"><span class="text-primary">2016/02</span></div>
+                </div>
+                <div class="d-flex flex-column flex-md-row justify-content-between my-5">
+                    <div class="flex-grow-1">
+                        <h3><img src="img/japan.png" alt="japan" class="national-flag"> Hokkaido, Japan</h3>
+                    </div>
+                    <div class="flex-shrink-0"><span class="text-primary">2015/08</span></div>
+                </div>
+                <div class="d-flex flex-column flex-md-row justify-content-between my-5">
+                    <div class="flex-grow-1">
+                        <h3><img src="img/japan.png" alt="japan" class="national-flag"> Kyoto, Japan</h3>
+                        <h3><img src="img/japan.png" alt="japan" class="national-flag"> Kobe, Japan</h3>
+                        <h3><img src="img/japan.png" alt="japan" class="national-flag"> Osaka, Japan</h3>
+                    </div>
+                    <div class="flex-shrink-0"><span class="text-primary">2014/07</span></div>
+                </div>
+                <div class="d-flex flex-column flex-md-row justify-content-between my-5">
+                    <div class="flex-grow-1">
+                        <h3><img src="img/thailand.png" alt="thailand" class="national-flag"> Chiang Mai, Thailand</h3>
+                    </div>
+                    <div class="flex-shrink-0"><span class="text-primary">2013/08</span></div>
+                </div>
+                <div class="d-flex flex-column flex-md-row justify-content-between my-5">
+                    <div class="flex-grow-1">
+                        <h3><img src="img/thailand.png" alt="thailand" class="national-flag"> Bangkok, Thailand</h3>
+                    </div>
+                    <div class="flex-shrink-0"><span class="text-primary">2012/07</span></div>
+                </div>
+            </div>
+        </section>
+        <hr class="m-0" />
+
         <!-- Footer -->
         <div class="my-3">
             <div class="text-center mb-2">
                 <img src="https://hits.seeyoufarm.com/api/count/incr/badge.svg?url=https%3A%2F%2Fandychiangsh.github.io%2FAndyChiangSH%2F&count_bg=%2311A081&title_bg=%23555555&icon=&icon_color=%23000000&title=%E4%BB%8A%E6%97%A5%E4%BA%BA%E6%95%B8+%2F+%E7%B8%BD%E4%BA%BA%E6%95%B8&edge_flat=false" />
                 <img alt="GitHub Repo stars" src="https://img.shields.io/github/stars/AndyChiangSH/AndyChiangSH?style=social">
             </div>
-            <p class="text-center text-muted mb-1">Last update: 2024/03/30</p>
+            <p class="text-center text-muted mb-1">Last update: 2024/09/09</p>
             <p class="text-center text-muted mb-1">Copyright © 2024 Andy Chiang</p>
         </div>
     </div>
 </body>
+
 <!-- Animate on Scroll -->
 <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
 <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
 <script>
     AOS.init();
 </script>
+
 <!-- Bootstrap core JS-->
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"></script>
+
 <!-- Core theme JS-->
 <script src="js/scripts.js"></script>
+
 </html>
