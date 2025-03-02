@@ -3021,41 +3021,41 @@ textarea.form-control-lg {
 .btn:hover {
   color: #212529;
 }
-.btn-check:focus + .btn, .btn:focus {
+/* .btn-check:focus + .btn, .btn:focus {
   outline: 0;
   box-shadow: 0 0 0 0.25rem rgba(189, 93, 56, 0.25);
-}
+} */
 .btn:disabled, .btn.disabled, fieldset:disabled .btn {
   pointer-events: none;
   opacity: 0.65;
 }
 
 .btn-primary {
-  color: #000;
+  color: #ffffff;
   background-color: #11a081;
   border-color: #11a081;
 }
 .btn-primary:hover {
-  color: #000;
-  background-color: #c77556;
-  border-color: #c46d4c;
+  color: #ffffff;
+  background-color: #11a081;
+  border-color: #11a081;
 }
-.btn-check:focus + .btn-primary, .btn-primary:focus {
-  color: #000;
-  background-color: #c77556;
-  border-color: #c46d4c;
-  box-shadow: 0 0 0 0.25rem rgba(161, 79, 48, 0.5);
+/* .btn-check:focus + .btn-primary, .btn-primary:focus {
+  color: #ffffff;
+  background-color: #11a081;
+  border-color: #11a081;
+  box-shadow: 0 0 0 0.25rem #11a08180;
 }
 .btn-check:checked + .btn-primary, .btn-check:active + .btn-primary, .btn-primary:active, .btn-primary.active, .show > .btn-primary.dropdown-toggle {
-  color: #000;
-  background-color: #ca7d60;
-  border-color: #c46d4c;
+  color: #ffffff;
+  background-color: #11a081;
+  border-color: #11a081;
 }
 .btn-check:checked + .btn-primary:focus, .btn-check:active + .btn-primary:focus, .btn-primary:active:focus, .btn-primary.active:focus, .show > .btn-primary.dropdown-toggle:focus {
-  box-shadow: 0 0 0 0.25rem rgba(161, 79, 48, 0.5);
-}
+  box-shadow: 0 0 0 0.25rem #11a08180;
+} */
 .btn-primary:disabled, .btn-primary.disabled {
-  color: #000;
+  color: #ffffff;
   background-color: #11a081;
   border-color: #11a081;
 }
@@ -3275,21 +3275,21 @@ textarea.form-control-lg {
   border-color: #11a081;
 }
 .btn-outline-primary:hover {
-  color: #000;
+  color: #ffffff;
   background-color: #11a081;
   border-color: #11a081;
 }
-.btn-check:focus + .btn-outline-primary, .btn-outline-primary:focus {
-  box-shadow: 0 0 0 0.25rem rgba(189, 93, 56, 0.5);
+/* .btn-check:focus + .btn-outline-primary, .btn-outline-primary:focus {
+  box-shadow: 0 0 0 0.25rem #11a08180;
 }
 .btn-check:checked + .btn-outline-primary, .btn-check:active + .btn-outline-primary, .btn-outline-primary:active, .btn-outline-primary.active, .btn-outline-primary.dropdown-toggle.show {
-  color: #000;
+  color: #ffffff;
   background-color: #11a081;
   border-color: #11a081;
 }
 .btn-check:checked + .btn-outline-primary:focus, .btn-check:active + .btn-outline-primary:focus, .btn-outline-primary:active:focus, .btn-outline-primary.active:focus, .btn-outline-primary.dropdown-toggle.show:focus {
-  box-shadow: 0 0 0 0.25rem rgba(189, 93, 56, 0.5);
-}
+  box-shadow: 0 0 0 0.25rem #11a08180;
+} */
 .btn-outline-primary:disabled, .btn-outline-primary.disabled {
   color: #11a081;
   background-color: transparent;
@@ -11395,10 +11395,41 @@ p.lead {
   margin: 10px 20px;
 }
 
-.social-icons .social-icon:hover {
+/* .social-icons .social-icon:hover {
   background-color: #11a081;
   color: #fff;
+} */
+
+.email-icon:hover {
+  background-color: #d65245;
+  color: #ffffff;
 }
+
+.github-icon:hover {
+  background-color: #862292;
+  color: #ffffff;
+}
+
+.linkedin-icon:hover {
+  background-color: #0077b7;
+  color: #ffffff;
+}
+
+.facebook-icon:hover {
+  background-color: #106bff;
+  color: #ffffff;
+}
+
+.instagram-icon:hover {
+  background-color: #e34066;
+  color: #ffffff;
+}
+
+.blogger-icon:hover {
+  background-color: #f07a14;
+  color: #ffffff;
+}
+
 
 .dev-icons {
   font-size: 3rem;
@@ -11456,4 +11487,9 @@ section.resume-section .resume-section-content {
   width: 40px;
   height: 40px;
   vertical-align: top;
+}
+
+#map {
+  height: 600px;
+  width: 100%;
 }

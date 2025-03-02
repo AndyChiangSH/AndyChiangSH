@@ -10,11 +10,15 @@
     <link rel="shortcut icon" href="favicon.ico">
     <!-- Font Awesome icons (free version)-->
     <script src="https://use.fontawesome.com/releases/v5.15.4/js/all.js" crossorigin="anonymous"></script>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
     <!-- Google fonts-->
     <link href="https://fonts.googleapis.com/css?family=Saira+Extra+Condensed:500,700" rel="stylesheet"
         type="text/css" />
     <link href="https://fonts.googleapis.com/css2?family=Nunito&display=swap" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css2?family=Playfair+Display&amp;display=swap" rel="stylesheet">
+    <!-- Map -->
+    <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" />
+    <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
     <!-- Core theme CSS (includes Bootstrap)-->
     <link href="css/styles.css" rel="stylesheet" />
 </head>
@@ -23,7 +27,7 @@
     <!-- Navigation-->
     <nav class="navbar navbar-expand-lg navbar-dark bg-primary fixed-top" id="sideNav">
         <a class="navbar-brand js-scroll-trigger" href="#page-top">
-            <span class="d-block d-lg-none">Andy Chiang’s Website</span>
+            <span class="d-block d-lg-none"><b>Andy Chiang’s Website</b></span>
             <span class="d-none d-lg-block">
                 <img class="img-fluid img-profile rounded-circle mx-auto mb-2" src="img/avatar.png" alt="avatar" />
             </span>
@@ -34,7 +38,7 @@
         <div class="collapse navbar-collapse" id="navbarResponsive">
             <ul class="navbar-nav">
                 <li class="nav-item"><a class="nav-link js-scroll-trigger" href="#profile">👨‍💻 PROFILE</a></li>
-                <li class="nav-item"><a class="nav-link js-scroll-trigger" href="#motto">💬 MOTTO</a></li>
+                <li class="nav-item"><a class="nav-link js-scroll-trigger" href="#motto">💭 MOTTO</a></li>
                 <li class="nav-item"><a class="nav-link js-scroll-trigger" href="#educations">🏫 EDUCATIONS</a></li>
                 <li class="nav-item"><a class="nav-link js-scroll-trigger" href="#publications">📜 PUBLICATIONS</a></li>
                 <li class="nav-item"><a class="nav-link js-scroll-trigger" href="#experiences">💼 EXPERIENCES</a></li>
@@ -58,25 +62,25 @@
                 <h1 class="text-primary">Andy Chiang</h1>
                 <h2 class="mb-5">江尚軒</h2>
                 <ul class="lead mb-5 list-unstyled">
-                    <li>Hi! My name is Andy Chiang (江尚軒). 👋</li>
-                    <li>I am a master's student of Computer Science at NYCU, Hsinchu, Taiwan.</li>
+                    <li>👋 Hi! My name is Andy Chiang (江尚軒).</li>
+                    <li>I am a master's student in Computer Science at NYCU, Hsinchu, Taiwan.</li>
                     <li>My skills are Web Front-end, Web Back-end, Web Crawler, Data Mining, Machine Learning, Natural Language Processing...</li>
                     <li>My hobbies are coding 👨‍💻, playing badminton 🏸, and traveling ✈️.</li>
                     <li>If you have any questions, feel free to contact me!</li>
                 </ul>
                 <div class="social-icons">
-                    <a class="social-icon" href="mailto:andy10801@gmail.com" target="_blank" title="Email"><i
+                    <a class="social-icon email-icon" href="mailto:andy10801@gmail.com" target="_blank" title="Email"><i
                             class="fas fa-envelope"></i></a>
-                    <a class="social-icon" href="https://github.com/AndyChiangSH" target="_blank" title="GitHub"><i
-                            class="fab fa-github"></i></a>
-                    <a class="social-icon" href="https://www.facebook.com/profile.php?id=100006267944928"
+                    <a class="social-icon github-icon" href="https://github.com/AndyChiangSH" target="_blank" title="GitHub"><i
+                        class="fab fa-github"></i></a>
+                    <a class="social-icon linkedin-icon" href="https://www.linkedin.com/in/AndyChiangSH" target="_blank"
+                            title="Linkedin"><i class="fab fa-linkedin-in"></i></a>
+                    <a class="social-icon facebook-icon" href="https://www.facebook.com/profile.php?id=100006267944928"
                         target="_blank" title="Facebook"><i class="fab fa-facebook-f"></i></a>
-                    <a class="social-icon" href="https://www.linkedin.com/in/AndyChiangSH" target="_blank"
-                        title="Linkedin"><i class="fab fa-linkedin-in"></i></a>
-                    <a class="social-icon" href="https://chitosblog26.blogspot.com/" target="_blank"
+                    <a class="social-icon instagram-icon" href="https://www.instagram.com/andychiang_0206/" target="_blank" title="Instagram">
+                        <i class="fab fa-instagram"></i></a>
+                    <a class="social-icon blogger-icon" href="https://chitosblog26.blogspot.com/" target="_blank"
                         title="Chito's Blog"><i class="fab fa-blogger-b"></i></a>
-                    <a class="social-icon" href="https://hackmd.io/@AndyChiang" target="_blank" title="HackMD"><i
-                            class="fas fa-file-alt"></i></a>
                 </div>
             </div>
         </section>
@@ -85,7 +89,7 @@
         <!-- MOTTO-->
         <section class="resume-section" id="motto">
             <div class="resume-section-content" data-aos="fade-right">
-                <h2 class="my-5">💬 MOTTO</h2>
+                <h2 class="my-5">💭 MOTTO</h2>
                 <p class="my_motto"><i>“No regrets for the past, only actions for the future.”</i></p>
                 <p class="my_motto fs-5"><i>- Andy Chiang</i></p>
             </div>
@@ -98,21 +102,21 @@
                 <h2 class="my-5">🏫 EDUCATIONS</h2>
                 <div class="d-flex flex-column flex-md-row justify-content-between my-5">
                     <div class="flex-grow-1">
-                        <h3>National Yang Ming Chiao Tung University</h3>
+                        <h3>National Yang Ming Chiao Tung University, Hsinchu, Taiwan</h3>
                         <h4 class="subheading mb-3">Master of Computer Science</h4>
                     </div>
                     <div class="flex-shrink-0"><span class="text-primary">2023/09 - Now</span></div>
                 </div>
                 <div class="d-flex flex-column flex-md-row justify-content-between my-5">
                     <div class="flex-grow-1">
-                        <h3>National Chung Hsing University</h3>
+                        <h3>National Chung Hsing University, Taichung, Taiwan</h3>
                         <h4 class="subheading mb-3">Bachelor of Computer Science</h4>
                     </div>
                     <div class="flex-shrink-0"><span class="text-primary">2019/09 - 2023/06</span></div>
                 </div>
                 <div class="d-flex flex-column flex-md-row justify-content-between my-5">
                     <div class="flex-grow-1">
-                        <h3>Tainan Da Wan High School</h3>
+                        <h3>Tainan Da Wan High School, Tainan, Taiwan</h3>
                         <h4 class="subheading mb-3">Senior High School</h4>
                     </div>
                     <div class="flex-shrink-0"><span class="text-primary">2016/09 - 2019/06</span></div>
@@ -127,13 +131,56 @@
                 <h2 class="my-5">📜 PUBLICATIONS</h2>
                 <div class="accordion accordion-flush resume-section-content" id="accordionFlushExample">
                     <div class="accordion-item">
+                        <div class="accordion-header" id="flush-heading-4">
+                            <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse"
+                                data-bs-target="#flush-collapse-4" aria-expanded="false" aria-controls="flush-collapse-4">
+                                <div class="my-3">
+                                    <h3 class="mb-3">Team NYCU at Defactify4: Robust Detection and Source Identification of AI-Generated Images Using CNN and CLIP-Based Models</h3>
+                                    <h4 class="subheading">
+                                        <a href="https://defactify.com/" target="_blank">AAAI 2025 Workshop: DEFACTIFY 4.0 – Workshop Series on Multimodal Fact-Checking and Hate Speech Detection</a>
+                                    </h4>
+                                    <h4 class="subheading mb-3">
+                                        Tsan-Tsung Yang, I-Wei Chen, Kuan-Ting Chen, <b>Shang-Hsuan Chiang</b>, Wen-Chih Peng
+                                    </h4>
+                                    <p class="text-primary mb-0">2025/03</p>
+                                </div>
+                            </button>
+                        </div>
+                        <div id="flush-collapse-4" class="accordion-collapse collapse" aria-labelledby="flush-heading-4"
+                            data-bs-parent="#accordionFlushExample">
+                            <div class="accordion-body py-4">
+                                <p>
+                                    With the rapid advancement of generative AI, AI-generated images have become increasingly realistic, raising concerns
+                                    about creativity, misinformation, and content authenticity. Detecting such images and identifying their source models
+                                    has become a critical challenge in ensuring the integrity of digital media. This paper tackles the detection of
+                                    AI-generated images and identifying their source models using CNN and CLIP-ViT classifiers. For the CNN-based
+                                    classifier, we leverage EfficientNet-B0 as the backbone and feed with RGB channels, frequency features, and
+                                    reconstruction errors, while for CLIP-ViT, we adopt a pretrained CLIP image encoder to extract image features and SVM to
+                                    perform classification. Evaluated on the Defactify 4 dataset, our methods demonstrate strong performance in both tasks,
+                                    with CLIP-ViT showing superior robustness to image perturbations. Compared to baselines like AEROBLADE and OCC-CLIP, our
+                                    approach achieves competitive results. Notably, our method ranked Top-3 overall in the Defactify 4 competition,
+                                    highlighting its effectiveness and generalizability. All of our implementations can be found in
+                                    <a href="https://github.com/uuugaga/Defactify_4" target="_blank">https://github.com/uuugaga/Defactify_4</a>.
+                                </p>
+                                <div>
+                                    <a class="btn btn-outline-primary" href="" target="_blank">arXiv (TBD)</a>
+                                    <a class="btn btn-outline-primary" href="https://github.com/uuugaga/Defactify_4" target="_blank">GitHub</a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="accordion-item">
                         <div class="accordion-header" id="flush-heading-3">
                             <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse"
                                 data-bs-target="#flush-collapse-3" aria-expanded="false" aria-controls="flush-collapse-3">
                                 <div class="my-3">
                                     <h3 class="mb-3">BADGE: BADminton report Generation and Evaluation with LLM</h3>
-                                    <h4 class="subheading"><a href="https://ijcai24.org/" target="_blank">IJCAI 2024 Workshop</a>: <a href="https://wasn.csie.ncu.edu.tw/workshop/IT4PSS2024.html" target="_blank">The 2nd International Workshop on Intelligent Technologies for Precision Sports Science (IT4PSS)</a></h4>
-                                    <h4 class="subheading mb-3"><b>Shang-Hsuan Chiang</b>, Lin-Wei Chao, Kuang-Da Wang, Chih-Chuan Wang, Wen-Chih Peng</h4>
+                                    <h4 class="subheading">
+                                        <a href="https://wasn.csie.ncu.edu.tw/workshop/IT4PSS2024.html" target="_blank">IJCAI 2024 Workshop: The 2nd
+                                        International Workshop on Intelligent Technologies for Precision Sports Science (IT4PSS)</a>
+                                    </h4>
+                                    <h4 class="subheading mb-3"><b>Shang-Hsuan Chiang</b>, Lin-Wei Chao, Kuang-Da Wang, Chih-Chuan Wang,
+                                        Wen-Chih Peng</h4>
                                     <p class="text-primary mb-0">2024/08</p>
                                 </div>
                             </button>
@@ -142,23 +189,37 @@
                             data-bs-parent="#accordionFlushExample">
                             <div class="accordion-body py-4">
                                 <p>
-                                    Badminton enjoys widespread popularity, and reports on matches generally include details such as player names, game
-                                    scores, and ball types, providing audiences with a comprehensive view of the games. However, writing these reports can
-                                    be a time-consuming task. This challenge led us to explore whether a Large Language Model (LLM) could automate the
-                                    generation and evaluation of badminton reports. We introduce a novel framework named <b>BADGE</b>, designed for this purpose
-                                    using LLM. Our method consists of two main phases: Report Generation and Report Evaluation. Initially, badminton-related
-                                    data is processed by the LLM, which then generates a detailed report of the match. We tested different Input Data Types,
-                                    In-Context Learning (ICL), and LLM, finding that GPT-4 performs best when using CSV data type and the Chain of Thought
-                                    prompting. Following report generation, the LLM evaluates and scores the reports to assess their quality. Our
-                                    comparisons between the scores evaluated by GPT-4 and human judges show a tendency to prefer GPT-4 generated reports.
-                                    Since the application of LLM in badminton reporting remains largely unexplored, our research serves as a foundational
-                                    step for future advancements in this area. Moreover, our method can be extended to other sports games, thereby enhancing
-                                    sports promotion. For more details, please refer to <a href="https://github.com/AndyChiangSH/BADGE" target="_blank">this https URL</a>.
+                                    Badminton enjoys widespread popularity, and reports on matches generally include details such as player
+                                    names, game
+                                    scores, and ball types, providing audiences with a comprehensive view of the games. However, writing
+                                    these reports can
+                                    be a time-consuming task. This challenge led us to explore whether a Large Language Model (LLM) could
+                                    automate the
+                                    generation and evaluation of badminton reports. We introduce a novel framework named <b>BADGE</b>,
+                                    designed for this purpose
+                                    using LLM. Our method consists of two main phases: Report Generation and Report Evaluation. Initially,
+                                    badminton-related
+                                    data is processed by the LLM, which then generates a detailed report of the match. We tested different
+                                    Input Data Types,
+                                    In-Context Learning (ICL), and LLM, finding that GPT-4 performs best when using CSV data type and the
+                                    Chain of Thought
+                                    prompting. Following report generation, the LLM evaluates and scores the reports to assess their
+                                    quality. Our
+                                    comparisons between the scores evaluated by GPT-4 and human judges show a tendency to prefer GPT-4
+                                    generated reports.
+                                    Since the application of LLM in badminton reporting remains largely unexplored, our research serves as a
+                                    foundational
+                                    step for future advancements in this area. Moreover, our method can be extended to other sports games,
+                                    thereby enhancing
+                                    sports promotion. For more details, please refer to <a href="https://github.com/AndyChiangSH/BADGE"
+                                        target="_blank">this https URL</a>.
                                 </p>
                                 <div>
-                                    <a class="btn btn-outline-success" href="https://arxiv.org/abs/2406.18116" target="_blank">arXiv</a>
-                                    <a class="btn btn-outline-success" href="https://github.com/AndyChiangSH/BADGE" target="_blank">GitHub</a>
-                                    <a class="btn btn-outline-success" href="https://andychiangsh.github.io/BADGE/demo/" target="_blank">Demo</a>
+                                    <a class="btn btn-outline-primary" href="https://arxiv.org/abs/2406.18116" target="_blank">arXiv</a>
+                                    <a class="btn btn-outline-primary" href="https://github.com/AndyChiangSH/BADGE"
+                                        target="_blank">GitHub</a>
+                                    <a class="btn btn-outline-primary" href="https://andychiangsh.github.io/BADGE/demo/"
+                                        target="_blank">Demo</a>
                                 </div>
                             </div>
                         </div>
@@ -170,7 +231,7 @@
                                 <div class="my-3">
                                     <h3 class="mb-3">Team Trifecta at Factify5WQA: Setting the Standard in Fact Verification with
                                         Fine-Tuning</h3>
-                                    <h4 class="subheading"><a href="https://aaai.org/aaai-24-conference/" target="_blank">AAAI 2024 Workshop</a>: <a href="https://defactify.com/factify3.html" target="_blank">FACTIFY 3.0 - Workshop Series on Multimodal Fact-Checking and Hate Speech Detection</a></h4>
+                                    <h4 class="subheading"><a href="https://defactify.com/" target="_blank">AAAI 2024 Workshop: FACTIFY 3.0 – Workshop Series on Multimodal Fact-Checking and Hate Speech Detection</a></h4>
                                     <h4 class="subheading mb-3"><b>Shang-Hsuan Chiang</b>, Ming-Chih Lo, Lin-Wei Chao, Wen-Chih Peng</h4>
                                     <p class="text-primary mb-0">2024/02</p>
                                 </div>
@@ -195,8 +256,8 @@
                                     its potential contributions to advancing fact verification research.
                                 </p>
                                 <div>
-                                    <a class="btn btn-outline-success" href="https://arxiv.org/abs/2403.10281" target="_blank">arXiv</a>
-                                    <a class="btn btn-outline-success" href="https://github.com/AndyChiangSH/Pre-CoFactv3"
+                                    <a class="btn btn-outline-primary" href="https://arxiv.org/abs/2403.10281" target="_blank">arXiv</a>
+                                    <a class="btn btn-outline-primary" href="https://github.com/AndyChiangSH/Pre-CoFactv3"
                                         target="_blank">GitHub</a>
                                 </div>
                             </div>
@@ -209,7 +270,7 @@
                                 <div class="my-3">
                                     <h3 class="mb-3">CDGP: Automatic Cloze Distractor Generation based on Pre-trained Language Model
                                     </h3>
-                                    <h4 class="subheading"><a href="https://2022.emnlp.org/" target="_blank">EMNLP 2022</a>: Findings of short paper</h4>
+                                    <h4 class="subheading"><a href="https://2022.emnlp.org/" target="_blank">EMNLP 2022: Findings of short paper</a></h4>
                                     <h4 class="subheading mb-3"><b>Shang-Hsuan Chiang</b>, Ssu-Cheng Wang, Yao-Chung Fan</h4>
                                     <p class="text-primary mb-0">2022/12</p>
                                 </div>
@@ -228,10 +289,10 @@
                                     available at <a href="https://github.com/AndyChiangSH/CDGP" target="_blank">https://github.com/AndyChiangSH/CDGP</a>.
                                 </p>
                                 <div>
-                                    <a class="btn btn-outline-success" href="https://aclanthology.org/2022.findings-emnlp.429/" target="_blank">EMNLP</a>
-                                    <a class="btn btn-outline-success" href="https://arxiv.org/abs/2403.10326" target="_blank">arXiv</a>
-                                    <a class="btn btn-outline-success" href="https://github.com/AndyChiangSH/CDGP" target="_blank">GitHub</a>
-                                    <a class="btn btn-outline-success" href="https://cdgp-demo.nlpnchu.org/" target="_blank">Demo</a>
+                                    <a class="btn btn-outline-primary" href="https://aclanthology.org/2022.findings-emnlp.429/" target="_blank">EMNLP</a>
+                                    <a class="btn btn-outline-primary" href="https://arxiv.org/abs/2403.10326" target="_blank">arXiv</a>
+                                    <a class="btn btn-outline-primary" href="https://github.com/AndyChiangSH/CDGP" target="_blank">GitHub</a>
+                                    <a class="btn btn-outline-primary" href="https://cdgp-demo.nlpnchu.org/" target="_blank">Demo</a>
                                 </div>
                             </div>
                         </div>
@@ -245,6 +306,14 @@
         <section class="resume-section" id="experiences">
             <div class="resume-section-content" data-aos="fade-right">
                 <h2 class="my-5">💼 EXPERIENCES</h2>
+                <div class="d-flex flex-column flex-md-row justify-content-between my-5">
+                    <div class="flex-grow-1">
+                        <h3>TAAI 2024, Hsinchu, Taiwan <a href="https://taai2024.org/" target="_blank"><i
+                                    class="fas fa-link ms-2"></i></a></h3>
+                        <h4 class="subheading mb-3">Attendee</h4>
+                    </div>
+                    <div class="flex-shrink-0"><span class="text-primary">2024/12</span></div>
+                </div>
                 <div class="d-flex flex-column flex-md-row justify-content-between my-5">
                     <div class="flex-grow-1">
                         <h3>IJCAI 2024, Jeju, South Korea <a href="https://ijcai24.org/" target="_blank"><i class="fas fa-link ms-2"></i></a></h3>
@@ -301,7 +370,7 @@
                 </div>
                 <div class="d-flex flex-column flex-md-row justify-content-between my-5">
                     <div class="flex-grow-1">
-                        <h3>”About my experience from a senior project to a paper”, COSCUP 2023<a
+                        <h3>"About my experience from a senior project to a paper", COSCUP 2023<a
                                 href="https://coscup.org/2023/zh-TW/session/NK3AGP" target="_blank"><i
                                     class="fas fa-link ms-2"></i></a></h3>
                         <h4 class="subheading mb-3">Lecturer</h4>
@@ -310,7 +379,7 @@
                 </div>
                 <div class="d-flex flex-column flex-md-row justify-content-between my-5">
                     <div class="flex-grow-1">
-                        <h3>EMNLP 2022, Abu Dhabi, United Arab Emirates<a href="https://2022.emnlp.org/" target="_blank"><i
+                        <h3>EMNLP 2022, Abu Dhabi, UAE<a href="https://2022.emnlp.org/" target="_blank"><i
                                     class="fas fa-link ms-2"></i></a></h3>
                         <h4 class="subheading mb-3">Attendee</h4>
                     </div>
@@ -318,7 +387,7 @@
                 </div>
                 <div class="d-flex flex-column flex-md-row justify-content-between my-5">
                     <div class="flex-grow-1">
-                        <h3>”Talk about NLP in 40 minutes“, SITCON 2022<a href="https://sitcon.org/2022/agenda/d351a7"
+                        <h3>"Talk about NLP in 40 minutes", SITCON 2022<a href="https://sitcon.org/2022/agenda/d351a7"
                                 target="_blank"><i class="fas fa-link ms-2"></i></a></h3>
                         <h4 class="subheading mb-3">Lecturer</h4>
                     </div>
@@ -326,7 +395,7 @@
                 </div>
                 <div class="d-flex flex-column flex-md-row justify-content-between my-5">
                     <div class="flex-grow-1">
-                        <h3>”Google Colab + Hugging Face: Take you to quickly understand NLP”, COSCUP 2022<a
+                        <h3>"Google Colab + Hugging Face: Take you to quickly understand NLP", COSCUP 2022<a
                                 href="https://coscup.org/2022/zh-TW/session/BAAAJE" target="_blank"><i
                                     class="fas fa-link ms-2"></i></a></h3>
                         <h4 class="subheading mb-3">Lecturer</h4>
@@ -441,7 +510,7 @@
                     <div class="flex-grow-1">
                         <h3>Google Solution Challenge 2022<a href="https://www.youtube.com/watch?v=5uzN9_gQeZo"
                                 target="_blank"><i class="fas fa-link ms-2"></i></a></h3>
-                        <h4 class="subheading mb-3">“SHIU YU” APP</h4>
+                        <h4 class="subheading mb-3">"SHIU YU" APP</h4>
                     </div>
                     <div class="flex-shrink-0"><span class="text-primary">2022/04</span></div>
                 </div>
@@ -467,7 +536,7 @@
                         <h3>iThome Ironman 30 Days Challange 2021<a
                                 href="https://ithelp.ithome.com.tw/users/20135033/ironman/3874" target="_blank"><i
                                     class="fas fa-link ms-2"></i></a></h3>
-                        <h4 class="subheading mb-3">Challange complete - “A 30-days journey from HTML to Python crawler”
+                        <h4 class="subheading mb-3">Challange complete - "A 30-days journey from HTML to Python crawler"
                         </h4>
                     </div>
                     <div class="flex-shrink-0"><span class="text-primary">2021/09</span></div>
@@ -671,11 +740,9 @@
                 </ul>
                 <h3 class="my-3">Natural Language Processing</h3>
                 <ul class="my-3 fs-5">
-                    <li>Word2Vec</li>
-                    <li>Transformer</li>
-                    <li>BERT</li>
-                    <li>GPT</li>
                     <li>Large Language Model</li>
+                    <li>Fine-tuning</li>
+                    <li>Prompt-tuning</li>
                     <li>Hugging Face 🤗</li>
                 </ul>
                 <h3 class="my-3">Notes</h3>
@@ -690,7 +757,7 @@
                     <li>Chinese | Expert</li>
                     <li>English | Expert
                         <ul>
-                            <li>TOEIC 825</li>
+                            <li>TOEIC: 825</li>
                         </ul>
                     </li>
                     <li>Japanese | Begineer</li>
@@ -709,82 +776,125 @@
         <section class="resume-section" id="travels">
             <div class="resume-section-content" data-aos="fade-right">
                 <h2 class="my-5">✈️ TRAVELS</h2>
-                <div class="d-flex flex-column flex-md-row justify-content-between my-5">
-                    <div class="flex-grow-1">
-                        <h3><img src="img/south-korea.png" alt="south-korea" class="national-flag"> Jeju, South Korea</h3>
-                    </div>
-                    <div class="flex-shrink-0"><span class="text-primary">2024/08</span></div>
+
+                <div class="btn-group w-100" role="group" aria-label="Basic outlined example">
+                    <button type="button" class="btn btn-primary" id="list-view-button"><i class="bi bi-list-ul"></i> View as a list</button>
+                    <button type="button" class="btn btn-outline-primary" id="map-view-button"><i class="bi bi-geo-alt"></i> View as a map</button>
                 </div>
-                <div class="d-flex flex-column flex-md-row justify-content-between my-5">
-                    <div class="flex-grow-1">
-                        <h3><img src="img/united-states.png" alt="united-states" class="national-flag"> San Francisco, USA</h3>
-                        <h3><img src="img/canada.png" alt="canada" class="national-flag"> Vancouver, Canada</h3>
+
+                <div id="list-view" class="my-5">
+                    <div class="d-flex flex-column flex-md-row justify-content-between my-5">
+                        <div class="flex-grow-1 d-flex align-items-center mb-2">
+                            <img src="img/south-korea.png" alt="south-korea" class="national-flag me-3">
+                            <h3 class="mb-0">Jeju, South Korea</h3>
+                        </div>
+                        <div class="flex-shrink-0"><span class="text-primary">2024/08</span></div>
                     </div>
-                    <div class="flex-shrink-0"><span class="text-primary">2024/02</span></div>
-                </div>
-                <div class="d-flex flex-column flex-md-row justify-content-between my-5">
-                    <div class="flex-grow-1">
-                        <h3><img src="img/japan.png" alt="japan" class="national-flag"> Tokyo, Japan</h3>
+                    <div class="d-flex flex-column flex-md-row justify-content-between my-5">
+                        <div>
+                            <div class="flex-grow-1 d-flex align-items-center mb-2">
+                                <img src="img/united-states.png" alt="united-states" class="national-flag me-3">
+                                <h3 class="mb-0">San Francisco, USA</h3>
+                            </div>
+                            <div class="flex-grow-1 d-flex align-items-center mb-2">
+                                <img src="img/canada.png" alt="canada" class="national-flag me-3">
+                                <h3 class="mb-0">Vancouver, Canada</h3>
+                            </div>
+                        </div>
+                        <div class="flex-shrink-0"><span class="text-primary">2024/02</span></div>
                     </div>
-                    <div class="flex-shrink-0"><span class="text-primary">2023/03</span></div>
-                </div>
-                <div class="d-flex flex-column flex-md-row justify-content-between my-5">
-                    <div class="flex-grow-1">
-                        <h3><img src="img/united-arab-emirates.png" alt="united-arab-emirates" class="national-flag"> Dubai, UAE</h3>
-                        <h3><img src="img/united-arab-emirates.png" alt="united-arab-emirates" class="national-flag"> Abu Dhabi, UAE</h3>
+                    <div class="d-flex flex-column flex-md-row justify-content-between my-5">
+                        <div class="flex-grow-1 d-flex align-items-center mb-2">
+                            <img src="img/japan.png" alt="japan" class="national-flag me-3">
+                            <h3 class="mb-0">Tokyo, Japan</h3>
+                        </div>
+                        <div class="flex-shrink-0"><span class="text-primary">2023/03</span></div>
                     </div>
-                    <div class="flex-shrink-0"><span class="text-primary">2022/12</span></div>
-                </div>
-                <div class="d-flex flex-column flex-md-row justify-content-between my-5">
-                    <div class="flex-grow-1">
-                        <h3><img src="img/thailand.png" alt="thailand" class="national-flag"> Bangkok, Thailand</h3>
+                    <div class="d-flex flex-column flex-md-row justify-content-between my-5">
+                        <div>
+                            <div class="flex-grow-1 d-flex align-items-center mb-2">
+                                <img src="img/united-arab-emirates.png" alt="united-arab-emirates" class="national-flag me-3">
+                                <h3 class="mb-0">Dubai, UAE</h3>
+                            </div>
+                            <div class="flex-grow-1 d-flex align-items-center mb-2">
+                                <img src="img/united-arab-emirates.png" alt="united-arab-emirates" class="national-flag me-3">
+                                <h3 class="mb-0">Abu Dhabi, UAE</h3>
+                            </div>
+                        </div>
+                        <div class="flex-shrink-0"><span class="text-primary">2022/12</span></div>
                     </div>
-                    <div class="flex-shrink-0"><span class="text-primary">2018/07</span></div>
-                </div>
-                <div class="d-flex flex-column flex-md-row justify-content-between my-5">
-                    <div class="flex-grow-1">
-                        <h3><img src="img/japan.png" alt="japan" class="national-flag"> Nagoya, Japan</h3>
+                    <div class="d-flex flex-column flex-md-row justify-content-between my-5">
+                        <div class="flex-grow-1 d-flex align-items-center mb-2">
+                            <img src="img/thailand.png" alt="thailand" class="national-flag me-3">
+                            <h3 class="mb-0">Bangkok, Thailand</h3>
+                        </div>
+                        <div class="flex-shrink-0"><span class="text-primary">2018/07</span></div>
                     </div>
-                    <div class="flex-shrink-0"><span class="text-primary">2017/06 - 2017/07</span></div>
-                </div>
-                <div class="d-flex flex-column flex-md-row justify-content-between my-5">
-                    <div class="flex-grow-1">
-                        <h3><img src="img/japan.png" alt="japan" class="national-flag"> Tokyo, Japan</h3>
+                    <div class="d-flex flex-column flex-md-row justify-content-between my-5">
+                        <div class="flex-grow-1 d-flex align-items-center mb-2">
+                            <img src="img/japan.png" alt="japan" class="national-flag me-3">
+                            <h3 class="mb-0">Nagoya, Japan</h3>
+                        </div>
+                        <div class="flex-shrink-0"><span class="text-primary">2017/06 - 2017/07</span></div>
                     </div>
-                    <div class="flex-shrink-0"><span class="text-primary">2016/07</span></div>
-                </div>
-                <div class="d-flex flex-column flex-md-row justify-content-between my-5">
-                    <div class="flex-grow-1">
-                        <h3><img src="img/japan.png" alt="japan" class="national-flag"> Kyushu, Japan</h3>
+                    <div class="d-flex flex-column flex-md-row justify-content-between my-5">
+                        <div class="flex-grow-1 d-flex align-items-center mb-2">
+                            <img src="img/japan.png" alt="japan" class="national-flag me-3">
+                            <h3 class="mb-0">Tokyo, Japan</h3>
+                        </div>
+                        <div class="flex-shrink-0"><span class="text-primary">2016/07</span></div>
                     </div>
-                    <div class="flex-shrink-0"><span class="text-primary">2016/02</span></div>
-                </div>
-                <div class="d-flex flex-column flex-md-row justify-content-between my-5">
-                    <div class="flex-grow-1">
-                        <h3><img src="img/japan.png" alt="japan" class="national-flag"> Hokkaido, Japan</h3>
+                    <div class="d-flex flex-column flex-md-row justify-content-between my-5">
+                        <div class="flex-grow-1 d-flex align-items-center mb-2">
+                            <img src="img/japan.png" alt="japan" class="national-flag me-3">
+                            <h3 class="mb-0">Kyushu, Japan</h3>
+                        </div>
+                        <div class="flex-shrink-0"><span class="text-primary">2016/02</span></div>
                     </div>
-                    <div class="flex-shrink-0"><span class="text-primary">2015/08</span></div>
-                </div>
-                <div class="d-flex flex-column flex-md-row justify-content-between my-5">
-                    <div class="flex-grow-1">
-                        <h3><img src="img/japan.png" alt="japan" class="national-flag"> Kyoto, Japan</h3>
-                        <h3><img src="img/japan.png" alt="japan" class="national-flag"> Kobe, Japan</h3>
-                        <h3><img src="img/japan.png" alt="japan" class="national-flag"> Osaka, Japan</h3>
+                    <div class="d-flex flex-column flex-md-row justify-content-between my-5">
+                        <div class="flex-grow-1 d-flex align-items-center mb-2">
+                            <img src="img/japan.png" alt="japan" class="national-flag me-3">
+                            <h3 class="mb-0">Hokkaido, Japan</h3>
+                        </div>
+                        <div class="flex-shrink-0"><span class="text-primary">2015/08</span></div>
                     </div>
-                    <div class="flex-shrink-0"><span class="text-primary">2014/07</span></div>
-                </div>
-                <div class="d-flex flex-column flex-md-row justify-content-between my-5">
-                    <div class="flex-grow-1">
-                        <h3><img src="img/thailand.png" alt="thailand" class="national-flag"> Chiang Mai, Thailand</h3>
+                    <div class="d-flex flex-column flex-md-row justify-content-between my-5">
+                        <div>
+                            <div class="flex-grow-1 d-flex align-items-center mb-2">
+                                <img src="img/japan.png" alt="japan" class="national-flag me-3">
+                                <h3 class="mb-0">Kyoto, Japan</h3>
+                            </div>
+                            <div class="flex-grow-1 d-flex align-items-center mb-2">
+                                <img src="img/japan.png" alt="japan" class="national-flag me-3">
+                                <h3 class="mb-0">Kobe, Japan</h3>
+                            </div>
+                            <div class="flex-grow-1 d-flex align-items-center mb-2">
+                                <img src="img/japan.png" alt="japan" class="national-flag me-3">
+                                <h3 class="mb-0">Osaka, Japan</h3>
+                            </div>
+                        </div>
+                        <div class="flex-shrink-0"><span class="text-primary">2014/07</span></div>
                     </div>
-                    <div class="flex-shrink-0"><span class="text-primary">2013/08</span></div>
-                </div>
-                <div class="d-flex flex-column flex-md-row justify-content-between my-5">
-                    <div class="flex-grow-1">
-                        <h3><img src="img/thailand.png" alt="thailand" class="national-flag"> Bangkok, Thailand</h3>
+                    <div class="d-flex flex-column flex-md-row justify-content-between my-5">
+                        <div class="flex-grow-1 d-flex align-items-center mb-2">
+                            <img src="img/thailand.png" alt="thailand" class="national-flag me-3">
+                            <h3 class="mb-0">Chiang Mai, Thailand</h3>
+                        </div>
+                        <div class="flex-shrink-0"><span class="text-primary">2013/08</span></div>
                     </div>
-                    <div class="flex-shrink-0"><span class="text-primary">2012/07</span></div>
+                    <div class="d-flex flex-column flex-md-row justify-content-between my-5">
+                        <div class="flex-grow-1 d-flex align-items-center mb-2">
+                            <img src="img/thailand.png" alt="thailand" class="national-flag me-3">
+                            <h3 class="mb-0">Bangkok, Thailand</h3>
+                        </div>
+                        <div class="flex-shrink-0"><span class="text-primary">2012/07</span></div>
+                    </div>
                 </div>
+
+                <div id="map-view" class="my-5">
+                    <div id="map"></div>
+                </div>
+                
             </div>
         </section>
         <hr class="m-0" />
@@ -795,8 +905,8 @@
                 <img src="https://hits.seeyoufarm.com/api/count/incr/badge.svg?url=https%3A%2F%2Fandychiangsh.github.io%2FAndyChiangSH%2F&count_bg=%2311A081&title_bg=%23555555&icon=&icon_color=%23000000&title=%E4%BB%8A%E6%97%A5%E4%BA%BA%E6%95%B8+%2F+%E7%B8%BD%E4%BA%BA%E6%95%B8&edge_flat=false" />
                 <img alt="GitHub Repo stars" src="https://img.shields.io/github/stars/AndyChiangSH/AndyChiangSH?style=social">
             </div>
-            <p class="text-center text-muted mb-1">Last update: 2024/09/09</p>
-            <p class="text-center text-muted mb-1">Copyright © 2024 Andy Chiang</p>
+            <p class="text-center text-muted mb-1">Last update: 2025/03/01</p>
+            <p class="text-center text-muted mb-1">Copyright © 2025 Andy Chiang</p>
         </div>
     </div>
 </body>
