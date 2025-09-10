@@ -60,6 +60,9 @@ L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
 }).addTo(map);
 
 var locations = [
+    { name: "Vienna, Austria", coords: [48.210033, 16.373449], date: "2025/07 - 2025/08" },
+    { name: "Bratislava, Slovakia", coords: [48.1486, 17.1077], date: "2025/07 - 2025/08" },
+    { name: "Budapest, Hungary", coords: [47.4979, 19.0402], date: "2025/07 - 2025/08" },
     { name: "Jeju, South Korea", coords: [33.4996, 126.5312], date: "2024/08" },
     { name: "San Francisco, USA", coords: [37.7749, -122.4194], date: "2024/02" },
     { name: "Vancouver, Canada", coords: [49.2827, -123.1207], date: "2024/02" },
@@ -73,7 +76,7 @@ var locations = [
     { name: "Kyoto, Japan", coords: [35.0116, 135.7681], date: "2014/07" },
     { name: "Kobe, Japan", coords: [34.6901, 135.1955], date: "2014/07" },
     { name: "Osaka, Japan", coords: [34.6937, 135.5023], date: "2014/07" },
-    { name: "Chiang Mai, Thailand", coords: [18.7883, 98.9853], date: "2013/08" }
+    { name: "Chiang Mai, Thailand", coords: [18.7883, 98.9853], date: "2013/08" },
 ];
 
 locations.forEach(location => {
