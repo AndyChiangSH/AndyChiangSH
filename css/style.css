@@ -11493,3 +11493,21 @@ section.resume-section .resume-section-content {
   height: 600px;
   width: 100%;
 }
+
+/* 針對所有 .table-hover 內的第一個 th/td 設定寬度為 70% */
+.table th:first-child,
+.table td:first-child {
+  width: 80%;
+}
+
+/* 針對所有 .table-hover 內的第二個 th/td 設定寬度為 15% */
+.table th:nth-child(2),
+.table td:nth-child(2) {
+  width: 10%;
+}
+
+/* 針對所有 .table-hover 內的第三個 th/td 設定寬度為 15% */
+.table th:nth-child(3),
+.table td:nth-child(3) {
+  width: 10%;
+}
