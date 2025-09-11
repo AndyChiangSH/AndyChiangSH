@@ -6,6 +6,57 @@
 //
 // Scripts
 
+document.addEventListener('DOMContentLoaded', () => {
+    const toggleButton = document.getElementById('mode-toggle');
+    const icon = toggleButton.querySelector('i');
+    const body = document.body;
+
+    const prefersDarkScheme = window.matchMedia("(prefers-color-scheme: dark)");
+
+    // 檢查 localStorage 中是否有儲存的使用者偏好
+    const currentTheme = localStorage.getItem('theme');
+
+    // 根據儲存的偏好或系統偏好設定初始模式
+    if (currentTheme) {
+        body.classList.toggle('dark-mode', currentTheme === 'dark');
+        if (currentTheme === 'dark') {
+            icon.classList.remove('bi-sun-fill');
+            icon.classList.add('bi-moon-fill');
+        } else {
+            icon.classList.remove('bi-moon-fill');
+            icon.classList.add('bi-sun-fill');
+        }
+    } else {
+        // 如果沒有儲存的偏好，則根據系統設定來初始化
+        if (prefersDarkScheme.matches) {
+            body.classList.add('dark-mode');
+            icon.classList.remove('bi-sun-fill');
+            icon.classList.add('bi-moon-fill');
+            localStorage.setItem('theme', 'dark');
+        } else {
+            icon.classList.remove('bi-moon-fill');
+            icon.classList.add('bi-sun-fill');
+            localStorage.setItem('theme', 'light');
+        }
+    }
+
+    // 監聽按鈕點擊事件
+    toggleButton.addEventListener('click', () => {
+        const isDarkMode = body.classList.toggle('dark-mode');
+
+        // 切換圖示並儲存偏好
+        if (isDarkMode) {
+            icon.classList.remove('bi-sun-fill');
+            icon.classList.add('bi-moon-fill');
+            localStorage.setItem('theme', 'dark');
+        } else {
+            icon.classList.remove('bi-moon-fill');
+            icon.classList.add('bi-sun-fill');
+            localStorage.setItem('theme', 'light');
+        }
+    });
+});
+
 window.addEventListener('DOMContentLoaded', event => {
     // Activate Bootstrap scrollspy on the main nav element
     const sideNav = document.body.querySelector('#sideNav');
