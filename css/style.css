@@ -388,17 +388,16 @@ section.resume-section .resume-section-content {
     width: 10%;
 }
 
-/* .img-profile {
-    max-width: 10rem;
-    max-height: 10rem;
-    border: 0.5rem solid #41b39a;
-} */
-
 .img-profile {
     max-width: 10rem;
     max-height: 10rem;
+    border: 0.5rem solid #41b39a;
+}
+
+.surprise-mode .img-profile {
+    max-width: 10rem;
+    max-height: 10rem;
     border: 0.5rem solid var(--primary-color);
-    filter: brightness(1.2);
 }
 
 .bg-primary {

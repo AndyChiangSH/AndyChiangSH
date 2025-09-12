@@ -58,6 +58,89 @@ document.addEventListener('DOMContentLoaded', () => {
         colorIntervalId = requestAnimationFrame(updateRainbowColor);
     };
 
+    // 觸發彩蛋模式
+    function surpriseMode() {
+        alert('Surprise! You found the Easter egg!');
+
+        // 隱藏按鈕
+        toggleButton.style.display = 'none';
+
+        // 重置點擊計數
+        clickCount = 0;
+        firstClickTime = 0;
+
+        body.classList.remove('dark-mode');
+        body.classList.add('surprise-mode');
+
+        updateRainbowColor();
+
+        // 新增：監聽圖片點擊事件
+        const imgProfile = document.querySelector('.img-profile');
+
+        if (imgProfile) {
+            let drawCount = 0;
+
+            imgProfile.addEventListener('click', () => {
+                // alert('Avatar Changed!');
+                const randomNumber = Math.random();
+                drawCount++;
+
+                if (randomNumber < 0.01) { // 1%
+                    imgProfile.src = 'img/avatar/avatar-1.png';
+                    if (drawCount <= 100) {
+                        alert("You're so lucky! You found the rare avatar within " + drawCount + " draws!");
+                    }
+                    else {
+                        alert("You're not so lucky... You found the rare avatar within " + drawCount + " draws...");
+                    }
+                    drawCount = 0;
+                } 
+                else if (randomNumber < 0.03) { // 2%
+                    imgProfile.src = 'img/avatar/avatar-2.png';
+                } 
+                else if (randomNumber < 0.06) { // 3%
+                    imgProfile.src = 'img/avatar/avatar-3.png';
+                } 
+                else if (randomNumber < 0.10) { // 4%
+                    imgProfile.src = 'img/avatar/avatar-4.png';
+                } 
+                else if (randomNumber < 0.15) { // 5%
+                    imgProfile.src = 'img/avatar/avatar-5.png';
+                }
+                else if (randomNumber < 0.20) { // 5%
+                    imgProfile.src = 'img/avatar/avatar-6.png';
+                }
+                else if (randomNumber < 0.26) { // 6%
+                    imgProfile.src = 'img/avatar/avatar-7.png';
+                }
+                else if (randomNumber < 0.33) { // 7%
+                    imgProfile.src = 'img/avatar/avatar-8.png';
+                }
+                else if (randomNumber < 0.41) { // 8%
+                    imgProfile.src = 'img/avatar/avatar-9.png';
+                }
+                else if (randomNumber < 0.50) { // 9%
+                    imgProfile.src = 'img/avatar/avatar-10.png';
+                }
+                else if (randomNumber < 0.60) { // 10%
+                    imgProfile.src = 'img/avatar/avatar-11.png';
+                }
+                else if (randomNumber < 0.70) { // 10%
+                    imgProfile.src = 'img/avatar/avatar-12.png';
+                }
+                else if (randomNumber < 0.80) { // 10%
+                    imgProfile.src = 'img/avatar/avatar-13.png';
+                }
+                else if (randomNumber < 0.90) { // 10%
+                    imgProfile.src = 'img/avatar/avatar-14.png';
+                }
+                else { // 10%
+                    imgProfile.src = 'img/avatar/avatar-15.png';
+                }
+            });
+        }
+    }
+
     // 監聽按鈕點擊事件
     toggleButton.addEventListener('click', () => {
         // --- 原本的深色模式切換邏輯 ---
@@ -88,20 +171,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
         // 檢查是否達到觸發條件
         if (clickCount >= EASTER_EGG_CLICKS) {
-            // 觸發彩蛋模式
-            alert('Surprise! You found the Easter egg!');
-
-            // 隱藏按鈕
-            toggleButton.style.display = 'none';
-            
-            // 重置點擊計數
-            clickCount = 0;
-            firstClickTime = 0;
-
-            body.classList.remove('dark-mode');
-            body.classList.add('surprise-mode');
-
-            updateRainbowColor();
+            surpriseMode();
         }
     });
 });
