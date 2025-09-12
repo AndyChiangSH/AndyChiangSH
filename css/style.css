@@ -420,3 +420,20 @@ section.resume-section .resume-section-content {
     border-color: var(--primary-color) !important;
     background-color: var(--primary-color) !important;
 }
+
+.oiiaioiiiai-hidden {
+    display: none;
+}
+
+#oiiaioiiiai {
+    position: fixed;
+    top: auto;
+    bottom: 20px;
+    right: 20px;
+    left: auto;
+    width: 150px;
+    height: 150px;
+    z-index: 2000;
+    cursor: pointer;
+    transition: all 3s linear;
+}

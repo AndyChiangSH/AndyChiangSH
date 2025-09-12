@@ -94,7 +94,7 @@ document.addEventListener('DOMContentLoaded', () => {
                         alert("You're not so lucky... You found the rare avatar within " + drawCount + " draws...");
                     }
                     drawCount = 0;
-                } 
+                }
                 else if (randomNumber < 0.03) { // 2%
                     imgProfile.src = 'img/avatar/avatar-2.png';
                 } 
@@ -139,6 +139,72 @@ document.addEventListener('DOMContentLoaded', () => {
                 }
             });
         }
+
+        // 彩蛋模式功能
+        const oiiaioiiiaiImage = document.getElementById('oiiaioiiiai');
+        oiiaioiiiaiImage.style.display = 'block';
+
+        // 第一次顯示時，將定位方式從 right/bottom 轉換為 left/top
+        const rect = oiiaioiiiaiImage.getBoundingClientRect();
+        oiiaioiiiaiImage.style.left = `${rect.left}px`;
+        oiiaioiiiaiImage.style.top = `${rect.top}px`;
+        oiiaioiiiaiImage.style.right = 'auto';
+        oiiaioiiiaiImage.style.bottom = 'auto';
+        
+        const audio = new Audio('img/oiiaioiiiai/oiiaioiiiai.mp3');
+
+        let isMoving = false;
+
+        oiiaioiiiaiImage.addEventListener('click', () => {
+            if (isMoving) {
+                return;
+            }
+
+            // 切換圖片
+            oiiaioiiiaiImage.src = 'img/oiiaioiiiai/oiiaioiiiai.gif';
+
+            // 播放音效
+            audio.play().catch(e => console.error("Audio playback failed:", e));
+
+            // 取得視窗寬高
+            const windowWidth = window.innerWidth;
+            const windowHeight = window.innerHeight;
+
+            // 取得圖片寬高
+            const imageWidth = oiiaioiiiaiImage.offsetWidth;
+            const imageHeight = oiiaioiiiaiImage.offsetHeight;
+
+            // 取得圖片當前位置
+            const currentX = parseFloat(oiiaioiiiaiImage.style.left);
+            const currentY = parseFloat(oiiaioiiiaiImage.style.top);
+
+            let newX, newY, distance;
+            const minDistance = 300; // 設定最小移動距離 (單位: 像素)
+
+            // 循環直到找到一個足夠遠的新座標
+            do {
+                newX = Math.random() * (windowWidth - imageWidth);
+                newY = Math.random() * (windowHeight - imageHeight);
+                // 計算移動距離 (歐幾里得距離)
+                distance = Math.sqrt(Math.pow(newX - currentX, 2) + Math.pow(newY - currentY, 2));
+            } while (distance < minDistance);
+
+            // 開始移動
+            isMoving = true;
+            oiiaioiiiaiImage.style.left = `${newX}px`;
+            oiiaioiiiaiImage.style.top = `${newY}px`;
+            oiiaioiiiaiImage.style.right = 'auto';
+            oiiaioiiiaiImage.style.bottom = 'auto';
+
+            // 移動完成後
+            const handler = () => {
+                isMoving = false;
+                oiiaioiiiaiImage.removeEventListener('transitionend', handler);
+                // 切換回原始圖片
+                oiiaioiiiaiImage.src = 'img/oiiaioiiiai/oiiaioiiiai.png';
+            };
+            oiiaioiiiaiImage.addEventListener('transitionend', handler);
+        });
     }
 
     // 監聽按鈕點擊事件
