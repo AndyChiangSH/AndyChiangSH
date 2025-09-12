@@ -8,28 +8,29 @@
     <meta name="author" content="" />
     <title>Andy Chiang’s Website</title>
     <link rel="shortcut icon" href="favicon.ico">
+    <!-- Core theme CSS (includes Bootstrap)-->
+    <link href="css/bootstrap.css" rel="stylesheet" />
+    <link href="css/style.css" rel="stylesheet" />
+    <!-- Google fonts-->
+    <link href="https://fonts.googleapis.com/css?family=Saira+Extra+Condensed:500,700" rel="stylesheet"
+    type="text/css" />
+    <link href="https://fonts.googleapis.com/css2?family=Nunito&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display&amp;display=swap" rel="stylesheet">
     <!-- Font Awesome icons (free version)-->
     <script src="https://use.fontawesome.com/releases/v5.15.4/js/all.js" crossorigin="anonymous"></script>
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
-    <!-- Google fonts-->
-    <link href="https://fonts.googleapis.com/css?family=Saira+Extra+Condensed:500,700" rel="stylesheet"
-        type="text/css" />
-    <link href="https://fonts.googleapis.com/css2?family=Nunito&display=swap" rel="stylesheet">
-    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display&amp;display=swap" rel="stylesheet">
     <!-- Map -->
     <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" />
     <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
-    <!-- Core theme CSS (includes Bootstrap)-->
-    <link href="css/style.css" rel="stylesheet" />
 </head>
 
-<body id="page-top">
+<body id="top">
     <!-- Navigation-->
     <nav class="navbar navbar-expand-lg navbar-dark bg-primary fixed-top" id="sideNav">
-        <a class="navbar-brand js-scroll-trigger" href="#page-top">
+        <a class="navbar-brand js-scroll-trigger" href="#top">
             <span class="d-block d-lg-none"><b>Andy Chiang’s Website</b></span>
             <span class="d-none d-lg-block">
-                <img class="img-fluid img-profile rounded-circle mx-auto mb-2" src="img/avatar.png" alt="avatar" />
+                <img class="img-fluid img-profile rounded-circle mx-auto mb-2" src="img/avatar/avatar-0.png" alt="avatar" />
             </span>
         </a>
         <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarResponsive"
@@ -57,16 +58,16 @@
         <section class="resume-section" id="profile">
             <div class="resume-section-content">
                 <span class="d-block d-lg-none">
-                    <img class="img-fluid img-profile rounded-circle mx-auto mb-5" src="img/avatar.png" alt="avatar" />
+                    <img class="img-fluid img-profile rounded-circle mx-auto mb-5" src="img/avatar/avatar-0.png" alt="avatar" />
                 </span>
                 <h1 class="text-primary">Andy Chiang</h1>
                 <h2 class="mb-5">江尚軒</h2>
                 <ul class="lead mb-5 list-unstyled">
                     <li>👋 Hi! My name is Andy Chiang (江尚軒).</li>
-                    <li>I am a master's student in Computer Science at NYCU, Hsinchu, Taiwan.</li>
-                    <li>My skills are Web Front-end, Web Back-end, Web Crawler, Data Mining, Machine Learning, Natural Language Processing...</li>
-                    <li>My hobbies are coding 👨‍💻, playing badminton 🏸, and traveling ✈️.</li>
-                    <li>If you have any questions, feel free to contact me!</li>
+                    <li>👨‍🎓 I am a master's student in Computer Science at NYCU, Hsinchu, Taiwan.</li>
+                    <li>🛠️ My skills are web front-end, web back-end, web crawler, data mining, machine learning, natural language processing...</li>
+                    <li>❤️ My hobbies are coding 👨‍💻, playing badminton 🏸, and traveling ✈️.</li>
+                    <li>✉️ If you have any questions, feel free to contact me!</li>
                 </ul>
                 <div class="social-icons">
                     <a class="social-icon email-icon" href="mailto:andy10801@gmail.com" target="_blank" title="Email"><i
@@ -100,26 +101,1115 @@
         <section class="resume-section" id="educations">
             <div class="resume-section-content" data-aos="fade-right">
                 <h2 class="my-5">🏫 EDUCATIONS</h2>
-                <div class="d-flex flex-column flex-md-row justify-content-between my-5">
-                    <div class="flex-grow-1">
-                        <h3>National Yang Ming Chiao Tung University, Hsinchu, Taiwan</h3>
-                        <h4 class="subheading mb-3">Master of Computer Science</h4>
+                <div class="accordion accordion-flush resume-section-content" id="accordion-educations">
+                    <div class="accordion-item">
+                        <div class="accordion-header" id="flush-heading-c">
+                            <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse"
+                                data-bs-target="#flush-collapse-c" aria-expanded="false" aria-controls="flush-collapse-c">
+                                <div class="my-3">
+                                    <h3 class="mb-3">National Yang Ming Chiao Tung University, Hsinchu, Taiwan</h3>
+                                    <h4 class="subheading mb-3">Master of Computer Science</h4>
+                                    <p class="text-primary mb-0">2023/09 - 2025/08</p>
+                                </div>
+                            </button>
+                        </div>
+                        <div id="flush-collapse-c" class="accordion-collapse collapse" aria-labelledby="flush-heading-c"
+                            data-bs-parent="#accordion-educations">
+                            <div class="accordion-body py-4">
+                                <h5 class="mt-4">Overall</h5>
+                                <div class="row mt-4">
+                                    <div class="col-md-6"><strong>Total Credit:</strong> 37</div>
+                                    <div class="col-md-6"><strong>Average Grade:</strong> 4.06</div>
+                                </div>
+                                <h5 class="mt-4">2024 2nd Semester</h5>
+                                <div class="table-responsive">
+                                    <table class="table align-middle">
+                                        <thead>
+                                            <tr>
+                                                <th>Course</th>
+                                                <th>Credit</th>
+                                                <th>Grade</th>
+                                            </tr>
+                                        </thead>
+                                        <tbody>
+                                            <tr>
+                                                <td><a href="https://github.com/AndyChiangSH/1132-edge-ai" target="_blank"
+                                                        rel="noopener noreferrer">Edge AI</a></td>
+                                                <td>3</td>
+                                                <td>A</td>
+                                            </tr>
+                                            <tr>
+                                                <td>Graduate English: Research Paper Writing</td>
+                                                <td>2</td>
+                                                <td>A+</td>
+                                            </tr>
+                                            <tr>
+                                                <td>Independent Study</td>
+                                                <td>1</td>
+                                                <td>P</td>
+                                            </tr>
+                                        </tbody>
+                                    </table>
+                                </div>
+                                <div class="row">
+                                    <div class="col-md-6"><strong>Total Credit:</strong> 6</div>
+                                    <div class="col-md-6"><strong>Average Grade:</strong> 4.12</div>
+                                </div>
+                                <h5 class="mt-4">2024 1st Semester</h5>
+                                <div class="table-responsive">
+                                    <table class="table align-middle">
+                                        <thead>
+                                            <tr>
+                                                <th>Course</th>
+                                                <th>Credit</th>
+                                                <th>Grade</th>
+                                            </tr>
+                                        </thead>
+                                        <tbody>
+                                            <tr>
+                                                <td><a href="https://github.com/AndyChiangSH/1131-generative-information-retrieval" target="_blank"
+                                                        rel="noopener noreferrer">Generative Information Retrieval</a></td>
+                                                <td>3</td>
+                                                <td>A+</td>
+                                            </tr>
+                                            <tr>
+                                                <td><a href="https://github.com/AndyChiangSH/1131-video-compression" target="_blank"
+                                                        rel="noopener noreferrer">Video Compression</a></td>
+                                                <td>3</td>
+                                                <td>A+</td>
+                                            </tr>
+                                            <tr>
+                                                <td>Graduate English: Sentence Patterns and Paragraph Writing</td>
+                                                <td>2</td>
+                                                <td>A</td>
+                                            </tr>
+                                            <tr>
+                                                <td>Independent Study</td>
+                                                <td>1</td>
+                                                <td>P</td>
+                                            </tr>
+                                        </tbody>
+                                    </table>
+                                </div>
+                                <div class="row">
+                                    <div class="col-md-6"><strong>Total Credit:</strong> 9</div>
+                                    <div class="col-md-6"><strong>Average Grade:</strong> 4.23</div>
+                                </div>
+                                <h5 class="mt-4">2023 2nd Semester</h5>
+                                <div class="table-responsive">
+                                    <table class="table align-middle">
+                                        <thead>
+                                            <tr>
+                                                <th>Course</th>
+                                                <th>Credit</th>
+                                                <th>Grade</th>
+                                            </tr>
+                                        </thead>
+                                        <tbody>
+                                            <tr>
+                                                <td><a href="https://github.com/AndyChiangSH/1122-pattern-recognition" target="_blank"
+                                                        rel="noopener noreferrer">Pattern Recognition</a></td>
+                                                <td>3</td>
+                                                <td>A</td>
+                                            </tr>
+                                            <tr>
+                                                <td><a href="http://github.com/AndyChiangSH/1122-deep-learning" target="_blank"
+                                                        rel="noopener noreferrer">Deep Learning</a></td>
+                                                <td>3</td>
+                                                <td>A-</td>
+                                            </tr>
+                                            <tr>
+                                                <td>Deep Learning Labs</td>
+                                                <td>3</td>
+                                                <td>A-</td>
+                                            </tr>
+                                            <tr>
+                                                <td>Graduate English: Oral Presentation and Discussion</td>
+                                                <td>2</td>
+                                                <td>A+</td>
+                                            </tr>
+                                            <tr>
+                                                <td>Independent Study</td>
+                                                <td>1</td>
+                                                <td>P</td>
+                                            </tr>
+                                            <tr>
+                                                <td>Seminar</td>
+                                                <td>0</td>
+                                                <td>A</td>
+                                            </tr>
+                                        </tbody>
+                                    </table>
+                                </div>
+                                <div class="row">
+                                    <div class="col-md-6"><strong>Total Credit:</strong> 12</div>
+                                    <div class="col-md-6"><strong>Average Grade:</strong> 3.89</div>
+                                </div>
+                                <h5 class="mt-4">2023 1st Semester</h5>
+                                <div class="table-responsive">
+                                    <table class="table align-middle">
+                                        <thead>
+                                            <tr>
+                                                <th>Course</th>
+                                                <th>Credit</th>
+                                                <th>Grade</th>
+                                            </tr>
+                                        </thead>
+                                        <tbody>
+                                            <tr>
+                                                <td>Data Science Project</td>
+                                                <td>3</td>
+                                                <td>A+</td>
+                                            </tr>
+                                            <tr>
+                                                <td><a href="https://github.com/AndyChiangSH/1121-data-visualization" target="_blank"
+                                                        rel="noopener noreferrer">Data Visualization and Visual Analytics</a></td>
+                                                <td>3</td>
+                                                <td>A</td>
+                                            </tr>
+                                            <tr>
+                                                <td><a href="https://github.com/AndyChiangSH/1121-reinforcement-learning" target="_blank"
+                                                        rel="noopener noreferrer">Selected Topics in Reinforcement Learning</a></td>
+                                                <td>3</td>
+                                                <td>A</td>
+                                            </tr>
+                                            <tr>
+                                                <td>Independent Study</td>
+                                                <td>1</td>
+                                                <td>P</td>
+                                            </tr>
+                                        </tbody>
+                                    </table>
+                                </div>
+                                <div class="row">
+                                    <div class="col-md-6"><strong>Total Credit:</strong> 10</div>
+                                    <div class="col-md-6"><strong>Average Grade:</strong> 4.00</div>
+                                </div>
+                            </div>
+                        </div>
                     </div>
-                    <div class="flex-shrink-0"><span class="text-primary">2023/09 - Now</span></div>
-                </div>
-                <div class="d-flex flex-column flex-md-row justify-content-between my-5">
-                    <div class="flex-grow-1">
-                        <h3>National Chung Hsing University, Taichung, Taiwan</h3>
-                        <h4 class="subheading mb-3">Bachelor of Computer Science</h4>
+                    <div class="accordion-item">
+                        <div class="accordion-header" id="flush-heading-b">
+                            <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse"
+                                data-bs-target="#flush-collapse-b" aria-expanded="false" aria-controls="flush-collapse-b">
+                                <div class="my-3">
+                                    <h3 class="mb-3">National Chung Hsing University, Taichung, Taiwan</h3>
+                                    <h4 class="subheading mb-3">Bachelor of Computer Science</h4>
+                                    <p class="text-primary mb-0">2019/09 - 2023/06</p>
+                                </div>
+                            </button>
+                        </div>
+                        <div id="flush-collapse-b" class="accordion-collapse collapse" aria-labelledby="flush-heading-b"
+                            data-bs-parent="#accordion-educations">
+                            <div class="accordion-body py-4">
+                                <h5 class="mt-4">Overall</h5>
+                                <div class="row mt-4">
+                                    <div class="col-md-6"><strong>Total Credit:</strong> 180</div>
+                                    <div class="col-md-6"><strong>Average Grade:</strong> 3.93</div>
+                                </div>
+
+                                <h5 class="mt-4">2022 2nd Semester</h5>
+                                <div class="table-responsive">
+                                    <table class="table align-middle">
+                                        <thead>
+                                            <tr>
+                                                <th>Course</th>
+                                                <th>Credit</th>
+                                                <th>Grade</th>
+                                            </tr>
+                                        </thead>
+                                        <tbody>
+                                
+                                            <tr>
+                                                <td>Statistics</td>
+                                                <td>3</td>
+                                                <td>A-</td>
+                                            </tr>
+                                            <tr>
+                                                <td>Deep Reinforcement Learning</td>
+                                                <td>3</td>
+                                                <td>B</td>
+                                            </tr>
+                                            <tr>
+                                                <td>Stock Investment Simulation and Practice</td>
+                                                <td>3</td>
+                                                <td>A-</td>
+                                            </tr>
+                                            <tr>
+                                                <td>National Defense Education: International Situations</td>
+                                                <td>2</td>
+                                                <td>A+</td>
+                                            </tr>
+                                            <tr>
+                                                <td>Text Mining: Small Skill and Big Application</td>
+                                                <td>2</td>
+                                                <td>A+</td>
+                                            </tr>
+                                            <tr>
+                                                <td>Basic of English Academic Writing(I)</td>
+                                                <td>1</td>
+                                                <td>A+</td>
+                                            </tr>
+                                            <tr>
+                                                <td>Tennis</td>
+                                                <td>1</td>
+                                                <td>A</td>
+                                            </tr>
+                                        </tbody>
+                                    </table>
+                                </div>
+                                <div class="row">
+                                    <div class="col-md-6"><strong>Total Credit:</strong> 16</div>
+                                    <div class="col-md-6"><strong>Average Grade:</strong> 3.81</div>
+                                </div>
+
+                                <h5 class="mt-4">2022 1st Semester</h5>
+                                <div class="table-responsive">
+                                    <table class="table align-middle">
+                                        <thead>
+                                            <tr>
+                                                <th>Course</th>
+                                                <th>Credit</th>
+                                                <th>Grade</th>
+                                            </tr>
+                                        </thead>
+                                        <tbody>
+                                            <tr>
+                                                <td>Introduction to Information Retrieval</td>
+                                                <td>3</td>
+                                                <td>A+</td>
+                                            </tr>
+                                            <tr>
+                                                <td>Introduction to Quantum Information Science</td>
+                                                <td>3</td>
+                                                <td>A</td>
+                                            </tr>
+                                            <tr>
+                                                <td>Artificial Intelligence</td>
+                                                <td>3</td>
+                                                <td>A</td>
+                                            </tr>
+                                            <tr>
+                                                <td>An Introduction of Modern Medicine</td>
+                                                <td>2</td>
+                                                <td>A</td>
+                                            </tr>
+                                            <tr>
+                                                <td>Language, Culture and Communication</td>
+                                                <td>2</td>
+                                                <td>A</td>
+                                            </tr>
+                                            <tr>
+                                                <td>National Defense Education: National Defense Science and Technology</td>
+                                                <td>2</td>
+                                                <td>A+</td>
+                                            </tr>
+                                            <tr>
+                                                <td>Golf</td>
+                                                <td>1</td>
+                                                <td>A+</td>
+                                            </tr>
+                                        </tbody>
+                                    </table>
+                                </div>
+                                <div class="row">
+                                    <div class="col-md-6"><strong>Total Credits:</strong> 19</div>
+                                    <div class="col-md-6"><strong>Average Grade:</strong> 3.73</div>
+                                </div>
+
+                                <h5 class="mt-4">2021 2nd Semester</h5>
+                                <div class="table-responsive">
+                                    <table class="table align-middle">
+                                        <thead>
+                                            <tr>
+                                                <th>Course</th>
+                                                <th>Credit</th>
+                                                <th>Grade</th>
+                                            </tr>
+                                        </thead>
+                                        <tbody>
+                                            <tr>
+                                                <td>Introduction to Data Mining</td>
+                                                <td>3</td>
+                                                <td>A+</td>
+                                            </tr>
+                                            <tr>
+                                                <td>Introduction to Data Compression</td>
+                                                <td>3</td>
+                                                <td>A+</td>
+                                            </tr>
+                                            <tr>
+                                                <td>Introduction to Network Security</td>
+                                                <td>3</td>
+                                                <td>A+</td>
+                                            </tr>
+                                            <tr>
+                                                <td><a href="https://github.com/AndyChiangSH/1102_File-System" target="_blank"
+                                                        rel="noopener noreferrer">File Processing and I/O System</a></td>
+                                                <td>3</td>
+                                                <td>A+</td>
+                                            </tr>
+                                            <tr>
+                                                <td><a href="https://github.com/AndyChiangSH/1102_AIoT-homeworks" target="_blank"
+                                                        rel="noopener noreferrer">Artificial Intelligent Internet of Things (AIOT) Application and
+                                                        Implementation</a></td>
+                                                <td>3</td>
+                                                <td>A+</td>
+                                            </tr>
+                                            <tr>
+                                                <td><a href="https://github.com/AndyChiangSH/1102_Web-based-systems" target="_blank"
+                                                        rel="noopener noreferrer">The Development of Web-based Information Systems</a></td>
+                                                <td>3</td>
+                                                <td>A+</td>
+                                            </tr>
+                                            <tr>
+                                                <td>Embedded Microprocessor System Design</td>
+                                                <td>3</td>
+                                                <td>A</td>
+                                            </tr>
+                                            <tr>
+                                                <td>Special Projects on Information (II)</td>
+                                                <td>2</td>
+                                                <td>A+</td>
+                                            </tr>
+                                            <tr>
+                                                <td>National Defense Education: National Defense Policies</td>
+                                                <td>2</td>
+                                                <td>A+</td>
+                                            </tr>
+                                        </tbody>
+                                    </table>
+                                </div>
+                                <div class="row">
+                                    <div class="col-md-6"><strong>Total Credit:</strong> 26</div>
+                                    <div class="col-md-6"><strong>Average Grade:</strong> 4.26</div>
+                                </div>
+
+                                <h5 class="mt-4">2021 1st Semester</h5>
+                                <div class="table-responsive">
+                                    <table class="table align-middle">
+                                        <thead>
+                                            <tr>
+                                                <th>Course</th>
+                                                <th>Credit</th>
+                                                <th>Grade</th>
+                                            </tr>
+                                        </thead>
+                                        <tbody>
+                                            <tr>
+                                                <td>Computer Organization</td>
+                                                <td>3</td>
+                                                <td>A+</td>
+                                            </tr>
+                                            <tr>
+                                                <td>Introduction to Database Management System</td>
+                                                <td>3</td>
+                                                <td>A+</td>
+                                            </tr>
+                                            <tr>
+                                                <td>Data Communications</td>
+                                                <td>3</td>
+                                                <td>A+</td>
+                                            </tr>
+                                            <tr>
+                                                <td><a href="https://github.com/AndyChiangSH/1101_OS-Homework" target="_blank"
+                                                        rel="noopener noreferrer">Operating Systems</a></td>
+                                                <td>3</td>
+                                                <td>A+</td>
+                                            </tr>
+                                            <tr>
+                                                <td><a href="https://github.com/AndyChiangSH/1101_OSLab" target="_blank"
+                                                        rel="noopener noreferrer">Operating Systems Lab</a></td>
+                                                <td>1</td>
+                                                <td>A+</td>
+                                            </tr>
+                                            <tr>
+                                                <td>Special Projects on Information (I)</td>
+                                                <td>2</td>
+                                                <td>A+</td>
+                                            </tr>
+                                            <tr>
+                                                <td>Biodiversity and Life</td>
+                                                <td>2</td>
+                                                <td>A+</td>
+                                            </tr>
+                                        </tbody>
+                                    </table>
+                                </div>
+                                <div class="row">
+                                    <div class="col-md-6"><strong>Total Credit:</strong> 19</div>
+                                    <div class="col-md-6"><strong>Average Grade:</strong> 3.73</div>
+                                </div>
+
+                                <h5 class="mt-4">2020 2nd Semester</h5>
+                                <div class="table-responsive">
+                                    <table class="table align-middle">
+                                        <thead>
+                                            <tr>
+                                                <th>Course</th>
+                                                <th>Credit</th>
+                                                <th>Grade</th>
+                                            </tr>
+                                        </thead>
+                                        <tbody>
+                                            <tr>
+                                                <td><a href="https://github.com/AndyChiangSH/1092_Algorithm" target="_blank"
+                                                        rel="noopener noreferrer">Algorithms</a></td>
+                                                <td>3</td>
+                                                <td>A+</td>
+                                            </tr>
+                                            <tr>
+                                                <td>Computer Networks</td>
+                                                <td>3</td>
+                                                <td>A+</td>
+                                            </tr>
+                                            <tr>
+                                                <td><a href="https://github.com/AndyChiangSH/Assembly-Language-Final-Project" target="_blank"
+                                                        rel="noopener noreferrer">Assembly Language and System Programming</a></td>
+                                                <td>3</td>
+                                                <td>A+</td>
+                                            </tr>
+                                            <tr>
+                                                <td>Unix System and Script Programming</td>
+                                                <td>3</td>
+                                                <td>A</td>
+                                            </tr>
+                                            <tr>
+                                                <td>Electronic Circuit</td>
+                                                <td>3</td>
+                                                <td>A</td>
+                                            </tr>
+                                            <tr>
+                                                <td><a href="https://github.com/AndyChiangSH/1092_ColorScience" target="_blank"
+                                                        rel="noopener noreferrer">Introduction to Color Science and Applications</a></td>
+                                                <td>2</td>
+                                                <td>A+</td>
+                                            </tr>
+                                            <tr>
+                                                <td>Logic Design Lab</td>
+                                                <td>1</td>
+                                                <td>A+</td>
+                                            </tr>
+                                            <tr>
+                                                <td>Japanese (II)</td>
+                                                <td>3</td>
+                                                <td>B+</td>
+                                            </tr>
+                                            <tr>
+                                                <td>Ethics and Emerging Technology</td>
+                                                <td>2</td>
+                                                <td>B+</td>
+                                            </tr>
+                                            <tr>
+                                                <td>Swimming</td>
+                                                <td>1</td>
+                                                <td>A+</td>
+                                            </tr>
+                                        </tbody>
+                                    </table>
+                                </div>
+                                <div class="row">
+                                    <div class="col-md-6"><strong>Total Credit:</strong> 25</div>
+                                    <div class="col-md-6"><strong>Average Grade:</strong> 3.99</div>
+                                </div>
+
+                                <h5 class="mt-4">2020 1st Semester</h5>
+                                <div class="table-responsive">
+                                    <table class="table align-middle">
+                                        <thead>
+                                            <tr>
+                                                <th>Course</th>
+                                                <th>Credit</th>
+                                                <th>Grade</th>
+                                            </tr>
+                                        </thead>
+                                        <tbody>
+                                            <tr>
+                                                <td>Linear Algebra</td>
+                                                <td>3</td>
+                                                <td>A+</td>
+                                            </tr>
+                                            <tr>
+                                                <td>Logic Design</td>
+                                                <td>3</td>
+                                                <td>A+</td>
+                                            </tr>
+                                            <tr>
+                                                <td>Formal Languages</td>
+                                                <td>3</td>
+                                                <td>A+</td>
+                                            </tr>
+                                            <tr>
+                                                <td><a href="https://github.com/AndyChiangSH/1091_DataStructure" target="_blank"
+                                                        rel="noopener noreferrer">Data Structures</a></td>
+                                                <td>3</td>
+                                                <td>B-</td>
+                                            </tr>
+                                            <tr>
+                                                <td>Japanese (II)</td>
+                                                <td>3</td>
+                                                <td>A-</td>
+                                            </tr>
+                                            <tr>
+                                                <td>Classical Music Appreciation</td>
+                                                <td>2</td>
+                                                <td>A+</td>
+                                            </tr>
+                                            <tr>
+                                                <td>Life Science and Human Life</td>
+                                                <td>2</td>
+                                                <td>A+</td>
+                                            </tr>
+                                            <tr>
+                                                <td>Japanese Manga Culture Inquiry</td>
+                                                <td>2</td>
+                                                <td>A</td>
+                                            </tr>
+                                            <tr>
+                                                <td>Microbial World</td>
+                                                <td>2</td>
+                                                <td>A-</td>
+                                            </tr>
+                                            <tr>
+                                                <td>Weight Management</td>
+                                                <td>1</td>
+                                                <td>A+</td>
+                                            </tr>
+                                        </tbody>
+                                    </table>
+                                </div>
+                                <div class="row">
+                                    <div class="col-md-6"><strong>Total Credit:</strong> 24</div>
+                                    <div class="col-md-6"><strong>Average Grade:</strong> 3.95</div>
+                                </div>
+
+                                <h5 class="mt-4">2019 2nd Semester</h5>
+                                <div class="table-responsive">
+                                    <table class="table align-middle">
+                                        <thead>
+                                            <tr>
+                                                <th>Course</th>
+                                                <th>Credit</th>
+                                                <th>Grade</th>
+                                            </tr>
+                                        </thead>
+                                        <tbody>
+                                            <tr>
+                                                <td>Calculus (II)</td>
+                                                <td>3</td>
+                                                <td>A+</td>
+                                            </tr>
+                                            <tr>
+                                                <td>Object-Oriented Programming</td>
+                                                <td>3</td>
+                                                <td>B+</td>
+                                            </tr>
+                                            <tr>
+                                                <td>General Physics</td>
+                                                <td>3</td>
+                                                <td>B+</td>
+                                            </tr>
+                                            <tr>
+                                                <td>General Physics Lab</td>
+                                                <td>1</td>
+                                                <td>A+</td>
+                                            </tr>
+                                            <tr>
+                                                <td>Probability</td>
+                                                <td>3</td>
+                                                <td>B</td>
+                                            </tr>
+                                            <tr>
+                                                <td>Japanese (I)</td>
+                                                <td>3</td>
+                                                <td>A</td>
+                                            </tr>
+                                            <tr>
+                                                <td>Freshman English</td>
+                                                <td>3</td>
+                                                <td>B+</td>
+                                            </tr>
+                                            <tr>
+                                                <td>College Chinese</td>
+                                                <td>2</td>
+                                                <td>A+</td>
+                                            </tr>
+                                            <tr>
+                                                <td>Interpersonal Relations</td>
+                                                <td>2</td>
+                                                <td>A-</td>
+                                            </tr>
+                                            <tr>
+                                                <td>Contemporary Development in Taiwan, Japan and Korea</td>
+                                                <td>2</td>
+                                                <td>A-</td>
+                                            </tr>
+                                            <tr>
+                                                <td>Badminton</td>
+                                                <td>1</td>
+                                                <td>A+</td>
+                                            </tr>
+                                        </tbody>
+                                    </table>
+                                </div>
+                                <div class="row">
+                                    <div class="col-md-6"><strong>Total Credit:</strong> 27</div>
+                                    <div class="col-md-6"><strong>Average Grade:</strong> 3.64</div>
+                                </div>
+
+                                <h5 class="mt-4">2019 1st Semester</h5>
+                                <div class="table-responsive">
+                                    <table class="table align-middle">
+                                        <thead>
+                                            <tr>
+                                                <th>Course</th>
+                                                <th>Credit</th>
+                                                <th>Grade</th>
+                                            </tr>
+                                        </thead>
+                                        <tbody>
+                                            <tr>
+                                                <td>Calculus (I)</td>
+                                                <td>3</td>
+                                                <td>A+</td>
+                                            </tr>
+                                            <tr>
+                                                <td>Computer Programming</td>
+                                                <td>3</td>
+                                                <td>A+</td>
+                                            </tr>
+                                            <tr>
+                                                <td>General Physics</td>
+                                                <td>3</td>
+                                                <td>B+</td>
+                                            </tr>
+                                            <tr>
+                                                <td>General Physics Lab</td>
+                                                <td>1</td>
+                                                <td>A+</td>
+                                            </tr>
+                                            <tr>
+                                                <td>Discrete Mathematics</td>
+                                                <td>3</td>
+                                                <td>C+</td>
+                                            </tr>
+                                            <tr>
+                                                <td>Japanese (I)</td>
+                                                <td>3</td>
+                                                <td>A</td>
+                                            </tr>
+                                            <tr>
+                                                <td>Freshman English</td>
+                                                <td>3</td>
+                                                <td>A</td>
+                                            </tr>
+                                            <tr>
+                                                <td>College Chinese</td>
+                                                <td>2</td>
+                                                <td>A+</td>
+                                            </tr>
+                                            <tr>
+                                                <td>Japanese Culture</td>
+                                                <td>2</td>
+                                                <td>A-</td>
+                                            </tr>
+                                            <tr>
+                                                <td>Badminton</td>
+                                                <td>1</td>
+                                                <td>A+</td>
+                                            </tr>
+                                        </tbody>
+                                    </table>
+                                </div>
+                                <div class="row">
+                                    <div class="col-md-6"><strong>Total Credit:</strong> 25</div>
+                                    <div class="col-md-6"><strong>Average Grade:</strong> 3.8</div>
+                                </div>
+                            </div>
+                        </div>
                     </div>
-                    <div class="flex-shrink-0"><span class="text-primary">2019/09 - 2023/06</span></div>
-                </div>
-                <div class="d-flex flex-column flex-md-row justify-content-between my-5">
-                    <div class="flex-grow-1">
-                        <h3>Tainan Municipal Da-Wan High School, Tainan, Taiwan</h3>
-                        <h4 class="subheading mb-3">Senior High School</h4>
+                    <div class="accordion-item">
+                        <div class="accordion-header" id="flush-heading-a">
+                            <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse"
+                                data-bs-target="#flush-collapse-a" aria-expanded="false" aria-controls="flush-collapse-a">
+                                <div class="my-3">
+                                    <h3 class="mb-3">Tainan Municipal Da-Wan High School, Tainan, Taiwan</h3>
+                                    <h4 class="subheading mb-3">Senior High School</h4>
+                                    <p class="text-primary mb-0">2016/09 - 2019/06</p>
+                                </div>
+                            </button>
+                        </div>
+                        <div id="flush-collapse-a" class="accordion-collapse collapse" aria-labelledby="flush-heading-a"
+                            data-bs-parent="#accordion-educations">
+                            <div class="accordion-body py-4">
+                                <h5 class="mt-4">Overall</h5>
+                                <div class="row">
+                                    <div class="col-md-6"><strong>Total Credit:</strong> 154</div>
+                                    <div class="col-md-6"><strong>Average Grade:</strong> 85.4</div>
+                                </div>
+
+                                <h5 class="mt-4">2018 1st Semester</h5>
+                                <div class="table-responsive">
+                                    <table class="table align-middle">
+                                        <thead>
+                                            <tr>
+                                                <th>Course</th>
+                                                <th>Credit</th>
+                                                <th>Grade</th>
+                                            </tr>
+                                        </thead>
+                                        <tbody>
+                                            <tr>
+                                                <td>Chinese</td>
+                                                <td>4</td>
+                                                <td>79.0</td>
+                                            </tr>
+                                            <tr>
+                                                <td>English</td>
+                                                <td>4</td>
+                                                <td>85.0</td>
+                                            </tr>
+                                            <tr>
+                                                <td>Mathematics</td>
+                                                <td>3</td>
+                                                <td>93.0</td>
+                                            </tr>
+                                            <tr>
+                                                <td>Physics</td>
+                                                <td>3</td>
+                                                <td>99.0</td>
+                                            </tr>
+                                            <tr>
+                                                <td>Chemistry</td>
+                                                <td>3</td>
+                                                <td>92.0</td>
+                                            </tr>
+                                            <tr>
+                                                <td>Biology</td>
+                                                <td>3</td>
+                                                <td>93.0</td>
+                                            </tr>
+                                            <tr>
+                                                <td>Physical Education</td>
+                                                <td>2</td>
+                                                <td>89.0</td>
+                                            </tr>
+                                        </tbody>
+                                    </table>
+                                </div>
+                                <div class="row">
+                                    <div class="col-md-6"><strong>Total Credit:</strong> 33</div>
+                                    <div class="col-md-6"><strong>Average Grade:</strong> 89.0</div>
+                                </div>
+
+                                <h5 class="mt-4">2017 2nd Semester</h5>
+                                <div class="table-responsive">
+                                    <table class="table align-middle">
+                                        <thead>
+                                            <tr>
+                                                <th>Course</th>
+                                                <th>Credit</th>
+                                                <th>Grade</th>
+                                            </tr>
+                                        </thead>
+                                        <tbody>
+                                            <tr>
+                                                <td>Chinese</td>
+                                                <td>4</td>
+                                                <td>79.0</td>
+                                            </tr>
+                                            <tr>
+                                                <td>English</td>
+                                                <td>4</td>
+                                                <td>90.0</td>
+                                            </tr>
+                                            <tr>
+                                                <td>Mathematics</td>
+                                                <td>4</td>
+                                                <td>83.0</td>
+                                            </tr>
+                                            <tr>
+                                                <td>Physics</td>
+                                                <td>2</td>
+                                                <td>93.0</td>
+                                            </tr>
+                                            <tr>
+                                                <td>Chemistry</td>
+                                                <td>2</td>
+                                                <td>86.0</td>
+                                            </tr>
+                                            <tr>
+                                                <td>Biology</td>
+                                                <td>2</td>
+                                                <td>96.0</td>
+                                            </tr>
+                                            <tr>
+                                                <td>History</td>
+                                                <td>2</td>
+                                                <td>89.0</td>
+                                            </tr>
+                                            <tr>
+                                                <td>Geography</td>
+                                                <td>2</td>
+                                                <td>91.0</td>
+                                            </tr>
+                                            <tr>
+                                                <td>Civics</td>
+                                                <td>2</td>
+                                                <td>80.0</td>
+                                            </tr>
+                                            <tr>
+                                                <td>Physical Education</td>
+                                                <td>2</td>
+                                                <td>88.0</td>
+                                            </tr>
+                                            <tr>
+                                                <td>Music</td>
+                                                <td>1</td>
+                                                <td>93.0</td>
+                                            </tr>
+                                            <tr>
+                                                <td>Art</td>
+                                                <td>1</td>
+                                                <td>93.0</td>
+                                            </tr>
+                                        </tbody>
+                                    </table>
+                                </div>
+                                <div class="row">
+                                    <div class="col-md-6"><strong>Total Credit:</strong> 33</div>
+                                    <div class="col-md-6"><strong>Average Grade:</strong> 87.7</div>
+                                </div>
+
+                                <h5 class="mt-4">2017 1st Semester</h5>
+                                <div class="table-responsive">
+                                    <table class="table align-middle">
+                                        <thead>
+                                            <tr>
+                                                <th>Course</th>
+                                                <th>Credit</th>
+                                                <th>Grade</th>
+                                            </tr>
+                                        </thead>
+                                        <tbody>
+                                            <tr>
+                                                <td>Chinese</td>
+                                                <td>4</td>
+                                                <td>82.0</td>
+                                            </tr>
+                                            <tr>
+                                                <td>English</td>
+                                                <td>4</td>
+                                                <td>87.0</td>
+                                            </tr>
+                                            <tr>
+                                                <td>Mathematics</td>
+                                                <td>4</td>
+                                                <td>87.0</td>
+                                            </tr>
+                                            <tr>
+                                                <td>Physics</td>
+                                                <td>2</td>
+                                                <td>83.0</td>
+                                            </tr>
+                                            <tr>
+                                                <td>Chemistry</td>
+                                                <td>2</td>
+                                                <td>85.0</td>
+                                            </tr>
+                                            <tr>
+                                                <td>Biology</td>
+                                                <td>2</td>
+                                                <td>96.0</td>
+                                            </tr>
+                                            <tr>
+                                                <td>History</td>
+                                                <td>2</td>
+                                                <td>89.0</td>
+                                            </tr>
+                                            <tr>
+                                                <td>Geography</td>
+                                                <td>2</td>
+                                                <td>91.0</td>
+                                            </tr>
+                                            <tr>
+                                                <td>Civics</td>
+                                                <td>2</td>
+                                                <td>81.0</td>
+                                            </tr>
+                                            <tr>
+                                                <td>Physical Education</td>
+                                                <td>2</td>
+                                                <td>85.0</td>
+                                            </tr>
+                                            <tr>
+                                                <td>Music</td>
+                                                <td>1</td>
+                                                <td>83.0</td>
+                                            </tr>
+                                            <tr>
+                                                <td>Art</td>
+                                                <td>1</td>
+                                                <td>83.0</td>
+                                            </tr>
+                                        </tbody>
+                                    </table>
+                                </div>
+                                <div class="row">
+                                    <div class="col-md-6"><strong>Total Credit:</strong> 33</div>
+                                    <div class="col-md-6"><strong>Average Grade:</strong> 86.5</div>
+                                </div>
+
+                                <h5 class="mt-4">2016 2nd Semester</h5>
+                                <div class="table-responsive">
+                                    <table class="table align-middle">
+                                        <thead>
+                                            <tr>
+                                                <th>Course</th>
+                                                <th>Credit</th>
+                                                <th>Grade</th>
+                                            </tr>
+                                        </thead>
+                                        <tbody>
+                                            <tr>
+                                                <td>Chinese</td>
+                                                <td>4</td>
+                                                <td>83.0</td>
+                                            </tr>
+                                            <tr>
+                                                <td>English</td>
+                                                <td>4</td>
+                                                <td>86.0</td>
+                                            </tr>
+                                            <tr>
+                                                <td>Mathematics</td>
+                                                <td>4</td>
+                                                <td>77.0</td>
+                                            </tr>
+                                            <tr>
+                                                <td>Chemistry</td>
+                                                <td>2</td>
+                                                <td>77.0</td>
+                                            </tr>
+                                            <tr>
+                                                <td>Earth Science</td>
+                                                <td>2</td>
+                                                <td>94.0</td>
+                                            </tr>
+                                            <tr>
+                                                <td>History</td>
+                                                <td>2</td>
+                                                <td>85.0</td>
+                                            </tr>
+                                            <tr>
+                                                <td>Geography</td>
+                                                <td>2</td>
+                                                <td>93.0</td>
+                                            </tr>
+                                            <tr>
+                                                <td>Civics</td>
+                                                <td>2</td>
+                                                <td>77.0</td>
+                                            </tr>
+                                            <tr>
+                                                <td>Physical Education</td>
+                                                <td>2</td>
+                                                <td>85.0</td>
+                                            </tr>
+                                            <tr>
+                                                <td>Music</td>
+                                                <td>1</td>
+                                                <td>85.0</td>
+                                            </tr>
+                                            <tr>
+                                                <td>Art</td>
+                                                <td>1</td>
+                                                <td>93.0</td>
+                                            </tr>
+                                        </tbody>
+                                    </table>
+                                </div>
+                                <div class="row">
+                                    <div class="col-md-6"><strong>Total Credit:</strong> 32</div>
+                                    <div class="col-md-6"><strong>Average Grade:</strong> 83.9</div>
+                                </div>
+
+                                <h5 class="mt-4">2016 1st Semester</h5>
+                                <div class="table-responsive">
+                                    <table class="table align-middle">
+                                        <thead>
+                                            <tr>
+                                                <th>Course</th>
+                                                <th>Credit</th>
+                                                <th>Grade</th>
+                                            </tr>
+                                        </thead>
+                                        <tbody>
+                                            <tr>
+                                                <td>Chinese</td>
+                                                <td>4</td>
+                                                <td>82.0</td>
+                                            </tr>
+                                            <tr>
+                                                <td>English</td>
+                                                <td>4</td>
+                                                <td>67.0</td>
+                                            </tr>
+                                            <tr>
+                                                <td>Mathematics</td>
+                                                <td>4</td>
+                                                <td>80.0</td>
+                                            </tr>
+                                            <tr>
+                                                <td>Physics</td>
+                                                <td>2</td>
+                                                <td>86.0</td>
+                                            </tr>
+                                            <tr>
+                                                <td>Biology</td>
+                                                <td>2</td>
+                                                <td>89.0</td>
+                                            </tr>
+                                            <tr>
+                                                <td>History</td>
+                                                <td>2</td>
+                                                <td>84.0</td>
+                                            </tr>
+                                            <tr>
+                                                <td>Geography</td>
+                                                <td>2</td>
+                                                <td>87.0</td>
+                                            </tr>
+                                            <tr>
+                                                <td>Civics</td>
+                                                <td>2</td>
+                                                <td>77.0</td>
+                                            </tr>
+                                            <tr>
+                                                <td>Physical Education</td>
+                                                <td>2</td>
+                                                <td>81.0</td>
+                                            </tr>
+                                            <tr>
+                                                <td>Music</td>
+                                                <td>1</td>
+                                                <td>81.0</td>
+                                            </tr>
+                                            <tr>
+                                                <td>Art</td>
+                                                <td>1</td>
+                                                <td>92.0</td>
+                                            </tr>
+                                        </tbody>
+                                    </table>
+                                </div>
+                                <div class="row">
+                                    <div class="col-md-6"><strong>Total Credit:</strong> 32</div>
+                                    <div class="col-md-6"><strong>Average Grade:</strong> 80.0</div>
+                                </div>
+                            </div>
+                        </div>
                     </div>
-                    <div class="flex-shrink-0"><span class="text-primary">2016/09 - 2019/06</span></div>
                 </div>
             </div>
         </section>
@@ -129,7 +1219,58 @@
         <section class="resume-section" id="publications">
             <div class="resume-section-content" data-aos="fade-right">
                 <h2 class="my-5">📜 PUBLICATIONS</h2>
-                <div class="accordion accordion-flush resume-section-content" id="accordionFlushExample">
+                <div class="accordion accordion-flush resume-section-content" id="accordion-publications">
+                    <div class="accordion-item">
+                        <div class="accordion-header" id="flush-heading-5">
+                            <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse"
+                                data-bs-target="#flush-collapse-5" aria-expanded="false" aria-controls="flush-collapse-5">
+                                <div class="my-3">
+                                    <h3 class="mb-3">Tree-of-Report: Table-to-Text Generation for Sports Game Reports with Tree-Structured Prompting</h3>
+                                    <h4 class="subheading">
+                                        <a href="https://acl2025-srw.github.io/" target="_blank">ACL SRW 2025: Long Paper (Oral)</a>
+                                    </h4>
+                                    <h4 class="subheading mb-3">
+                                        <b>Shang-Hsuan Chiang</b>, Tsan-Tsung Yang, Kuang-Da Wang, Wei-Yao Wang, An-Zi Yen, Wen-Chih Peng
+                                    </h4>
+                                    <p class="text-primary mb-0">2025/07</p>
+                                </div>
+                            </button>
+                        </div>
+                        <div id="flush-collapse-5" class="accordion-collapse collapse" aria-labelledby="flush-heading-5"
+                            data-bs-parent="#accordion-publications">
+                            <div class="accordion-body py-4">
+                                <p>
+                                    Generating sports game reports from structured table data is a challenging table-to-text generation task that requires
+                                    balancing structured data comprehension with narrative storytelling. While model-based approaches demand large training
+                                    datasets, prompt-based methods with large language models (LLMs) often suffer from hallucination issues due to poor
+                                    table comprehension. To address these challenges, we propose <b>Tree-of-Report</b>, a novel framework that divides the
+                                    generation process into three stages: Content Planning, Operation Execution, and Content Generating. Our method
+                                    decomposes large tables into smaller sub-tables using a hierarchical tree structure, enabling more effective table
+                                    comprehension. Additionally, it merges and rewrites texts to produce more detailed and coherent long-form outputs.
+                                    Experimental results on the RotoWire, MLB, and ShuttleSet+ datasets show that Tree-of-Report outperforms existing
+                                    prompt-based baselines with relatively lower time and cost, demonstrating its advantage in both effectiveness and
+                                    efficiency. In summary, this work sets a new precedent for prompt-based table-to-text generation in sports game reports.
+                                </p>
+                                <div class="mb-3">
+                                    <span class="fw-bold">Keywords:</span>
+                                    <span class="badge bg-primary">Table-to-Text Generation</span>
+                                    <span class="badge bg-primary">Sports Game Reports</span>
+                                    <span class="badge bg-primary">Tree-Structured</span>
+                                    <span class="badge bg-primary">Prompting</span>
+                                </div>
+                                <div>
+                                    <a class="btn btn-outline-primary" href="https://openreview.net/forum?id=gR4MPb03or" target="_blank">OpenReview</a>
+                                    <a class="btn btn-outline-primary" href="https://underline.io/events/485/sessions/20530/lecture/121583-tree-of-report-table-to-text-generation-for-sports-game-reports-with-tree-structured-prompting" target="_blank">Underline</a>
+                                    <a class="btn btn-outline-primary"
+                                        href="doc/Tree-of-Report Table-to-Text Generation for Sports Game Reports with Tree-Structured Prompting/paper.pdf"
+                                        target="_blank">Paper</a>
+                                    <a class="btn btn-outline-primary"
+                                        href="doc/Tree-of-Report Table-to-Text Generation for Sports Game Reports with Tree-Structured Prompting/slides.pdf"
+                                        target="_blank">Slides</a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
                     <div class="accordion-item">
                         <div class="accordion-header" id="flush-heading-4">
                             <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse"
@@ -147,7 +1288,7 @@
                             </button>
                         </div>
                         <div id="flush-collapse-4" class="accordion-collapse collapse" aria-labelledby="flush-heading-4"
-                            data-bs-parent="#accordionFlushExample">
+                            data-bs-parent="#accordion-publications">
                             <div class="accordion-body py-4">
                                 <p>
                                     With the rapid advancement of generative AI, AI-generated images have become increasingly realistic, raising concerns
@@ -164,16 +1305,16 @@
                                 </p>
                                 <div class="mb-3">
                                     <span class="fw-bold">Keywords:</span>
-                                    <span class="badge bg-primary">AI-Generated Images</span>
                                     <span class="badge bg-primary">Source Model Identification</span>
-                                    <span class="badge bg-primary">CNN and CLIP Models</span>
                                     <span class="badge bg-primary">Robust Detection</span>
+                                    <span class="badge bg-primary">AI-Generated Images</span>
+                                    <span class="badge bg-primary">CNN and CLIP Models</span>
                                 </div>
                                 <div>
                                     <a class="btn btn-outline-primary" href="https://arxiv.org/abs/2503.10718" target="_blank">arXiv</a>
-                                    <a class="btn btn-outline-primary" href="doc/Team NYCU at Defactify4_Robust Detection and Source Identification of AI-Generated Images Using CNN and CLIP-Based Models.pdf" target="_blank">Paper</a>
+                                    <a class="btn btn-outline-primary" href="doc/Team NYCU at Defactify4 Robust Detection and Source Identification of AI-Generated Images Using CNN and CLIP-Based Models/paper.pdf" target="_blank">Paper</a>
+                                    <a class="btn btn-outline-primary" href="doc/Team NYCU at Defactify4 Robust Detection and Source Identification of AI-Generated Images Using CNN and CLIP-Based Models/slides.pdf" target="_blank">Slides</a>
                                     <a class="btn btn-outline-primary" href="https://github.com/uuugaga/Defactify_4" target="_blank">GitHub</a>
-                                    <a class="btn btn-outline-primary" href="doc/Team NYCU at Defactify4_Robust Detection and Source Identification of AI-Generated Images Using CNN and CLIP-Based Models.pptx.pdf" target="_blank">Slide</a>
                                 </div>
                             </div>
                         </div>
@@ -195,7 +1336,7 @@
                             </button>
                         </div>
                         <div id="flush-collapse-3" class="accordion-collapse collapse" aria-labelledby="flush-heading-3"
-                            data-bs-parent="#accordionFlushExample">
+                            data-bs-parent="#accordion-publications">
                             <div class="accordion-body py-4">
                                 <p>
                                     Badminton enjoys widespread popularity, and reports on matches generally include details such as player
@@ -232,11 +1373,10 @@
                                 </div>
                                 <div>
                                     <a class="btn btn-outline-primary" href="https://arxiv.org/abs/2406.18116" target="_blank">arXiv</a>
-                                    <a class="btn btn-outline-primary" href="https://github.com/AndyChiangSH/BADGE"
-                                        target="_blank">GitHub</a>
-                                    <a class="btn btn-outline-primary" href="https://andychiangsh.github.io/BADGE/demo/"
-                                        target="_blank">Demo</a>
-                                    <a class="btn btn-outline-primary" href="doc/BADGE_BADminton report Generation and Evaluation with LLM.pdf" target="_blank">Slide</a>
+                                    <a class="btn btn-outline-primary" href="doc/BADGE BADminton report Generation and Evaluation with LLM/paper.pdf" target="_blank">Paper</a>
+                                    <a class="btn btn-outline-primary" href="doc/BADGE BADminton report Generation and Evaluation with LLM/slides.pdf" target="_blank">Slides</a>
+                                    <a class="btn btn-outline-primary" href="https://github.com/AndyChiangSH/BADGE" target="_blank">GitHub</a>
+                                    <a class="btn btn-outline-primary" href="https://andychiangsh.github.io/BADGE/demo/" target="_blank">Demo</a>
                                 </div>
                             </div>
                         </div>
@@ -255,7 +1395,7 @@
                             </button>
                         </div>
                         <div id="flush-collapse-2" class="accordion-collapse collapse" aria-labelledby="flush-heading-2"
-                            data-bs-parent="#accordionFlushExample">
+                            data-bs-parent="#accordion-publications">
                             <div class="accordion-body py-4">
                                 <p>
                                     In this paper, we present <b>Pre-CoFactv3</b>, a comprehensive framework comprised of Question Answering
@@ -281,10 +1421,9 @@
                                 </div>
                                 <div>
                                     <a class="btn btn-outline-primary" href="https://arxiv.org/abs/2403.10281" target="_blank">arXiv</a>
-                                    <a class="btn btn-outline-primary" href="https://github.com/AndyChiangSH/Pre-CoFactv3"
-                                        target="_blank">GitHub</a>
-                                    <a class="btn btn-outline-primary" href="doc/Team Trifecta at Factify5WQA_Setting the Standard in Fact Verification with Fine-Tuning.pdf"
-                                        target="_blank">Slide</a>
+                                    <a class="btn btn-outline-primary" href="doc/Team Trifecta at Factify5WQA Setting the Standard in Fact Verification with Fine-Tuning/paper.pdf" target="_blank">Paper</a>
+                                    <a class="btn btn-outline-primary" href="doc/Team Trifecta at Factify5WQA Setting the Standard in Fact Verification with Fine-Tuning/slides.pdf" target="_blank">Slides</a>
+                                    <a class="btn btn-outline-primary" href="https://github.com/AndyChiangSH/Pre-CoFactv3" target="_blank">GitHub</a>
                                 </div>
                             </div>
                         </div>
@@ -296,14 +1435,14 @@
                                 <div class="my-3">
                                     <h3 class="mb-3">CDGP: Automatic Cloze Distractor Generation based on Pre-trained Language Model
                                     </h3>
-                                    <h4 class="subheading"><a href="https://2022.emnlp.org/" target="_blank">EMNLP 2022: Findings of short paper</a></h4>
+                                    <h4 class="subheading"><a href="https://2022.emnlp.org/" target="_blank">EMNLP 2022: Findings of Short Paper</a></h4>
                                     <h4 class="subheading mb-3"><b>Shang-Hsuan Chiang</b>, Ssu-Cheng Wang, Yao-Chung Fan</h4>
                                     <p class="text-primary mb-0">2022/12</p>
                                 </div>
                             </button>
                         </div>
                         <div id="flush-collapse-1" class="accordion-collapse collapse" aria-labelledby="flush-heading-1"
-                            data-bs-parent="#accordionFlushExample">
+                            data-bs-parent="#accordion-publications">
                             <div class="accordion-body py-4">
                                 <p>
                                     Manually designing cloze test consumes enormous time and efforts. The major challenge lies in wrong option (distractor)
@@ -322,12 +1461,12 @@
                                     <span class="badge bg-primary">Distractor Selector</span>
                                 </div>
                                 <div>
-                                    <a class="btn btn-outline-primary" href="https://aclanthology.org/2022.findings-emnlp.429/" target="_blank">EMNLP</a>
+                                    <a class="btn btn-outline-primary" href="https://aclanthology.org/2022.findings-emnlp.429/" target="_blank">ACL Anthology</a>
                                     <a class="btn btn-outline-primary" href="https://arxiv.org/abs/2403.10326" target="_blank">arXiv</a>
+                                    <a class="btn btn-outline-primary" href="doc/CDGP Automatic Cloze Distractor Generation based on Pre-trained Language Model/paper.pdf" target="_blank">Paper</a>
+                                    <a class="btn btn-outline-primary" href="doc/CDGP Automatic Cloze Distractor Generation based on Pre-trained Language Model/slides.pdf" target="_blank">Slides</a>
                                     <a class="btn btn-outline-primary" href="https://github.com/AndyChiangSH/CDGP" target="_blank">GitHub</a>
                                     <a class="btn btn-outline-primary" href="https://cdgp-demo.nlpnchu.org/" target="_blank">Demo</a>
-                                    <a class="btn btn-outline-primary" href="doc/CDGP_Automatic Cloze Distractor Generation based on Pre-trained Language Model.pdf"
-                                        target="_blank">Slide</a>
                                 </div>
                             </div>
                         </div>
@@ -341,6 +1480,14 @@
         <section class="resume-section" id="experiences">
             <div class="resume-section-content" data-aos="fade-right">
                 <h2 class="my-5">💼 EXPERIENCES</h2>
+                <div class="d-flex flex-column flex-md-row justify-content-between my-5">
+                    <div class="flex-grow-1">
+                        <h3>ACL 2025, Vienna, Austria <a href="https://2025.aclweb.org/" target="_blank"><i
+                                    class="fas fa-link ms-2"></i></a></h3>
+                        <h4 class="subheading mb-3">Oral Presenter</h4>
+                    </div>
+                    <div class="flex-shrink-0"><span class="text-primary">2025/07</span></div>
+                </div>
                 <div class="d-flex flex-column flex-md-row justify-content-between my-5">
                     <div class="flex-grow-1">
                         <h3>TAAI 2024, Hsinchu, Taiwan <a href="https://taai2024.org/" target="_blank"><i
@@ -596,14 +1743,14 @@
                     <div class="col-12 col-sm-6 col-md-4 p-4">
                         <a class="text-decoration-none" href="https://github.com/AndyChiangSH/greenhouse2077" target="_blank">
                             <div class="card p-0">
-                                <img src="img/Greenhouse2077.jpg" class="card-img-top" alt="Greenhouse2077.jpg"
+                                <img src="img/projects/Greenhouse2077.jpg" class="card-img-top" alt="Greenhouse2077.jpg"
                                     style="height: 200px; object-fit: cover;">
                                 <div class="card-body">
                                     <h5 class="card-title">Greenhouse2077</h5>
                                     <p class="text-primary">2022/06</p>
-                                    <p class="card-text text-secondary">Final project of AIoT - A smart greenhouse combines sensors and equipment (plant lights, fans, and watering systems), and is auto controled by AI.</p>
+                                    <p class="card-text">Final project of AIoT - A smart greenhouse combines sensors and equipment (plant lights, fans, and watering systems), and is auto controled by AI.</p>
                                     <div>
-                                        <span class="fw-bold text-secondary">Tools:</span>
+                                        <span class="fw-bold">Tools:</span>
                                         <span class="badge bg-primary">Arduino</span>
                                         <span class="badge bg-primary">Python</span>
                                         <span class="badge bg-primary">HTML</span>
@@ -617,16 +1764,16 @@
                     <div class="col-12 col-sm-6 col-md-4 p-4">
                         <a class="text-decoration-none" href="https://github.com/AndyChiangSH/CO-detector" target="_blank">
                             <div class="card p-0">
-                                <img src="img/CO-detector.jpg" class="card-img-top" alt="CO-detector.jpg"
+                                <img src="img/projects/CO-detector.jpg" class="card-img-top" alt="CO-detector.jpg"
                                     style="height: 200px; object-fit: cover;">
                                 <div class="card-body">
                                     <h5 class="card-title">CO-detector</h5>
                                     <p class="text-primary">2022/06</p>
-                                    <p class="card-text text-secondary">Final project of Embedded System - CO detector.</p>
+                                    <p class="card-text">Final project of Embedded System - CO detector.</p>
                                     <div>
-                                        <span class="fw-bold text-secondary">Tools:</span>
+                                        <span class="fw-bold">Tools:</span>
                                         <span class="badge bg-primary">Arduino</span>
-                                        <span class="badge bg-primary">LINE Notify</span>
+                                        <span class="badge bg-primary">LINE</span>
                                     </div>
                                 </div>
                             </div>
@@ -635,14 +1782,14 @@
                     <div class="col-12 col-sm-6 col-md-4 p-4">
                         <a class="text-decoration-none" href="https://github.com/AndyChiangSH/CDGP-demo" target="_blank">
                             <div class="card p-0">
-                                <img src="img/CDGP-demo.png" class="card-img-top" alt="CDGP-demo.png"
+                                <img src="img/projects/CDGP-demo.png" class="card-img-top" alt="CDGP-demo.png"
                                     style="height: 200px; object-fit: cover;">
                                 <div class="card-body">
                                     <h5 class="card-title">CDGP-demo</h5>
                                     <p class="text-primary">2022/05</p>
-                                    <p class="card-text text-secondary">The demo page for Findings of EMNLP 2022 short paper "CDGP: Automatic Cloze Distractor Generation based on Pre-trained Language Model".</p>
+                                    <p class="card-text">The demo page for Findings of EMNLP 2022 short paper "CDGP: Automatic Cloze Distractor Generation based on Pre-trained Language Model".</p>
                                     <div>
-                                        <span class="fw-bold text-secondary">Tools:</span>
+                                        <span class="fw-bold">Tools:</span>
                                         <span class="badge bg-primary">Python</span>
                                         <span class="badge bg-primary">Flask</span>
                                         <span class="badge bg-primary">HTML</span>
@@ -657,19 +1804,19 @@
                     <div class="col-12 col-sm-6 col-md-4 p-4">
                         <a class="text-decoration-none" href="https://github.com/AndyChiangSH/reading-room-linebot" target="_blank">
                             <div class="card p-0">
-                                <img src="img/reading-room-linebot.png" class="card-img-top" alt="reading-room-linebot"
+                                <img src="img/projects/reading-room-linebot.png" class="card-img-top" alt="reading-room-linebot"
                                     style="height: 200px; object-fit: cover;">
                                 <div class="card-body">
                                     <h5 class="card-title">Reading Room LINE Bot</h5>
                                     <p class="text-primary">2022/02</p>
-                                    <p class="card-text text-secondary">A LINE Bot that automatically counts the seat number in the reading room every hour.</p>
+                                    <p class="card-text">A LINE Bot that automatically counts the seat number in the reading room every hour.</p>
                                     <div>
-                                        <span class="fw-bold text-secondary">Tools:</span>
+                                        <span class="fw-bold">Tools:</span>
                                         <span class="badge bg-primary">Python</span>
                                         <span class="badge bg-primary">Flask</span>
                                         <span class="badge bg-primary">PostgreSQL</span>
                                         <span class="badge bg-primary">Heroku</span>
-                                        <span class="badge bg-primary">LINE Bot</span>
+                                        <span class="badge bg-primary">LINE</span>
                                     </div>
                                 </div>
                             </div>
@@ -678,16 +1825,16 @@
                     <div class="col-12 col-sm-6 col-md-4 p-4">
                         <a class="text-decoration-none" href="https://github.com/AndyChiangSH/NCHU-Good-Class" target="_blank">
                             <div class="card p-0">
-                                <img src="img/NCHU-Good-Class.png" class="card-img-top" alt="NCHU-Good-Class"
+                                <img src="img/projects/NCHU-Good-Class.png" class="card-img-top" alt="NCHU-Good-Class"
                                     style="height: 200px; object-fit: cover;">
                                 <div class="card-body">
                                     <h5 class="card-title">NCHU Good Class</h5>
                                     <p class="text-primary">2022/01 - 2022/06</p>
-                                    <p class="card-text text-secondary">
+                                    <p class="card-text">
                                         A website to gather all the experience of the courses, unify scoring standards, and display the results in clear charts.
                                     </p>
                                     <div>
-                                        <span class="fw-bold text-secondary">Tools:</span>
+                                        <span class="fw-bold">Tools:</span>
                                         <span class="badge bg-primary">Python</span>
                                         <span class="badge bg-primary">Django</span>
                                         <span class="badge bg-primary">PostgreSQL</span>
@@ -704,16 +1851,16 @@
                         <a class="text-decoration-none" href="https://github.com/AndyChiangSH/fezai-talking"
                             target="_blank">
                             <div class="card p-0">
-                                <img src="img/fezai-talking.PNG" class="card-img-top" alt="fezai-talking"
+                                <img src="img/projects/fezai-talking.PNG" class="card-img-top" alt="fezai-talking"
                                     style="height: 200px; object-fit: cover;">
                                 <div class="card-body">
                                     <h5 class="card-title">Fezai-talking</h5>
                                     <p class="text-primary">2021/09</p>
-                                    <p class="card-text text-secondary">
+                                    <p class="card-text">
                                         Fezai talking style generator & restorer. Just for fun www
                                     </p>
                                     <div>
-                                        <span class="fw-bold text-secondary">Tools:</span>
+                                        <span class="fw-bold">Tools:</span>
                                         <span class="badge bg-primary">HTML</span>
                                         <span class="badge bg-primary">CSS</span>
                                         <span class="badge bg-primary">JavaScript</span>
@@ -727,16 +1874,16 @@
                             href="https://github.com/AndyChiangSH/NCHU_topic_homework/tree/master/hw03_Network%20graph"
                             target="_blank">
                             <div class="card p-0">
-                                <img src="img/relationship-graph.PNG" class="card-img-top" alt="relationship-graph.PNG"
+                                <img src="img/projects/relationship-graph.PNG" class="card-img-top" alt="relationship-graph.PNG"
                                     style="height: 200px; object-fit: cover;">
                                 <div class="card-body">
                                     <h5 class="card-title">The character relationship of The Legend of the Condor Heroes</h5>
                                     <p class="text-primary">2021/08</p>
-                                    <p class="card-text text-secondary">
+                                    <p class="card-text">
                                         One of our topic homework. Calculate the number of co-appearances of each character in The Legend of the Condor Heroes and draw a 3D & 2D relationship diagram.
                                     </p>
                                     <div>
-                                        <span class="fw-bold text-secondary">Tools:</span>
+                                        <span class="fw-bold">Tools:</span>
                                         <span class="badge bg-primary">Python</span>
                                         <span class="badge bg-primary">HTML</span>
                                         <span class="badge bg-primary">CSS</span>
@@ -749,16 +1896,16 @@
                     <div class="col-12 col-sm-6 col-md-4 p-4">
                         <a class="text-decoration-none" href="https://github.com/AndyChiangSH/LeetCode" target="_blank">
                             <div class="card p-0">
-                                <img src="img/leetcode.png" class="card-img-top" alt="leetcode.png"
+                                <img src="img/projects/leetcode.png" class="card-img-top" alt="leetcode.png"
                                     style="height: 200px; object-fit: cover;">
                                 <div class="card-body">
                                     <h5 class="card-title">LeetCode</h5>
                                     <p class="text-primary">2021/06 - Now</p>
-                                    <p class="card-text text-secondary">
+                                    <p class="card-text">
                                         The records of LeetCode's questions. Each question has a program code and detailed explanation.
                                     </p>
                                     <div>
-                                        <span class="fw-bold text-secondary">Tools:</span>
+                                        <span class="fw-bold">Tools:</span>
                                         <span class="badge bg-primary">Python</span>
                                         <span class="badge bg-primary">Java</span>
                                         <span class="badge bg-primary">C++</span>
@@ -771,16 +1918,16 @@
                         <a class="text-decoration-none" href="https://github.com/AndyChiangSH/flutter_tetris"
                             target="_blank">
                             <div class="card p-0">
-                                <img src="img/tetris.jpg" class="card-img-top" alt="tetris.jpg"
+                                <img src="img/projects/tetris.jpg" class="card-img-top" alt="tetris.jpg"
                                     style="height: 200px; object-fit: cover;">
                                 <div class="card-body">
                                     <h5 class="card-title">Flutter Tetris</h5>
                                     <p class="text-primary">2021/05</p>
-                                    <p class="card-text text-secondary">
+                                    <p class="card-text">
                                         A Tetris game written in Flutter.
                                     </p>
                                     <div>
-                                        <span class="fw-bold text-secondary">Tools:</span>
+                                        <span class="fw-bold">Tools:</span>
                                         <span class="badge bg-primary">Flutter</span>
                                         <span class="badge bg-primary">Dart</span>
                                         <span class="badge bg-primary">Swift</span>
@@ -854,13 +2001,24 @@
                 </ul>
                 <h3 class="my-3">Languages</h3>
                 <ul class="my-3 fs-5">
-                    <li>Chinese | Expert</li>
-                    <li>English | Expert
+                    <li>Chinese - Expert</li>
+                    <li>English - Expert
                         <ul>
-                            <li>TOEIC 825</li>
+                            <li>TOEIC: 825</li>
+                            <ul>
+                                <li>Reading: 390</li>
+                                <li>Listening: 435</li>
+                            </ul>
+                            <li>TOEFL: 86</li>
+                            <ul>
+                                <li>Reading: 18</li>
+                                <li>Listening: 24</li>
+                                <li>Speaking: 20</li>
+                                <li>Writing: 24</li>
+                            </ul>
                         </ul>
                     </li>
-                    <li>Japanese | Begineer</li>
+                    <li>Japanese - Begineer</li>
                 </ul>
                 <h3 class="my-3">Others</h3>
                 <ul class="my-3 fs-5">
@@ -884,8 +2042,25 @@
 
                 <div id="list-view" class="my-5">
                     <div class="d-flex flex-column flex-md-row justify-content-between my-5">
+                        <div>
+                            <div class="flex-grow-1 d-flex align-items-center mb-2">
+                                <img src="img/travels/austria.png" alt="united-arab-emirates" class="national-flag me-3">
+                                <h3 class="mb-0">Vienna, Austria</h3>
+                            </div>
+                            <div class="flex-grow-1 d-flex align-items-center mb-2">
+                                <img src="img/travels/slovakia.png" alt="united-arab-emirates" class="national-flag me-3">
+                                <h3 class="mb-0">Bratislava, Slovakia</h3>
+                            </div>
+                            <div class="flex-grow-1 d-flex align-items-center mb-2">
+                                <img src="img/travels/hungary.png" alt="united-arab-emirates" class="national-flag me-3">
+                                <h3 class="mb-0">Budapest, Hungary</h3>
+                            </div>
+                        </div>
+                        <div class="flex-shrink-0"><span class="text-primary">2025/07 - 2025/08</span></div>
+                    </div>
+                    <div class="d-flex flex-column flex-md-row justify-content-between my-5">
                         <div class="flex-grow-1 d-flex align-items-center mb-2">
-                            <img src="img/south-korea.png" alt="south-korea" class="national-flag me-3">
+                            <img src="img/travels/south-korea.png" alt="south-korea" class="national-flag me-3">
                             <h3 class="mb-0">Jeju, South Korea</h3>
                         </div>
                         <div class="flex-shrink-0"><span class="text-primary">2024/08</span></div>
@@ -893,11 +2068,11 @@
                     <div class="d-flex flex-column flex-md-row justify-content-between my-5">
                         <div>
                             <div class="flex-grow-1 d-flex align-items-center mb-2">
-                                <img src="img/united-states.png" alt="united-states" class="national-flag me-3">
+                                <img src="img/travels/united-states.png" alt="united-states" class="national-flag me-3">
                                 <h3 class="mb-0">San Francisco, USA</h3>
                             </div>
                             <div class="flex-grow-1 d-flex align-items-center mb-2">
-                                <img src="img/canada.png" alt="canada" class="national-flag me-3">
+                                <img src="img/travels/canada.png" alt="canada" class="national-flag me-3">
                                 <h3 class="mb-0">Vancouver, Canada</h3>
                             </div>
                         </div>
@@ -905,7 +2080,7 @@
                     </div>
                     <div class="d-flex flex-column flex-md-row justify-content-between my-5">
                         <div class="flex-grow-1 d-flex align-items-center mb-2">
-                            <img src="img/japan.png" alt="japan" class="national-flag me-3">
+                            <img src="img/travels/japan.png" alt="japan" class="national-flag me-3">
                             <h3 class="mb-0">Tokyo, Japan</h3>
                         </div>
                         <div class="flex-shrink-0"><span class="text-primary">2023/03</span></div>
@@ -913,11 +2088,11 @@
                     <div class="d-flex flex-column flex-md-row justify-content-between my-5">
                         <div>
                             <div class="flex-grow-1 d-flex align-items-center mb-2">
-                                <img src="img/united-arab-emirates.png" alt="united-arab-emirates" class="national-flag me-3">
+                                <img src="img/travels/united-arab-emirates.png" alt="united-arab-emirates" class="national-flag me-3">
                                 <h3 class="mb-0">Dubai, UAE</h3>
                             </div>
                             <div class="flex-grow-1 d-flex align-items-center mb-2">
-                                <img src="img/united-arab-emirates.png" alt="united-arab-emirates" class="national-flag me-3">
+                                <img src="img/travels/united-arab-emirates.png" alt="united-arab-emirates" class="national-flag me-3">
                                 <h3 class="mb-0">Abu Dhabi, UAE</h3>
                             </div>
                         </div>
@@ -925,35 +2100,35 @@
                     </div>
                     <div class="d-flex flex-column flex-md-row justify-content-between my-5">
                         <div class="flex-grow-1 d-flex align-items-center mb-2">
-                            <img src="img/thailand.png" alt="thailand" class="national-flag me-3">
+                            <img src="img/travels/thailand.png" alt="thailand" class="national-flag me-3">
                             <h3 class="mb-0">Bangkok, Thailand</h3>
                         </div>
                         <div class="flex-shrink-0"><span class="text-primary">2018/07</span></div>
                     </div>
                     <div class="d-flex flex-column flex-md-row justify-content-between my-5">
                         <div class="flex-grow-1 d-flex align-items-center mb-2">
-                            <img src="img/japan.png" alt="japan" class="national-flag me-3">
+                            <img src="img/travels/japan.png" alt="japan" class="national-flag me-3">
                             <h3 class="mb-0">Nagoya, Japan</h3>
                         </div>
                         <div class="flex-shrink-0"><span class="text-primary">2017/06 - 2017/07</span></div>
                     </div>
                     <div class="d-flex flex-column flex-md-row justify-content-between my-5">
                         <div class="flex-grow-1 d-flex align-items-center mb-2">
-                            <img src="img/japan.png" alt="japan" class="national-flag me-3">
+                            <img src="img/travels/japan.png" alt="japan" class="national-flag me-3">
                             <h3 class="mb-0">Tokyo, Japan</h3>
                         </div>
                         <div class="flex-shrink-0"><span class="text-primary">2016/07</span></div>
                     </div>
                     <div class="d-flex flex-column flex-md-row justify-content-between my-5">
                         <div class="flex-grow-1 d-flex align-items-center mb-2">
-                            <img src="img/japan.png" alt="japan" class="national-flag me-3">
+                            <img src="img/travels/japan.png" alt="japan" class="national-flag me-3">
                             <h3 class="mb-0">Kyushu, Japan</h3>
                         </div>
                         <div class="flex-shrink-0"><span class="text-primary">2016/02</span></div>
                     </div>
                     <div class="d-flex flex-column flex-md-row justify-content-between my-5">
                         <div class="flex-grow-1 d-flex align-items-center mb-2">
-                            <img src="img/japan.png" alt="japan" class="national-flag me-3">
+                            <img src="img/travels/japan.png" alt="japan" class="national-flag me-3">
                             <h3 class="mb-0">Hokkaido, Japan</h3>
                         </div>
                         <div class="flex-shrink-0"><span class="text-primary">2015/08</span></div>
@@ -961,15 +2136,15 @@
                     <div class="d-flex flex-column flex-md-row justify-content-between my-5">
                         <div>
                             <div class="flex-grow-1 d-flex align-items-center mb-2">
-                                <img src="img/japan.png" alt="japan" class="national-flag me-3">
+                                <img src="img/travels/japan.png" alt="japan" class="national-flag me-3">
                                 <h3 class="mb-0">Kyoto, Japan</h3>
                             </div>
                             <div class="flex-grow-1 d-flex align-items-center mb-2">
-                                <img src="img/japan.png" alt="japan" class="national-flag me-3">
+                                <img src="img/travels/japan.png" alt="japan" class="national-flag me-3">
                                 <h3 class="mb-0">Kobe, Japan</h3>
                             </div>
                             <div class="flex-grow-1 d-flex align-items-center mb-2">
-                                <img src="img/japan.png" alt="japan" class="national-flag me-3">
+                                <img src="img/travels/japan.png" alt="japan" class="national-flag me-3">
                                 <h3 class="mb-0">Osaka, Japan</h3>
                             </div>
                         </div>
@@ -977,14 +2152,14 @@
                     </div>
                     <div class="d-flex flex-column flex-md-row justify-content-between my-5">
                         <div class="flex-grow-1 d-flex align-items-center mb-2">
-                            <img src="img/thailand.png" alt="thailand" class="national-flag me-3">
+                            <img src="img/travels/thailand.png" alt="thailand" class="national-flag me-3">
                             <h3 class="mb-0">Chiang Mai, Thailand</h3>
                         </div>
                         <div class="flex-shrink-0"><span class="text-primary">2013/08</span></div>
                     </div>
                     <div class="d-flex flex-column flex-md-row justify-content-between my-5">
                         <div class="flex-grow-1 d-flex align-items-center mb-2">
-                            <img src="img/thailand.png" alt="thailand" class="national-flag me-3">
+                            <img src="img/travels/thailand.png" alt="thailand" class="national-flag me-3">
                             <h3 class="mb-0">Bangkok, Thailand</h3>
                         </div>
                         <div class="flex-shrink-0"><span class="text-primary">2012/07</span></div>
@@ -994,7 +2169,6 @@
                 <div id="map-view" class="my-5">
                     <div id="map"></div>
                 </div>
-                
             </div>
         </section>
         <hr class="m-0" />
@@ -1023,13 +2197,27 @@
                 </noscript>
                 <!-- End of Statcounter Code -->
 
-                <img alt="GitHub Repo stars" src="https://img.shields.io/github/stars/AndyChiangSH/AndyChiangSH?style=social">
+                <a href="https://github.com/AndyChiangSH/AndyChiangSH" target="_blank" rel="noopener noreferrer"><img alt="GitHub Repo stars" src="https://img.shields.io/github/stars/AndyChiangSH/AndyChiangSH?style=social"></a>
             </div>
-            <p class="text-center text-muted mb-1">Last update: 2025/03/28</p>
+            <p class="text-center text-muted mb-1">Last Update: 2025/09/09</p>
             <p class="text-center text-muted mb-1">Copyright © 2025 Andy Chiang</p>
         </div>
     </div>
+
+    <!-- Light or Dark Mode -->
+    <button id="mode-toggle" class="mode-toggle">
+        <i class="bi bi-sun-fill"></i>
+    </button>
+
+    <!-- oiiaioiiiai -->
+    <img id="oiiaioiiiai" src="img/oiiaioiiiai/oiiaioiiiai.png" alt="oiiaioiiiai" class="oiiaioiiiai-hidden">
 </body>
+
+<!-- Core theme JS-->
+<script src="js/script.js"></script>
+
+<!-- Bootstrap core JS-->
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"></script>
 
 <!-- Animate on Scroll -->
 <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
@@ -1037,11 +2225,5 @@
 <script>
     AOS.init();
 </script>
-
-<!-- Bootstrap core JS-->
-<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"></script>
-
-<!-- Core theme JS-->
-<script src="js/script.js"></script>
 
 </html>
