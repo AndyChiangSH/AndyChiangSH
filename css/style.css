@@ -68,7 +68,7 @@ a:hover {
 
 /* 導航列 */
 #sideNav {
-    background-color: var(--primary-color);
+    background-color: var(--primary-color) !important;
 }
 
 .nav-link {
@@ -115,7 +115,7 @@ body.dark-mode .navbar-toggler-icon {
 }
 
 /* 模態框 (Modal) */
-/* .modal-content {
+.modal-content {
     background-color: var(--card-bg-color);
     color: var(--text-color);
     border: 1px solid var(--border-color);
@@ -139,7 +139,7 @@ body.dark-mode .navbar-toggler-icon {
 
 body.dark-mode .btn-close {
     filter: invert(1) grayscale(100%);
-} */
+}
 
 /* 列表群組 (List Group) */
 .list-group-item {
@@ -386,4 +386,38 @@ section.resume-section .resume-section-content {
 .table th:nth-child(3),
 .table td:nth-child(3) {
     width: 10%;
+}
+
+/* .img-profile {
+    max-width: 10rem;
+    max-height: 10rem;
+    border: 0.5rem solid #41b39a;
+} */
+
+.img-profile {
+    max-width: 10rem;
+    max-height: 10rem;
+    border: 0.5rem solid var(--primary-color);
+    filter: brightness(1.2);
+}
+
+.bg-primary {
+    background-color: var(--primary-color) !important;
+}
+
+.btn-primary {
+    color: #ffffff !important;
+    background-color: var(--primary-color) !important;
+    border-color: var(--primary-color) !important;
+}
+
+.btn-outline-primary {
+    color: var(--primary-color) !important;
+    border-color: var(--primary-color) !important;
+}
+
+.btn-outline-primary:hover {
+    color: #ffffff !important;
+    border-color: var(--primary-color) !important;
+    background-color: var(--primary-color) !important;
 }

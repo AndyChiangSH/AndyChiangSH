@@ -12262,12 +12262,6 @@ p.lead {
     outline-color: #d48a6e;
 }
 
-.img-profile {
-    max-width: 10rem;
-    max-height: 10rem;
-    border: 0.5rem solid #41b39a;
-}
-
 @media (min-width: 992px) {
     #sideNav {
         padding-left: 0;

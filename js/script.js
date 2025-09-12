@@ -40,8 +40,27 @@ document.addEventListener('DOMContentLoaded', () => {
         }
     }
 
+    // 彩蛋模式變數
+    let clickCount = 0;
+    let firstClickTime = 0;
+    const EASTER_EGG_CLICKS = 10;
+    const EASTER_EGG_TIME_LIMIT = 10 * 1000; // 10 秒
+    let colorIntervalId = null; // 新增變數來儲存動畫 ID
+
+    // 新增一個函數來處理顏色變化
+    const updateRainbowColor = () => {
+        const time = Date.now() * 0.001;
+        const r = Math.sin(time) * 127 + 128;
+        const g = Math.sin(time + 2) * 127 + 128;
+        const b = Math.sin(time + 4) * 127 + 128;
+        const color = `rgb(${r}, ${g}, ${b})`;
+        document.documentElement.style.setProperty('--primary-color', color);
+        colorIntervalId = requestAnimationFrame(updateRainbowColor);
+    };
+
     // 監聽按鈕點擊事件
     toggleButton.addEventListener('click', () => {
+        // --- 原本的深色模式切換邏輯 ---
         const isDarkMode = body.classList.toggle('dark-mode');
 
         // 切換圖示並儲存偏好
@@ -53,6 +72,36 @@ document.addEventListener('DOMContentLoaded', () => {
             icon.classList.remove('bi-moon-fill');
             icon.classList.add('bi-sun-fill');
             localStorage.setItem('theme', 'light');
+        }
+        // --- 深色模式切換邏輯結束 ---
+
+        // --- 新增的彩蛋模式觸發邏輯 ---
+        const now = new Date().getTime();
+
+        // 檢查是否是新的點擊序列 (第一次點擊或超時)
+        if (clickCount === 0 || now - firstClickTime > EASTER_EGG_TIME_LIMIT) {
+            clickCount = 1;
+            firstClickTime = now;
+        } else {
+            clickCount++;
+        }
+
+        // 檢查是否達到觸發條件
+        if (clickCount >= EASTER_EGG_CLICKS) {
+            // 觸發彩蛋模式
+            alert('Surprise! You found the Easter egg!');
+
+            // 隱藏按鈕
+            toggleButton.style.display = 'none';
+            
+            // 重置點擊計數
+            clickCount = 0;
+            firstClickTime = 0;
+
+            body.classList.remove('dark-mode');
+            body.classList.add('surprise-mode');
+
+            updateRainbowColor();
         }
     });
 });
