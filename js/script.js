@@ -44,19 +44,42 @@ document.addEventListener('DOMContentLoaded', () => {
     let clickCount = 0;
     let firstClickTime = 0;
     const EASTER_EGG_CLICKS = 10;
-    const EASTER_EGG_TIME_LIMIT = 10 * 1000; // 10 秒
+    const EASTER_EGG_TIME_LIMIT = 5 * 1000; // 5 秒
     let colorIntervalId = null; // 新增變數來儲存動畫 ID
 
-    // 新增一個函數來處理顏色變化
-    const updateRainbowColor = () => {
-        const time = Date.now() * 0.001;
-        const r = Math.sin(time) * 127 + 128;
-        const g = Math.sin(time + 2) * 127 + 128;
-        const b = Math.sin(time + 4) * 127 + 128;
-        const color = `rgb(${r}, ${g}, ${b})`;
-        document.documentElement.style.setProperty('--primary-color', color);
-        colorIntervalId = requestAnimationFrame(updateRainbowColor);
-    };
+    // 監聽按鈕點擊事件
+    toggleButton.addEventListener('click', () => {
+        // --- 原本的深色模式切換邏輯 ---
+        const isDarkMode = body.classList.toggle('dark-mode');
+
+        // 切換圖示並儲存偏好
+        if (isDarkMode) {
+            icon.classList.remove('bi-sun-fill');
+            icon.classList.add('bi-moon-fill');
+            localStorage.setItem('theme', 'dark');
+        } else {
+            icon.classList.remove('bi-moon-fill');
+            icon.classList.add('bi-sun-fill');
+            localStorage.setItem('theme', 'light');
+        }
+        // --- 深色模式切換邏輯結束 ---
+
+        // --- 新增的彩蛋模式觸發邏輯 ---
+        const now = new Date().getTime();
+
+        // 檢查是否是新的點擊序列 (第一次點擊或超時)
+        if (clickCount === 0 || now - firstClickTime > EASTER_EGG_TIME_LIMIT) {
+            clickCount = 1;
+            firstClickTime = now;
+        } else {
+            clickCount++;
+        }
+
+        // 檢查是否達到觸發條件
+        if (clickCount >= EASTER_EGG_CLICKS) {
+            surpriseMode();
+        }
+    });
 
     // 觸發彩蛋模式
     function surpriseMode() {
@@ -75,68 +98,71 @@ document.addEventListener('DOMContentLoaded', () => {
         updateRainbowColor();
 
         // 新增：監聽圖片點擊事件
-        const imgProfile = document.querySelector('.img-profile');
+        const imgProfiles = document.querySelectorAll('.img-profile');
+        // console.log(imgProfiles);
 
-        if (imgProfile) {
-            let drawCount = 0;
-
-            imgProfile.addEventListener('click', () => {
-                // alert('Avatar Changed!');
-                const randomNumber = Math.random();
-                drawCount++;
-
-                if (randomNumber < 0.01) { // 1%
-                    imgProfile.src = 'img/avatar/avatar-1.png';
-                    if (drawCount <= 100) {
-                        alert("You're so lucky! You found the rare avatar within " + drawCount + " draws!");
+        if (imgProfiles) {
+            imgProfiles.forEach(imgProfile => {
+                let drawCount = 0;
+    
+                imgProfile.addEventListener('click', () => {
+                    // alert('Avatar Changed!');
+                    const randomNumber = Math.random();
+                    drawCount++;
+    
+                    if (randomNumber < 0.01) { // 1%
+                        imgProfile.src = 'img/avatar/avatar-1.png';
+                        if (drawCount <= 100) {
+                            alert("You're so lucky! You found the rare avatar within " + drawCount + " draws!");
+                        }
+                        else {
+                            alert("You're not so lucky... You found the rare avatar within " + drawCount + " draws...");
+                        }
+                        drawCount = 0;
                     }
-                    else {
-                        alert("You're not so lucky... You found the rare avatar within " + drawCount + " draws...");
+                    else if (randomNumber < 0.03) { // 2%
+                        imgProfile.src = 'img/avatar/avatar-2.png';
+                    } 
+                    else if (randomNumber < 0.06) { // 3%
+                        imgProfile.src = 'img/avatar/avatar-3.png';
+                    } 
+                    else if (randomNumber < 0.10) { // 4%
+                        imgProfile.src = 'img/avatar/avatar-4.png';
+                    } 
+                    else if (randomNumber < 0.15) { // 5%
+                        imgProfile.src = 'img/avatar/avatar-5.png';
                     }
-                    drawCount = 0;
-                }
-                else if (randomNumber < 0.03) { // 2%
-                    imgProfile.src = 'img/avatar/avatar-2.png';
-                } 
-                else if (randomNumber < 0.06) { // 3%
-                    imgProfile.src = 'img/avatar/avatar-3.png';
-                } 
-                else if (randomNumber < 0.10) { // 4%
-                    imgProfile.src = 'img/avatar/avatar-4.png';
-                } 
-                else if (randomNumber < 0.15) { // 5%
-                    imgProfile.src = 'img/avatar/avatar-5.png';
-                }
-                else if (randomNumber < 0.20) { // 5%
-                    imgProfile.src = 'img/avatar/avatar-6.png';
-                }
-                else if (randomNumber < 0.26) { // 6%
-                    imgProfile.src = 'img/avatar/avatar-7.png';
-                }
-                else if (randomNumber < 0.33) { // 7%
-                    imgProfile.src = 'img/avatar/avatar-8.png';
-                }
-                else if (randomNumber < 0.41) { // 8%
-                    imgProfile.src = 'img/avatar/avatar-9.png';
-                }
-                else if (randomNumber < 0.50) { // 9%
-                    imgProfile.src = 'img/avatar/avatar-10.png';
-                }
-                else if (randomNumber < 0.60) { // 10%
-                    imgProfile.src = 'img/avatar/avatar-11.png';
-                }
-                else if (randomNumber < 0.70) { // 10%
-                    imgProfile.src = 'img/avatar/avatar-12.png';
-                }
-                else if (randomNumber < 0.80) { // 10%
-                    imgProfile.src = 'img/avatar/avatar-13.png';
-                }
-                else if (randomNumber < 0.90) { // 10%
-                    imgProfile.src = 'img/avatar/avatar-14.png';
-                }
-                else { // 10%
-                    imgProfile.src = 'img/avatar/avatar-15.png';
-                }
+                    else if (randomNumber < 0.20) { // 5%
+                        imgProfile.src = 'img/avatar/avatar-6.png';
+                    }
+                    else if (randomNumber < 0.26) { // 6%
+                        imgProfile.src = 'img/avatar/avatar-7.png';
+                    }
+                    else if (randomNumber < 0.33) { // 7%
+                        imgProfile.src = 'img/avatar/avatar-8.png';
+                    }
+                    else if (randomNumber < 0.41) { // 8%
+                        imgProfile.src = 'img/avatar/avatar-9.png';
+                    }
+                    else if (randomNumber < 0.50) { // 9%
+                        imgProfile.src = 'img/avatar/avatar-10.png';
+                    }
+                    else if (randomNumber < 0.60) { // 10%
+                        imgProfile.src = 'img/avatar/avatar-11.png';
+                    }
+                    else if (randomNumber < 0.70) { // 10%
+                        imgProfile.src = 'img/avatar/avatar-12.png';
+                    }
+                    else if (randomNumber < 0.80) { // 10%
+                        imgProfile.src = 'img/avatar/avatar-13.png';
+                    }
+                    else if (randomNumber < 0.90) { // 10%
+                        imgProfile.src = 'img/avatar/avatar-14.png';
+                    }
+                    else { // 10%
+                        imgProfile.src = 'img/avatar/avatar-15.png';
+                    }
+                });
             });
         }
 
@@ -207,39 +233,16 @@ document.addEventListener('DOMContentLoaded', () => {
         });
     }
 
-    // 監聽按鈕點擊事件
-    toggleButton.addEventListener('click', () => {
-        // --- 原本的深色模式切換邏輯 ---
-        const isDarkMode = body.classList.toggle('dark-mode');
-
-        // 切換圖示並儲存偏好
-        if (isDarkMode) {
-            icon.classList.remove('bi-sun-fill');
-            icon.classList.add('bi-moon-fill');
-            localStorage.setItem('theme', 'dark');
-        } else {
-            icon.classList.remove('bi-moon-fill');
-            icon.classList.add('bi-sun-fill');
-            localStorage.setItem('theme', 'light');
-        }
-        // --- 深色模式切換邏輯結束 ---
-
-        // --- 新增的彩蛋模式觸發邏輯 ---
-        const now = new Date().getTime();
-
-        // 檢查是否是新的點擊序列 (第一次點擊或超時)
-        if (clickCount === 0 || now - firstClickTime > EASTER_EGG_TIME_LIMIT) {
-            clickCount = 1;
-            firstClickTime = now;
-        } else {
-            clickCount++;
-        }
-
-        // 檢查是否達到觸發條件
-        if (clickCount >= EASTER_EGG_CLICKS) {
-            surpriseMode();
-        }
-    });
+    // 新增一個函數來處理顏色變化
+    const updateRainbowColor = () => {
+        const time = Date.now() * 0.001;
+        const r = Math.sin(time) * 127 + 128;
+        const g = Math.sin(time + 2) * 127 + 128;
+        const b = Math.sin(time + 4) * 127 + 128;
+        const color = `rgb(${r}, ${g}, ${b})`;
+        document.documentElement.style.setProperty('--primary-color', color);
+        colorIntervalId = requestAnimationFrame(updateRainbowColor);
+    };
 });
 
 window.addEventListener('DOMContentLoaded', event => {
