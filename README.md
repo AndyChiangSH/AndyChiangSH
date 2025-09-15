@@ -15,7 +15,7 @@
 
 <h3 align="center">My GitHub Status</h3>
 
-<div align="center">
+<!-- <div align="center">
 
 ![](https://github-profile-summary-cards.vercel.app/api/cards/profile-details?username=AndyChiangSH&theme=vue)
 
@@ -26,12 +26,11 @@
 ![](https://github-profile-summary-cards.vercel.app/api/cards/most-commit-language?username=AndyChiangSH&theme=vue)
 
 ![](https://komarev.com/ghpvc/?username=AndyChiangSH)
-
 ![](https://img.shields.io/github/followers/AndyChiangSH?style=social)
 
-</div>
+</div> -->
 
-<!-- <div align="center">
+<div align="center">
     <picture>
         <source
             srcset="https://github-readme-stats.vercel.app/api?username=AndyChiangSH&theme=vue&hide_border=true&hide_title=true&rank_icon=percentile&show_icons=true"
@@ -64,7 +63,7 @@
             srcset="https://github-readme-stats.vercel.app/api/top-langs/?username=AndyChiangSH&theme=vue-dark&hide_border=true&layout=compact&hide=other&langs_count=8"
             media="(prefers-color-scheme: dark)"
         />
-        <img src="" height=150 alt="Top languages stats" />
+        <img src="" height=137 alt="Top languages stats" />
     </picture>
     <picture>
         <source
@@ -75,7 +74,7 @@
             srcset="https://github-readme-stats.vercel.app/api/wakatime?username=AndyChiangSH&theme=vue-dark&hide_border=true&layout=compact&hide=other&langs_count=8"
             media="(prefers-color-scheme: dark)"
         />
-        <img src="" height=150 alt="Wakatime stats" />
+        <img src="" height=137 alt="Wakatime stats" />
     </picture>
     <br>
     <picture>
@@ -87,6 +86,10 @@
             srcset="https://github-readme-activity-graph.vercel.app/graph?username=AndyChiangSH&theme=vue&hide_border=true"
             media="(prefers-color-scheme: dark)"
         />
-        <img src="" height=280 alt="Activity graph" />
+        <img src="" height=283 alt="Activity graph" />
     </picture>
-</div> -->
+    <br>
+    <br>
+    <img src="https://komarev.com/ghpvc/?username=AndyChiangSH" alt="views" />
+    <img src="https://img.shields.io/github/followers/AndyChiangSH?style=social" alt="followers" />
+</div>
