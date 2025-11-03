@@ -299,6 +299,12 @@ L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
 }).addTo(map);
 
 var locations = [
+    { name: "Osaka, Japan", coords: [34.6937, 135.5023], date: "2025/10" },
+    { name: "Kobe, Japan", coords: [34.6901, 135.1955], date: "2025/10" },
+    { name: "Himeji, Japan", coords: [34.8151, 134.6853], date: "2025/10" },
+    { name: "Okayama, Japan", coords: [34.6551, 133.9195], date: "2025/10" },
+    { name: "Nara, Japan", coords: [34.6851, 135.8048], date: "2025/10" },
+    { name: "Kyoto, Japan", coords: [35.0116, 135.7681], date: "2025/10" },
     { name: "Vienna, Austria", coords: [48.210033, 16.373449], date: "2025/07 - 2025/08" },
     { name: "Bratislava, Slovakia", coords: [48.1486, 17.1077], date: "2025/07 - 2025/08" },
     { name: "Budapest, Hungary", coords: [47.4979, 19.0402], date: "2025/07 - 2025/08" },
@@ -306,6 +312,11 @@ var locations = [
     { name: "San Francisco, USA", coords: [37.7749, -122.4194], date: "2024/02" },
     { name: "Vancouver, Canada", coords: [49.2827, -123.1207], date: "2024/02" },
     { name: "Tokyo, Japan", coords: [35.682839, 139.759455], date: "2023/03" },
+    { name: "Yamanakako, Japan", coords: [35.4133, 138.8644], date: "2023/03" },
+    { name: "Kawaguchiko, Japan", coords: [35.5170, 138.7576], date: "2023/03" },
+    { name: "Fuji, Japan", coords: [35.1614, 138.6763], date: "2023/03" },
+    { name: "Atami, Japan", coords: [35.0970, 139.0776], date: "2023/03" },
+    { name: "Kamakura, Japan", coords: [35.3192, 139.5467], date: "2023/03" },
     { name: "Dubai, UAE", coords: [25.276987, 55.296249], date: "2022/12" },
     { name: "Abu Dhabi, UAE", coords: [24.453884, 54.3773438], date: "2022/12" },
     { name: "Bangkok, Thailand", coords: [13.7563, 100.5018], date: "2018/07" },
@@ -318,6 +329,7 @@ var locations = [
     { name: "Chiang Mai, Thailand", coords: [18.7883, 98.9853], date: "2013/08" },
 ];
 
+locations.reverse();
 locations.forEach(location => {
     L.marker(location.coords)
         .addTo(map)
