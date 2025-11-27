@@ -9,6 +9,8 @@
 
 - 🌐 Go to [**my website**](https://andychiangsh.github.io/AndyChiangSH/) to get more information about me!
 
+- 📄 Here is [**my resume**](https://andychiangsh.github.io/AndyChiangSH/doc/resume/resume.pdf).
+
 <h3 align="center">Languages and Tools</h3>
 
 <div align="center"> 
@@ -65,7 +67,7 @@
             srcset="https://github-readme-stats.vercel.app/api/top-langs/?username=AndyChiangSH&theme=vue-dark&layout=compact&hide_border=true&hide=other&langs_count=8"
             media="(prefers-color-scheme: dark)"
         />
-        <img src="" height=137 alt="Top languages stats" />
+        <img src="" height=158 alt="Top languages stats" />
     </picture>
     <picture>
         <source
@@ -76,7 +78,7 @@
             srcset="https://github-readme-stats.vercel.app/api/wakatime?username=AndyChiangSH&theme=vue-dark&layout=compact&hide_border=true&hide=other&langs_count=8"
             media="(prefers-color-scheme: dark)"
         />
-        <img src="" height=137 alt="Wakatime stats" />
+        <img src="" height=158 alt="Wakatime stats" />
     </picture>
     <br>
     <picture>

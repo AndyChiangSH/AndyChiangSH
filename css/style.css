@@ -272,8 +272,18 @@ body.dark-mode .list-unstyled>li a:hover {
   color: #fff;
 } */
 
+.resume-icon:hover {
+    background-color: #11a081;
+    color: #ffffff;
+}
+
 .email-icon:hover {
     background-color: #d65245;
+    color: #ffffff;
+}
+
+.google-scholar-icon:hover {
+    background-color: #a1c4ff;
     color: #ffffff;
 }
 
@@ -294,6 +304,11 @@ body.dark-mode .list-unstyled>li a:hover {
 
 .instagram-icon:hover {
     background-color: #e34066;
+    color: #ffffff;
+}
+
+.x-icon:hover {
+    background-color: #000000;
     color: #ffffff;
 }
 
