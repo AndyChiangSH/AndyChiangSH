@@ -299,6 +299,17 @@ L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
 }).addTo(map);
 
 var locations = [
+    { name: "Osaka, Japan", coords: [34.6937, 135.5023], date: "2026/03 - 2026/04" },
+    { name: "Tokushima, Japan", coords: [34.0657, 134.5593], date: "2026/03 - 2026/04" },
+    { name: "Kochi, Japan", coords: [33.55, 133.5333], date: "2026/03 - 2026/04" },
+    { name: "Matsuyama, Japan", coords: [33.8392, 132.7657], date: "2026/03 - 2026/04" },
+    { name: "Marugame, Japan", coords: [34.2833, 133.7833], date: "2026/03 - 2026/04" },
+    { name: "Okayama, Japan", coords: [34.6551, 133.9195], date: "2026/03 - 2026/04" },
+    { name: "Himeji, Japan", coords: [34.8151, 134.6853], date: "2026/03 - 2026/04" },
+    { name: "Kyoto, Japan", coords: [35.0116, 135.7681], date: "2026/03 - 2026/04" },
+    { name: "Tokyo, Japan", coords: [35.682839, 139.759455], date: "2026/02 - 2026/03" },
+    { name: "Echigo-Yuzawa, Japan", coords: [36.9361, 138.8099], date: "2026/02 - 2026/03" },
+    { name: "Karuizawa, Japan", coords: [36.3486, 138.5966], date: "2026/02 - 2026/03" },
     { name: "Osaka, Japan", coords: [34.6937, 135.5023], date: "2025/10" },
     { name: "Kobe, Japan", coords: [34.6901, 135.1955], date: "2025/10" },
     { name: "Himeji, Japan", coords: [34.8151, 134.6853], date: "2025/10" },
