@@ -1,11 +1,11 @@
 <h1 align="center">👋 Hi! My name is Andy Chiang (江尚軒).</h1>
 <h3 align="center">👨‍🎓 I am a master's student in Computer Science at NYCU, Hsinchu, Taiwan.</h3>
 
-- 🛠️ My skills are **web front-end, web back-end, web crawler, data mining, machine learning, natural language processing...**
+- 🛠️ My skills are **Web Front-end, Web Back-end, Web Crawler, Machine Learning, Natural Language Processing...**
 
-- ❤️ My hobbies are **coding 👨‍💻, playing badminton 🏸, and traveling ✈️.**
+- ❤️ My hobbies are **Coding, Traveling, Playing Badminton...**
 
-- ✉️ If you have any questions, feel free to [**contact me**](mailto:andy10801@gmail.com)!
+- ✉️ If you have any questions, please feel free to [**contact me**](mailto:andy10801@gmail.com)!
 
 - 🌐 Go to [**my website**](https://andychiangsh.github.io/AndyChiangSH/) to get more information about me!
 
@@ -21,7 +21,7 @@
 
 <div align="center">
 
-<img src="https://github-profile-summary-cards.vercel.app/api/cards/profile-details?username=AndyChiangSH&theme=vue" />
+<img src="https://github-profile-summary-cards.vercel.app/api/cards/profile-details?username=AndyChiangSH&theme=vue" width=685 />
 
 <br/>
 
@@ -42,7 +42,7 @@
 </div>
 
 <div align="center">
-<sub>Last updated: 2026/05/05</sub>  
+<sub>Last updated: 2026/06/05</sub>  
 
 <sub>Copyright © 2023–2026 Andy Chiang</sub>
 </div>
