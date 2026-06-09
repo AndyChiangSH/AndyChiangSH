@@ -570,7 +570,7 @@ section.resume-section {
     height: 3.25rem;
     flex: 0 0 auto;
     border: 0;
-    border-radius: 999px;
+    border-radius: 0.9rem;
     display: inline-flex;
     align-items: center;
     justify-content: center;
@@ -583,6 +583,11 @@ section.resume-section {
 .agent-submit:hover {
     transform: translateY(-1px);
     opacity: 0.92;
+}
+
+.agent-submit i {
+    font-size: 1.35rem;
+    line-height: 1;
 }
 
 body.dark-mode .agent-input {

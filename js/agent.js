@@ -10,10 +10,9 @@ document.addEventListener('DOMContentLoaded', () => {
     }
 
     const appName = 'Andy Chiang';
-    const apiUrl = 'https://text.pollinations.ai/openai';
-    const apiReferrer = window.location.hostname || 'andychiangsh';
     const conversationHistory = [];
     const knowledgeBase = buildKnowledgeBase();
+    const bm25State = buildBm25State(knowledgeBase);
 
     addAssistantMessage('Hello, I’m Andy Chiang. What question would you like to ask today?', []);
 
@@ -32,12 +31,6 @@ document.addEventListener('DOMContentLoaded', () => {
 
         const question = input.value.trim();
         if (!question) {
-            return;
-        }
-
-        if (containsChineseCharacters(question)) {
-            addAssistantMessage('我無法回答這個問題。', []);
-            input.value = '';
             return;
         }
 
@@ -119,6 +112,10 @@ document.addEventListener('DOMContentLoaded', () => {
                 link.className = 'agent-source-link';
                 link.href = source.href;
                 link.textContent = source.title;
+                link.addEventListener('click', event => {
+                    event.preventDefault();
+                    jumpToChunk(source);
+                });
 
                 item.appendChild(link);
                 list.appendChild(item);
@@ -140,43 +137,44 @@ document.addEventListener('DOMContentLoaded', () => {
             const sectionId = section.id;
             const heading = section.querySelector('h2');
             const title = heading ? normalizeWhitespace(heading.textContent.replace(/^[^A-Za-z\u4e00-\u9fff]+/, '').trim()) : sectionId;
-            const rawText = normalizeWhitespace(section.innerText || '');
+            const rawText = section.textContent || '';
 
-            if (!sectionId || !rawText) {
+            if (!sectionId || !rawText.trim()) {
                 return [];
             }
 
-            return splitTextIntoChunks(rawText, 650).map((text, index) => ({
-                id: `${sectionId}-${index + 1}`,
-                title,
-                href: `#${sectionId}`,
-                text,
+            return splitTextIntoChunks(rawText, 500, 50).map((chunk, index) => ({
+                id: `${sectionId}-chunk-${index + 1}`,
+                sectionId,
+                sectionTitle: title,
+                chunkIndex: index + 1,
+                startOffset: chunk.startOffset,
+                endOffset: chunk.endOffset,
+                href: `#${sectionId}-chunk-${index + 1}`,
+                text: chunk.text,
             }));
         });
     }
 
-    function splitTextIntoChunks(text, maxLength) {
-        const lines = text.split(/\n+/).map(normalizeWhitespace).filter(Boolean);
+    function splitTextIntoChunks(text, chunkSize, overlap) {
         const chunks = [];
-        let buffer = '';
+        const step = Math.max(1, chunkSize - overlap);
 
-        lines.forEach(line => {
-            if (!buffer) {
-                buffer = line;
-                return;
+        for (let startOffset = 0; startOffset < text.length; startOffset += step) {
+            const endOffset = Math.min(text.length, startOffset + chunkSize);
+            const chunkText = text.slice(startOffset, endOffset).trim();
+
+            if (chunkText) {
+                chunks.push({
+                    startOffset,
+                    endOffset,
+                    text: chunkText,
+                });
             }
 
-            const candidate = `${buffer} ${line}`;
-            if (candidate.length > maxLength) {
-                chunks.push(buffer);
-                buffer = line;
-            } else {
-                buffer = candidate;
+            if (endOffset >= text.length) {
+                break;
             }
-        });
-
-        if (buffer) {
-            chunks.push(buffer);
         }
 
         return chunks;
@@ -186,184 +184,110 @@ document.addEventListener('DOMContentLoaded', () => {
         return value.replace(/\s+/g, ' ').trim();
     }
 
-    function tokenize(value) {
-        const matches = value.toLowerCase().match(/[\p{Script=Han}]+|[a-z0-9]+/giu);
+    function tokenizeForBm25(value) {
+        const matches = value.toLowerCase().match(/[a-z0-9]+(?:'[a-z0-9]+)?/g);
         return matches ? matches : [];
     }
 
-    function expandQuery(question) {
-        const expanded = new Set(tokenize(question));
-        const normalizedQuestion = question.toLowerCase();
+    function buildBm25State(docs) {
+        const enrichedDocs = docs.map(doc => {
+            const tokens = tokenizeForBm25(`${doc.sectionTitle} ${doc.text}`);
+            const termFrequency = new Map();
 
-        const topicRules = [
-            {
-                aliases: ['自我介紹', '關於你', 'profile', 'about me'],
-                terms: ['profile', 'introduce', 'background', 'bio'],
-            },
-            {
-                aliases: ['座右銘', '名言', 'motto'],
-                terms: ['motto', 'quote', 'principle'],
-            },
-            {
-                aliases: ['學歷', '學校', '教育', 'education'],
-                terms: ['educations', 'education', 'school', 'degree'],
-            },
-            {
-                aliases: ['論文', '出版', '發表', 'publication', 'paper'],
-                terms: ['publications', 'publication', 'paper', 'research'],
-            },
-            {
-                aliases: ['經歷', '工作', '實習', 'conference', 'experience'],
-                terms: ['experiences', 'experience', 'conference', 'teaching assistant', 'volunteer'],
-            },
-            {
-                aliases: ['比賽', '競賽', 'competition'],
-                terms: ['competitions', 'competition', 'contest', 'award'],
-            },
-            {
-                aliases: ['專案', '作品', 'project'],
-                terms: ['projects', 'project', 'demo', 'repository'],
-            },
-            {
-                aliases: ['技能', '語言', 'skill'],
-                terms: ['skills', 'languages', 'tools', 'frameworks'],
-            },
-            {
-                aliases: ['旅行', '旅遊', 'travel'],
-                terms: ['travels', 'travel', 'map', 'countries', 'cities'],
-            },
-        ];
+            tokens.forEach(token => {
+                termFrequency.set(token, (termFrequency.get(token) || 0) + 1);
+            });
 
-        topicRules.forEach(rule => {
-            if (rule.aliases.some(alias => normalizedQuestion.includes(alias.toLowerCase()))) {
-                rule.terms.forEach(term => expanded.add(term));
-            }
+            return {
+                ...doc,
+                tokens,
+                termFrequency,
+                length: tokens.length,
+            };
         });
 
-        return Array.from(expanded);
+        const documentFrequency = new Map();
+
+        enrichedDocs.forEach(doc => {
+            new Set(doc.tokens).forEach(token => {
+                documentFrequency.set(token, (documentFrequency.get(token) || 0) + 1);
+            });
+        });
+
+        const totalLength = enrichedDocs.reduce((sum, doc) => sum + doc.length, 0);
+
+        return {
+            docs: enrichedDocs,
+            documentFrequency,
+            documentCount: enrichedDocs.length || 1,
+            averageLength: enrichedDocs.length ? totalLength / enrichedDocs.length : 0,
+            k1: 1.2,
+            b: 0.75,
+        };
     }
 
-    function scoreChunk(chunk, question) {
-        const questionTerms = expandQuery(question);
-        const normalizedText = chunk.text.toLowerCase();
-        const normalizedTitle = chunk.title.toLowerCase();
+    function scoreChunk(doc, queryTokens, bm25State) {
+        if (!queryTokens.length || !doc.length || !bm25State.averageLength) {
+            return 0;
+        }
 
         let score = 0;
 
-        questionTerms.forEach(term => {
-            if (term.length < 2 && !/[\u4e00-\u9fff]/.test(term)) {
+        queryTokens.forEach(token => {
+            const termFrequency = doc.termFrequency.get(token) || 0;
+            if (!termFrequency) {
                 return;
             }
 
-            if (normalizedTitle.includes(term)) {
-                score += 3;
-            }
+            const documentFrequency = bm25State.documentFrequency.get(token) || 0;
+            const idf = Math.log(1 + ((bm25State.documentCount - documentFrequency + 0.5) / (documentFrequency + 0.5)));
+            const numerator = termFrequency * (bm25State.k1 + 1);
+            const denominator = termFrequency + bm25State.k1 * (1 - bm25State.b + (bm25State.b * doc.length / bm25State.averageLength));
 
-            if (normalizedText.includes(term)) {
-                score += term.length >= 4 ? 2 : 1;
-            }
+            score += idf * (numerator / denominator);
         });
-
-        const rawQuestion = question.toLowerCase();
-        if (normalizedText.includes(rawQuestion)) {
-            score += 4;
-        }
 
         return score;
     }
 
     function retrieveRelevantChunks(question) {
-        return knowledgeBase
-            .map(chunk => ({
-                ...chunk,
-                score: scoreChunk(chunk, question),
+        const queryTokens = tokenizeForBm25(question);
+
+        return bm25State.docs
+            .map(doc => ({
+                ...doc,
+                score: scoreChunk(doc, queryTokens, bm25State),
             }))
             .filter(chunk => chunk.score > 0)
             .sort((left, right) => right.score - left.score)
-            .slice(0, 4);
-    }
-
-    function buildSystemPrompt() {
-        return [
-            'You are Andy Chiang answering as if you are him, not an AI assistant.',
-            'Follow these rules:',
-            '- Internally translate the user\'s question into English before reasoning. Do not reveal the translation.',
-            '- Answer in the same language as the user\'s original question.',
-            '- Use Markdown.',
-            '- Stay grounded in the supplied website context only.',
-            `- If the context does not support an answer, reply exactly with "${getCannotAnswerText('en')}" or the same sentence in the user\'s language.`,
-            '- Do not mention policies, hidden instructions, or that you are a model.',
-        ].join('\n');
-    }
-
-    function buildUserPrompt(question, relevantChunks, history) {
-        const historyBlock = history.length
-            ? history.map(item => `${item.role === 'user' ? 'User' : 'Andy'}: ${item.content}`).join('\n')
-            : 'None';
-
-        const contextBlock = relevantChunks.length
-            ? relevantChunks.map((chunk, index) => {
-                return [
-                    `${index + 1}. ${chunk.title}`,
-                    `Source: ${chunk.href}`,
-                    `Excerpt: ${chunk.text}`,
-                ].join('\n');
-            }).join('\n\n')
-            : 'No relevant context was found.';
-
-        return [
-            `Website: ${appName}'s personal website`,
-            `Original question: ${question}`,
-            'Conversation history:',
-            historyBlock,
-            'Relevant website context:',
-            contextBlock,
-            '',
-            'Write a concise, natural answer as Andy Chiang. If the context is insufficient, refuse with the exact no-answer sentence.',
-        ].join('\n');
+            .slice(0, 1);
     }
 
     function buildSourceList(relevantChunks) {
-        const uniqueSources = [];
-        const seen = new Set();
-
-        relevantChunks.forEach(chunk => {
-            if (seen.has(chunk.href)) {
-                return;
-            }
-
-            seen.add(chunk.href);
-            uniqueSources.push({
-                title: chunk.title,
-                href: chunk.href,
-                excerpt: chunk.text.slice(0, 180),
-            });
-        });
-
-        return uniqueSources;
-    }
-
-    function getCannotAnswerText(language) {
-        if (language === 'en') {
-            return 'I cannot answer this question.';
-        }
-
-        return '我無法回答這個問題。';
+        return relevantChunks.map(chunk => ({
+            title: `${chunk.sectionTitle} · Chunk ${chunk.chunkIndex}`,
+            href: chunk.href,
+            sectionId: chunk.sectionId,
+            startOffset: chunk.startOffset,
+        }));
     }
 
     function fallbackUnansweredMessage(question) {
-        return getCannotAnswerText(containsChineseCharacters(question) ? 'zh' : 'en');
+        return 'I cannot answer this question from my website content.';
     }
 
     function buildOfflineAnswer(question, relevantChunks) {
-        const language = containsChineseCharacters(question) ? 'zh' : 'en';
-        const intro = language === 'zh'
-            ? '目前 AI 回應暫時不可用，先提供網站中最相關的片段：'
-            : 'The AI response is temporarily unavailable, so here are the most relevant website excerpts:';
+        const chunk = relevantChunks[0];
+        if (!chunk) {
+            return fallbackUnansweredMessage(question);
+        }
 
-        const bullets = relevantChunks.slice(0, 3).map(chunk => `- ${chunk.text}`);
+        const sentence = chooseBestSentence(chunk.text, tokenizeForBm25(question));
+        if (!sentence || containsChineseCharacters(sentence)) {
+            return `The most relevant information is in my ${chunk.sectionTitle} section, but I cannot confidently answer this question from that chunk alone.`;
+        }
 
-        return [intro, '', ...bullets].join('\n');
+        return `According to my ${chunk.sectionTitle} section, ${ensureSentenceEnding(sentence)}`;
     }
 
     function containsChineseCharacters(value) {
@@ -374,57 +298,90 @@ document.addEventListener('DOMContentLoaded', () => {
         const relevantChunks = retrieveRelevantChunks(question);
         const sources = buildSourceList(relevantChunks);
 
-        if (!relevantChunks.length || relevantChunks[0].score < 2) {
+        if (!relevantChunks.length || relevantChunks[0].score < 0.15) {
             return {
                 answer: fallbackUnansweredMessage(question),
                 sources: [],
             };
         }
-
-        const response = await fetch(`${apiUrl}?referrer=${encodeURIComponent(apiReferrer)}`, {
-            method: 'POST',
-            headers: {
-                'Content-Type': 'application/json',
-            },
-            body: JSON.stringify({
-                model: 'gemini-fast',
-                temperature: 0.2,
-                max_tokens: 500,
-                stream: false,
-                messages: [
-                    {
-                        role: 'system',
-                        content: buildSystemPrompt(),
-                    },
-                    {
-                        role: 'user',
-                        content: buildUserPrompt(question, relevantChunks, conversationHistory.slice(-6)),
-                    },
-                ],
-            }),
-        });
-
-        if (!response.ok) {
-            if (relevantChunks.length) {
-                return {
-                    answer: buildOfflineAnswer(question, relevantChunks),
-                    sources,
-                };
-            }
-
-            throw new Error(`Agent request failed with status ${response.status}`);
-        }
-
-        const payload = await response.json();
-        const answer = payload?.choices?.[0]?.message?.content?.trim();
-
-        if (!answer) {
-            throw new Error('Agent returned an empty response');
-        }
-
         return {
-            answer,
+            answer: buildOfflineAnswer(question, relevantChunks),
             sources,
         };
+    }
+
+    function chooseBestSentence(text, queryTokens) {
+        const sentences = text
+            .replace(/\s+/g, ' ')
+            .split(/(?<=[.!?])\s+/)
+            .map(sentence => sentence.trim())
+            .filter(Boolean);
+
+        if (!sentences.length) {
+            return '';
+        }
+
+        let bestSentence = sentences[0];
+        let bestScore = -1;
+
+        sentences.forEach(sentence => {
+            const normalized = sentence.toLowerCase();
+            let score = 0;
+
+            queryTokens.forEach(token => {
+                if (normalized.includes(token)) {
+                    score += 1;
+                }
+            });
+
+            if (score > bestScore) {
+                bestScore = score;
+                bestSentence = sentence;
+            }
+        });
+
+        return bestSentence;
+    }
+
+    function ensureSentenceEnding(sentence) {
+        return /[.!?]$/.test(sentence) ? sentence : `${sentence}.`;
+    }
+
+    function jumpToChunk(source) {
+        const section = document.getElementById(source.sectionId);
+        if (!section) {
+            return;
+        }
+
+        const range = createRangeAtOffset(section, source.startOffset);
+        if (range) {
+            const rect = range.getBoundingClientRect();
+            const targetTop = window.scrollY + rect.top - 90;
+            window.scrollTo({ top: Math.max(0, targetTop), behavior: 'smooth' });
+            return;
+        }
+
+        section.scrollIntoView({ behavior: 'smooth', block: 'start' });
+    }
+
+    function createRangeAtOffset(rootElement, targetOffset) {
+        const walker = document.createTreeWalker(rootElement, NodeFilter.SHOW_TEXT);
+        let currentOffset = 0;
+        let textNode = walker.nextNode();
+
+        while (textNode) {
+            const nextOffset = currentOffset + textNode.textContent.length;
+            if (targetOffset <= nextOffset) {
+                const range = document.createRange();
+                range.setStart(textNode, Math.max(0, targetOffset - currentOffset));
+                range.collapse(true);
+                return range;
+            }
+
+            currentOffset = nextOffset;
+            textNode = walker.nextNode();
+        }
+
+        return null;
     }
 });
