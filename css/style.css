@@ -455,6 +455,9 @@ section.resume-section {
 }
 
 .agent-message-bubble {
+    display: flex;
+    flex-direction: column;
+    gap: 0.6rem;
     max-width: 100%;
     padding: 0.8rem 0.9rem;
     border-radius: 1rem;
@@ -499,7 +502,7 @@ section.resume-section {
 }
 
 .agent-sources-title {
-    font-size: 0.68rem;
+    font-size: 0.62rem;
     font-weight: 700;
     letter-spacing: 0.08em;
     text-transform: uppercase;
@@ -508,18 +511,25 @@ section.resume-section {
 
 .agent-sources-list {
     margin: 0;
-    padding-left: 1.2rem;
+    padding-left: 1rem;
     display: flex;
     flex-direction: column;
-    gap: 0.35rem;
+    gap: 0.25rem;
+    font-size: 0.76rem;
+    line-height: 1.35;
 }
 
 .agent-sources-list li {
     color: var(--text-color);
 }
 
+.agent-sources-list li::marker {
+    font-size: 0.8em;
+    color: var(--panel-muted-color);
+}
+
 .agent-source-link {
-    font-size: 0.85rem;
+    font-size: 0.8rem;
     font-weight: 700;
     color: var(--primary-color);
     text-decoration: none;

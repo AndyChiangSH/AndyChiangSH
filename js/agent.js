@@ -10,8 +10,9 @@ document.addEventListener('DOMContentLoaded', () => {
     }
 
     const appName = 'Andy Chiang';
-    const apiUrl = 'https://text.pollinations.ai';
-    const apiModel = 'gemini-fast';
+    const geminiApiKey = 'AQ.Ab8RN6IJzqGanypZD_c2_0rsbdwZxdgDes73sL2ERhJa6xaqBw';
+    const geminiModel = 'gemini-3.1-flash-lite';
+    const geminiApiUrl = `https://generativelanguage.googleapis.com/v1beta/models/${geminiModel}:generateContent`;
     const conversationHistory = [];
     const knowledgeBase = buildKnowledgeBase();
     const bm25Index = buildBm25Index(knowledgeBase);
@@ -121,7 +122,7 @@ document.addEventListener('DOMContentLoaded', () => {
             });
 
             sourcesContainer.appendChild(list);
-            message.appendChild(sourcesContainer);
+            bubble.appendChild(sourcesContainer);
         }
 
         messageList.appendChild(message);
@@ -135,7 +136,11 @@ document.addEventListener('DOMContentLoaded', () => {
         return sections.flatMap(section => {
             const sectionId = section.id;
             const heading = section.querySelector('h2');
-            const title = heading ? normalizeWhitespace(heading.textContent.replace(/^[^A-Za-z]+/, '').trim()) : sectionId;
+            const title = sectionId === 'profile'
+                ? 'PROFILE'
+                : heading
+                    ? normalizeWhitespace(heading.textContent.replace(/^[^A-Za-z]+/, '').trim())
+                    : sectionId;
             const rawText = normalizeWhitespace(section.innerText || '');
 
             if (!sectionId || !rawText) {
@@ -344,15 +349,35 @@ document.addEventListener('DOMContentLoaded', () => {
             buildUserPrompt(question, relevantChunks, conversationHistory.slice(-6)),
         ].join('\n');
 
-        const response = await fetch(`${apiUrl}/${encodeURIComponent(prompt)}?model=${encodeURIComponent(apiModel)}&temperature=0.2`, {
-            method: 'GET',
+        const response = await fetch(`${geminiApiUrl}?key=${encodeURIComponent(geminiApiKey)}`, {
+            method: 'POST',
+            headers: {
+                'Content-Type': 'application/json',
+            },
+            body: JSON.stringify({
+                contents: [
+                    {
+                        role: 'user',
+                        parts: [
+                            {
+                                text: prompt,
+                            },
+                        ],
+                    },
+                ],
+                generationConfig: {
+                    temperature: 0.2,
+                    maxOutputTokens: 512,
+                },
+            }),
         });
 
         if (!response.ok) {
             throw new Error(`Agent request failed with status ${response.status}`);
         }
 
-        const answer = (await response.text()).trim();
+        const payload = await response.json();
+        const answer = payload?.candidates?.[0]?.content?.parts?.map(part => part.text || '').join('').trim();
 
         if (!answer) {
             throw new Error('Agent returned an empty response');
