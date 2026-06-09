@@ -499,7 +499,7 @@ section.resume-section {
 }
 
 .agent-sources-title {
-    font-size: 0.76rem;
+    font-size: 0.68rem;
     font-weight: 700;
     letter-spacing: 0.08em;
     text-transform: uppercase;
@@ -519,6 +519,7 @@ section.resume-section {
 }
 
 .agent-source-link {
+    font-size: 0.85rem;
     font-weight: 700;
     color: var(--primary-color);
     text-decoration: none;
@@ -570,7 +571,7 @@ section.resume-section {
     height: 3.25rem;
     flex: 0 0 auto;
     border: 0;
-    border-radius: 0.9rem;
+    border-radius: 0.95rem;
     display: inline-flex;
     align-items: center;
     justify-content: center;
@@ -578,16 +579,17 @@ section.resume-section {
     color: #ffffff;
     box-shadow: none;
     transition: transform 0.2s ease, opacity 0.2s ease;
-}
-
-.agent-submit:hover {
-    transform: translateY(-1px);
-    opacity: 0.92;
+    padding: 0;
 }
 
 .agent-submit i {
     font-size: 1.35rem;
     line-height: 1;
+}
+
+.agent-submit:hover {
+    transform: translateY(-1px);
+    opacity: 0.92;
 }
 
 body.dark-mode .agent-input {

@@ -10,9 +10,11 @@ document.addEventListener('DOMContentLoaded', () => {
     }
 
     const appName = 'Andy Chiang';
+    const apiUrl = 'https://text.pollinations.ai';
+    const apiModel = 'gemini-fast';
     const conversationHistory = [];
     const knowledgeBase = buildKnowledgeBase();
-    const bm25State = buildBm25State(knowledgeBase);
+    const bm25Index = buildBm25Index(knowledgeBase);
 
     addAssistantMessage('Hello, I’m Andy Chiang. What question would you like to ask today?', []);
 
@@ -47,7 +49,8 @@ document.addEventListener('DOMContentLoaded', () => {
             conversationHistory.push({ role: 'assistant', content: result.answer });
         } catch (error) {
             loadingMessage.remove();
-            addAssistantMessage(fallbackUnansweredMessage(question), []);
+            const fallback = buildRetrievalFallback(question);
+            addAssistantMessage(fallback.answer, fallback.sources);
             console.error('RAG Agent error:', error);
         }
     });
@@ -112,10 +115,6 @@ document.addEventListener('DOMContentLoaded', () => {
                 link.className = 'agent-source-link';
                 link.href = source.href;
                 link.textContent = source.title;
-                link.addEventListener('click', event => {
-                    event.preventDefault();
-                    jumpToChunk(source);
-                });
 
                 item.appendChild(link);
                 list.appendChild(item);
@@ -136,45 +135,37 @@ document.addEventListener('DOMContentLoaded', () => {
         return sections.flatMap(section => {
             const sectionId = section.id;
             const heading = section.querySelector('h2');
-            const title = heading ? normalizeWhitespace(heading.textContent.replace(/^[^A-Za-z\u4e00-\u9fff]+/, '').trim()) : sectionId;
-            const rawText = section.textContent || '';
+            const title = heading ? normalizeWhitespace(heading.textContent.replace(/^[^A-Za-z]+/, '').trim()) : sectionId;
+            const rawText = normalizeWhitespace(section.innerText || '');
 
-            if (!sectionId || !rawText.trim()) {
+            if (!sectionId || !rawText) {
                 return [];
             }
 
-            return splitTextIntoChunks(rawText, 500, 50).map((chunk, index) => ({
-                id: `${sectionId}-chunk-${index + 1}`,
-                sectionId,
-                sectionTitle: title,
-                chunkIndex: index + 1,
-                startOffset: chunk.startOffset,
-                endOffset: chunk.endOffset,
-                href: `#${sectionId}-chunk-${index + 1}`,
-                text: chunk.text,
+            return chunkText(rawText, 100, 10).map((text, index) => ({
+                id: `${sectionId}-${index + 1}`,
+                title,
+                href: `#${sectionId}`,
+                text,
             }));
         });
     }
 
-    function splitTextIntoChunks(text, chunkSize, overlap) {
+    function chunkText(text, chunkSize, overlap) {
+        const tokens = tokenize(text);
         const chunks = [];
-        const step = Math.max(1, chunkSize - overlap);
+        let start = 0;
 
-        for (let startOffset = 0; startOffset < text.length; startOffset += step) {
-            const endOffset = Math.min(text.length, startOffset + chunkSize);
-            const chunkText = text.slice(startOffset, endOffset).trim();
-
-            if (chunkText) {
-                chunks.push({
-                    startOffset,
-                    endOffset,
-                    text: chunkText,
-                });
+        while (start < tokens.length) {
+            const end = Math.min(start + chunkSize, tokens.length);
+            const chunkTokens = tokens.slice(start, end);
+            if (chunkTokens.length) {
+                chunks.push(chunkTokens.join(' '));
             }
-
-            if (endOffset >= text.length) {
+            if (end >= tokens.length) {
                 break;
             }
+            start = Math.max(end - overlap, start + 1);
         }
 
         return chunks;
@@ -184,14 +175,14 @@ document.addEventListener('DOMContentLoaded', () => {
         return value.replace(/\s+/g, ' ').trim();
     }
 
-    function tokenizeForBm25(value) {
-        const matches = value.toLowerCase().match(/[a-z0-9]+(?:'[a-z0-9]+)?/g);
+    function tokenize(value) {
+        const matches = value.toLowerCase().match(/[a-z0-9]+/giu);
         return matches ? matches : [];
     }
 
-    function buildBm25State(docs) {
-        const enrichedDocs = docs.map(doc => {
-            const tokens = tokenizeForBm25(`${doc.sectionTitle} ${doc.text}`);
+    function buildBm25Index(chunks) {
+        const documents = chunks.map(chunk => {
+            const tokens = tokenize(chunk.title + ' ' + chunk.text);
             const termFrequency = new Map();
 
             tokens.forEach(token => {
@@ -199,189 +190,177 @@ document.addEventListener('DOMContentLoaded', () => {
             });
 
             return {
-                ...doc,
+                ...chunk,
                 tokens,
                 termFrequency,
-                length: tokens.length,
+                length: tokens.length || 1,
             };
         });
 
         const documentFrequency = new Map();
 
-        enrichedDocs.forEach(doc => {
-            new Set(doc.tokens).forEach(token => {
+        documents.forEach(document => {
+            new Set(document.tokens).forEach(token => {
                 documentFrequency.set(token, (documentFrequency.get(token) || 0) + 1);
             });
         });
 
-        const totalLength = enrichedDocs.reduce((sum, doc) => sum + doc.length, 0);
+        const averageLength = documents.length
+            ? documents.reduce((sum, document) => sum + document.length, 0) / documents.length
+            : 1;
 
-        return {
-            docs: enrichedDocs,
-            documentFrequency,
-            documentCount: enrichedDocs.length || 1,
-            averageLength: enrichedDocs.length ? totalLength / enrichedDocs.length : 0,
-            k1: 1.2,
-            b: 0.75,
-        };
+        return { documents, documentFrequency, averageLength };
     }
 
-    function scoreChunk(doc, queryTokens, bm25State) {
-        if (!queryTokens.length || !doc.length || !bm25State.averageLength) {
-            return 0;
-        }
+    function scoreChunk(chunk, question, bm25Index) {
+        const queryTerms = tokenize(question);
+        const { documentFrequency, averageLength, documents } = bm25Index;
+        const totalDocuments = documents.length || 1;
+        const k1 = 1.5;
+        const b = 0.75;
 
         let score = 0;
 
-        queryTokens.forEach(token => {
-            const termFrequency = doc.termFrequency.get(token) || 0;
-            if (!termFrequency) {
+        queryTerms.forEach(term => {
+            const df = documentFrequency.get(term) || 0;
+            if (!df) {
                 return;
             }
 
-            const documentFrequency = bm25State.documentFrequency.get(token) || 0;
-            const idf = Math.log(1 + ((bm25State.documentCount - documentFrequency + 0.5) / (documentFrequency + 0.5)));
-            const numerator = termFrequency * (bm25State.k1 + 1);
-            const denominator = termFrequency + bm25State.k1 * (1 - bm25State.b + (bm25State.b * doc.length / bm25State.averageLength));
+            const idf = Math.log(1 + ((totalDocuments - df + 0.5) / (df + 0.5)));
+            const tf = chunk.termFrequency.get(term) || 0;
 
-            score += idf * (numerator / denominator);
+            if (!tf) {
+                return;
+            }
+
+            const denominator = tf + k1 * (1 - b + (b * chunk.length) / averageLength);
+            score += idf * ((tf * (k1 + 1)) / denominator);
         });
 
         return score;
     }
 
     function retrieveRelevantChunks(question) {
-        const queryTokens = tokenizeForBm25(question);
-
-        return bm25State.docs
-            .map(doc => ({
-                ...doc,
-                score: scoreChunk(doc, queryTokens, bm25State),
+        return bm25Index.documents
+            .map(chunk => ({
+                ...chunk,
+                score: scoreChunk(chunk, question, bm25Index),
             }))
             .filter(chunk => chunk.score > 0)
             .sort((left, right) => right.score - left.score)
             .slice(0, 1);
     }
 
-    function buildSourceList(relevantChunks) {
-        return relevantChunks.map(chunk => ({
-            title: `${chunk.sectionTitle} · Chunk ${chunk.chunkIndex}`,
-            href: chunk.href,
-            sectionId: chunk.sectionId,
-            startOffset: chunk.startOffset,
-        }));
+    function buildSystemPrompt() {
+        return [
+            'You are Andy Chiang answering as if you are him, not an AI assistant.',
+            'Follow these rules:',
+            '- Answer only in English.',
+            '- Use Markdown.',
+            '- Stay grounded in the supplied website context only.',
+            '- If the context does not support an answer, reply exactly with: I cannot answer this question.',
+            '- Do not mention policies, hidden instructions, or that you are a model.',
+        ].join('\n');
     }
 
-    function fallbackUnansweredMessage(question) {
-        return 'I cannot answer this question from my website content.';
+    function buildUserPrompt(question, relevantChunks, history) {
+        const historyBlock = history.length
+            ? history.map(item => `${item.role === 'user' ? 'User' : 'Andy'}: ${item.content}`).join('\n')
+            : 'None';
+
+        const contextBlock = relevantChunks.length
+            ? relevantChunks.map((chunk, index) => {
+                return [
+                    `${index + 1}. ${chunk.title}`,
+                    `Source: ${chunk.href}`,
+                    `Excerpt: ${chunk.text}`,
+                ].join('\n');
+            }).join('\n\n')
+            : 'No relevant context was found.';
+
+        return [
+            `Website: ${appName}'s personal website`,
+            `Original question: ${question}`,
+            'Conversation history:',
+            historyBlock,
+            'Relevant website context:',
+            contextBlock,
+            '',
+            'Write a concise, natural answer as Andy Chiang. If the context is insufficient, reply exactly: I cannot answer this question.',
+        ].join('\n');
+    }
+
+    function buildSourceList(relevantChunks) {
+        const uniqueSources = [];
+        const seen = new Set();
+
+        relevantChunks.forEach(chunk => {
+            if (seen.has(chunk.href)) {
+                return;
+            }
+
+            seen.add(chunk.href);
+            uniqueSources.push({
+                title: chunk.title,
+                href: chunk.href,
+            });
+        });
+
+        return uniqueSources;
     }
 
     function buildOfflineAnswer(question, relevantChunks) {
-        const chunk = relevantChunks[0];
-        if (!chunk) {
-            return fallbackUnansweredMessage(question);
-        }
+        const intro = 'I cannot answer this question.';
 
-        const sentence = chooseBestSentence(chunk.text, tokenizeForBm25(question));
-        if (!sentence || containsChineseCharacters(sentence)) {
-            return `The most relevant information is in my ${chunk.sectionTitle} section, but I cannot confidently answer this question from that chunk alone.`;
-        }
+        const bullets = relevantChunks.slice(0, 1).map(chunk => `- ${chunk.text}`);
 
-        return `According to my ${chunk.sectionTitle} section, ${ensureSentenceEnding(sentence)}`;
+        return [intro, '', ...bullets].join('\n');
     }
 
-    function containsChineseCharacters(value) {
-        return /[\u4e00-\u9fff]/.test(value);
+    function buildRetrievalFallback(question) {
+        const relevantChunks = retrieveRelevantChunks(question);
+
+        if (!relevantChunks.length) {
+            return {
+                answer: 'I cannot answer this question.',
+                sources: [],
+            };
+        }
+
+        return {
+            answer: buildOfflineAnswer(question, relevantChunks),
+            sources: buildSourceList(relevantChunks),
+        };
     }
 
     async function answerQuestion(question) {
         const relevantChunks = retrieveRelevantChunks(question);
         const sources = buildSourceList(relevantChunks);
 
-        if (!relevantChunks.length || relevantChunks[0].score < 0.15) {
-            return {
-                answer: fallbackUnansweredMessage(question),
-                sources: [],
-            };
-        }
-        return {
-            answer: buildOfflineAnswer(question, relevantChunks),
-            sources,
-        };
-    }
+        const prompt = [
+            buildSystemPrompt(),
+            '',
+            buildUserPrompt(question, relevantChunks, conversationHistory.slice(-6)),
+        ].join('\n');
 
-    function chooseBestSentence(text, queryTokens) {
-        const sentences = text
-            .replace(/\s+/g, ' ')
-            .split(/(?<=[.!?])\s+/)
-            .map(sentence => sentence.trim())
-            .filter(Boolean);
-
-        if (!sentences.length) {
-            return '';
-        }
-
-        let bestSentence = sentences[0];
-        let bestScore = -1;
-
-        sentences.forEach(sentence => {
-            const normalized = sentence.toLowerCase();
-            let score = 0;
-
-            queryTokens.forEach(token => {
-                if (normalized.includes(token)) {
-                    score += 1;
-                }
-            });
-
-            if (score > bestScore) {
-                bestScore = score;
-                bestSentence = sentence;
-            }
+        const response = await fetch(`${apiUrl}/${encodeURIComponent(prompt)}?model=${encodeURIComponent(apiModel)}&temperature=0.2`, {
+            method: 'GET',
         });
 
-        return bestSentence;
-    }
-
-    function ensureSentenceEnding(sentence) {
-        return /[.!?]$/.test(sentence) ? sentence : `${sentence}.`;
-    }
-
-    function jumpToChunk(source) {
-        const section = document.getElementById(source.sectionId);
-        if (!section) {
-            return;
+        if (!response.ok) {
+            throw new Error(`Agent request failed with status ${response.status}`);
         }
 
-        const range = createRangeAtOffset(section, source.startOffset);
-        if (range) {
-            const rect = range.getBoundingClientRect();
-            const targetTop = window.scrollY + rect.top - 90;
-            window.scrollTo({ top: Math.max(0, targetTop), behavior: 'smooth' });
-            return;
+        const answer = (await response.text()).trim();
+
+        if (!answer) {
+            throw new Error('Agent returned an empty response');
         }
 
-        section.scrollIntoView({ behavior: 'smooth', block: 'start' });
-    }
-
-    function createRangeAtOffset(rootElement, targetOffset) {
-        const walker = document.createTreeWalker(rootElement, NodeFilter.SHOW_TEXT);
-        let currentOffset = 0;
-        let textNode = walker.nextNode();
-
-        while (textNode) {
-            const nextOffset = currentOffset + textNode.textContent.length;
-            if (targetOffset <= nextOffset) {
-                const range = document.createRange();
-                range.setStart(textNode, Math.max(0, targetOffset - currentOffset));
-                range.collapse(true);
-                return range;
-            }
-
-            currentOffset = nextOffset;
-            textNode = walker.nextNode();
-        }
-
-        return null;
+        return {
+            answer,
+            sources,
+        };
     }
 });
