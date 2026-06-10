@@ -2483,6 +2483,22 @@
         <section id="agent-panel" class="agent-panel" hidden aria-label="Andy Agent">
             <div class="agent-panel-header">
                 <h3 class="agent-title mb-0">🤖 Andy Agent</h3>
+                <button id="agent-api-key-toggle" class="agent-api-key-toggle" type="button" aria-label="Set Gemini API Key" aria-expanded="false" aria-controls="agent-api-key-popover">
+                    <i class="bi bi-key-fill"></i>
+                    <span>Gemini API Key</span>
+                </button>
+            </div>
+
+            <div id="agent-api-key-popover" class="agent-api-key-popover" hidden>
+                <a class="agent-ai-studio-link" href="https://aistudio.google.com/app/apikey" target="_blank" rel="noopener noreferrer">
+                    Google AI Studio
+                    <i class="bi bi-box-arrow-up-right"></i>
+                </a>
+                <form id="agent-api-key-form" class="agent-api-key-form">
+                    <label class="visually-hidden" for="agent-api-key-input">Gemini API Key</label>
+                    <input type="password" id="agent-api-key-input" class="agent-api-key-input" placeholder="Enter Gemini API Key" autocomplete="off">
+                    <button type="submit" class="agent-api-key-confirm">OK</button>
+                </form>
             </div>
 
             <div id="agent-messages" class="agent-messages" aria-live="polite" aria-relevant="additions"></div>
