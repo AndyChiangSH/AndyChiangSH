@@ -10,7 +10,7 @@ document.addEventListener('DOMContentLoaded', () => {
     }
 
     const appName = 'Andy Chiang';
-    const geminiApiKey = 'AQ.Ab8RN6IJzqGanypZD_c2_0rsbdwZxdgDes73sL2ERhJa6xaqBw';
+    const geminiApiKey = 'AQ.Ab8RN6K79mK2fSdoHCxH7hJAyv3x-lOYFzvrWpbU9KAs8E9nAQ';
     const geminiModel = 'gemini-3.1-flash-lite';
     const geminiApiUrl = `https://generativelanguage.googleapis.com/v1beta/models/${geminiModel}:generateContent`;
     const conversationHistory = [];
