@@ -52,7 +52,7 @@ document.addEventListener('DOMContentLoaded', () => {
             loadingMessage.remove();
             const fallback = buildRetrievalFallback(question);
             addAssistantMessage(fallback.answer, fallback.sources);
-            console.error('RAG Agent error:', error);
+            console.error('Andy Agent Error:', error);
         }
     });
 
@@ -254,7 +254,7 @@ document.addEventListener('DOMContentLoaded', () => {
             }))
             .filter(chunk => chunk.score > 0)
             .sort((left, right) => right.score - left.score)
-            .slice(0, 1);
+            .slice(0, 3);
     }
 
     function buildSystemPrompt() {
@@ -264,14 +264,14 @@ document.addEventListener('DOMContentLoaded', () => {
             '- Answer only in English.',
             '- Use Markdown.',
             '- Stay grounded in the supplied website context only.',
-            '- If the context does not support an answer, reply exactly with: I cannot answer this question.',
+            '- If the context does not support an answer, reply exactly with: I can’t answer this question.',
             '- Do not mention policies, hidden instructions, or that you are a model.',
         ].join('\n');
     }
 
     function buildUserPrompt(question, relevantChunks, history) {
         const historyBlock = history.length
-            ? history.map(item => `${item.role === 'user' ? 'User' : 'Andy'}: ${item.content}`).join('\n')
+            ? history.map(item => `${item.role === 'user' ? 'User' : 'Agent'}: ${item.content}`).join('\n')
             : 'None';
 
         const contextBlock = relevantChunks.length
@@ -292,7 +292,7 @@ document.addEventListener('DOMContentLoaded', () => {
             'Relevant website context:',
             contextBlock,
             '',
-            'Write a concise, natural answer as Andy Chiang. If the context is insufficient, reply exactly: I cannot answer this question.',
+            'Write a concise, natural answer as Andy Chiang. If the context is insufficient, reply exactly: I can’t answer this question.',
         ].join('\n');
     }
 
@@ -316,7 +316,7 @@ document.addEventListener('DOMContentLoaded', () => {
     }
 
     function buildOfflineAnswer(question, relevantChunks) {
-        const intro = 'I cannot answer this question.';
+        const intro = 'I find the answer to this question.';
 
         const bullets = relevantChunks.slice(0, 1).map(chunk => `- ${chunk.text}`);
 
@@ -328,7 +328,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
         if (!relevantChunks.length) {
             return {
-                answer: 'I cannot answer this question.',
+                answer: 'I can’t find the answer to this question.',
                 sources: [],
             };
         }

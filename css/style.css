@@ -346,7 +346,7 @@ section.resume-section .resume-section-content {
 }
 
 section.resume-section {
-    scroll-margin-top: 5rem;
+    scroll-margin-top: 0rem;
 }
 
 @media (min-width: 768px) {
@@ -502,7 +502,7 @@ section.resume-section {
 }
 
 .agent-sources-title {
-    font-size: 0.62rem;
+    font-size: 0.7rem;
     font-weight: 700;
     letter-spacing: 0.08em;
     text-transform: uppercase;
@@ -515,7 +515,7 @@ section.resume-section {
     display: flex;
     flex-direction: column;
     gap: 0.25rem;
-    font-size: 0.76rem;
+    font-size: 0.8rem;
     line-height: 1.35;
 }
 
@@ -524,7 +524,7 @@ section.resume-section {
 }
 
 .agent-sources-list li::marker {
-    font-size: 0.8em;
+    font-size: 1.0em;
     color: var(--panel-muted-color);
 }
 
