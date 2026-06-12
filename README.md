@@ -42,7 +42,7 @@
 </div>
 
 <div align="center">
-<sub>Last updated: 2026/06/06</sub>  
+<sub>Last updated: 2026/06/12</sub>  
 
 <sub>Copyright © 2023–2026 Andy Chiang</sub>
 </div>
