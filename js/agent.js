@@ -4,19 +4,13 @@ document.addEventListener('DOMContentLoaded', () => {
     const form = document.getElementById('agent-form');
     const input = document.getElementById('agent-input');
     const messageList = document.getElementById('agent-messages');
-    const apiKeyToggle = document.getElementById('agent-api-key-toggle');
-    const apiKeyPopover = document.getElementById('agent-api-key-popover');
-    const apiKeyForm = document.getElementById('agent-api-key-form');
-    const apiKeyInput = document.getElementById('agent-api-key-input');
 
-    if (!toggleButton || !panel || !form || !input || !messageList || !apiKeyToggle || !apiKeyPopover || !apiKeyForm || !apiKeyInput) {
+    if (!toggleButton || !panel || !form || !input || !messageList) {
         return;
     }
 
     const appName = 'Andy Chiang';
-    const geminiApiKeyStorageKey = 'andyAgentGeminiApiKey';
-    const geminiModel = 'gemini-3.1-flash-lite';
-    const geminiApiUrl = `https://generativelanguage.googleapis.com/v1beta/models/${geminiModel}:generateContent`;
+    const geminiApiUrl = `https://gemini-api-orcin-eight.vercel.app/api/chat`;
     const conversationHistory = [];
     const knowledgeBase = buildKnowledgeBase();
     const bm25Index = buildBm25Index(knowledgeBase);
@@ -27,43 +21,8 @@ document.addEventListener('DOMContentLoaded', () => {
         setPanelVisible(panel.hidden);
     });
 
-    apiKeyToggle.addEventListener('click', event => {
-        event.stopPropagation();
-        setApiKeyPopoverVisible(apiKeyPopover.hidden);
-    });
-
-    apiKeyPopover.addEventListener('click', event => {
-        event.stopPropagation();
-    });
-
-    apiKeyForm.addEventListener('submit', event => {
-        event.preventDefault();
-
-        const apiKey = apiKeyInput.value.trim();
-        if (!apiKey) {
-            apiKeyInput.focus();
-            return;
-        }
-
-        localStorage.setItem(geminiApiKeyStorageKey, apiKey);
-        apiKeyInput.value = '';
-        setApiKeyPopoverVisible(false);
-    });
-
-    document.addEventListener('click', event => {
-        if (!apiKeyPopover.hidden && !apiKeyPopover.contains(event.target) && !apiKeyToggle.contains(event.target)) {
-            setApiKeyPopoverVisible(false);
-        }
-    });
-
     document.addEventListener('keydown', event => {
-        if (event.key !== 'Escape') {
-            return;
-        }
-
-        if (!apiKeyPopover.hidden) {
-            setApiKeyPopoverVisible(false);
-        } else if (!panel.hidden) {
+        if (event.key === 'Escape' && !panel.hidden) {
             setPanelVisible(false);
         }
     });
@@ -102,18 +61,6 @@ document.addEventListener('DOMContentLoaded', () => {
 
         if (isVisible) {
             window.setTimeout(() => input.focus(), 0);
-        } else {
-            setApiKeyPopoverVisible(false);
-        }
-    }
-
-    function setApiKeyPopoverVisible(isVisible) {
-        apiKeyPopover.hidden = !isVisible;
-        apiKeyToggle.setAttribute('aria-expanded', String(isVisible));
-
-        if (isVisible) {
-            apiKeyInput.value = localStorage.getItem(geminiApiKeyStorageKey) || '';
-            window.setTimeout(() => apiKeyInput.focus(), 0);
         }
     }
 
@@ -391,13 +338,6 @@ document.addEventListener('DOMContentLoaded', () => {
     }
 
     async function answerQuestion(question) {
-        const geminiApiKey = localStorage.getItem(geminiApiKeyStorageKey);
-
-        if (!geminiApiKey) {
-            setApiKeyPopoverVisible(true);
-            throw new Error('Missing Gemini API Key');
-        }
-
         const relevantChunks = retrieveRelevantChunks(question);
         const sources = buildSourceList(relevantChunks);
 
@@ -407,7 +347,7 @@ document.addEventListener('DOMContentLoaded', () => {
             buildUserPrompt(question, relevantChunks, conversationHistory.slice(-6)),
         ].join('\n');
 
-        const response = await fetch(`${geminiApiUrl}?key=${encodeURIComponent(geminiApiKey)}`, {
+        const response = await fetch(geminiApiUrl, {
             method: 'POST',
             headers: {
                 'Content-Type': 'application/json',

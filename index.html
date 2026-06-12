@@ -70,7 +70,7 @@
                     <li>✉️ If you have any questions, please feel free to contact me!</li>
                 </ul>
                 <div class="social-icons">
-                    <a class="social-icon resume-icon" href="doc/resume/resume.pdf" target="_blank" title="Resume">
+                    <a class="social-icon resume-icon" href="doc/CV/2026 Andy Chiang CV.pdf" target="_blank" title="CV">
                         <i class="bi bi-file-earmark-person-fill"></i>
                     </a>
                     <a class="social-icon email-icon" href="mailto:andy10801@gmail.com" target="_blank" title="Email">
@@ -2128,7 +2128,7 @@
                         Large Language Models (LLMs)
                         <ul>
                             <li>Transformer Models (BERT, GPT)</li>
-                            <li>Open-source Models (LLAMA, DeepSeek)</li>
+                            <li>Open-source Models (LLaMA, DeepSeek)</li>
                             <li>Closed-source Models (OpenAI, Gemini)</li>
                         </ul>
                     </li>
@@ -2175,7 +2175,7 @@
                             </ul>
                         </ul>
                     </li>
-                    <li>Japanese - Begineer</li>
+                    <li>Japanese - Beginner</li>
                 </ul>
                 <h3 class="my-3">Others</h3>
                 <ul class="my-3 fs-5">
@@ -2466,14 +2466,6 @@
         </div>
     </div>
 
-    <!-- Light or Dark Mode -->
-    <button id="mode-toggle" class="mode-toggle">
-        <i class="bi bi-sun-fill"></i>
-    </button>
-
-    <!-- oiiaioiiiai -->
-    <img id="oiiaioiiiai" src="img/oiiaioiiiai/oiiaioiiiai.png" alt="oiiaioiiiai" class="oiiaioiiiai-hidden">
-
     <!-- Andy Agent -->
     <div class="agent-widget">
         <button id="agent-toggle" class="mode-toggle agent-toggle" type="button" aria-label="Open chat assistant" aria-expanded="false" aria-controls="agent-panel">
@@ -2483,22 +2475,6 @@
         <section id="agent-panel" class="agent-panel" hidden aria-label="Andy Agent">
             <div class="agent-panel-header">
                 <h3 class="agent-title mb-0">🤖 Andy Agent</h3>
-                <button id="agent-api-key-toggle" class="agent-api-key-toggle" type="button" aria-label="Set Gemini API Key" aria-expanded="false" aria-controls="agent-api-key-popover">
-                    <i class="bi bi-key-fill"></i>
-                    <span>Gemini API Key</span>
-                </button>
-            </div>
-
-            <div id="agent-api-key-popover" class="agent-api-key-popover" hidden>
-                <a class="agent-ai-studio-link" href="https://aistudio.google.com/app/apikey" target="_blank" rel="noopener noreferrer">
-                    Google AI Studio
-                    <i class="bi bi-box-arrow-up-right"></i>
-                </a>
-                <form id="agent-api-key-form" class="agent-api-key-form">
-                    <label class="visually-hidden" for="agent-api-key-input">Gemini API Key</label>
-                    <input type="password" id="agent-api-key-input" class="agent-api-key-input" placeholder="Enter Gemini API Key" autocomplete="off">
-                    <button type="submit" class="agent-api-key-confirm">OK</button>
-                </form>
             </div>
 
             <div id="agent-messages" class="agent-messages" aria-live="polite" aria-relevant="additions"></div>
@@ -2512,6 +2488,14 @@
             </form>
         </section>
     </div>
+
+    <!-- Light or Dark Mode -->
+    <button id="mode-toggle" class="mode-toggle">
+        <i class="bi bi-sun-fill"></i>
+    </button>
+
+    <!-- oiiaioiiiai -->
+    <img id="oiiaioiiiai" src="img/oiiaioiiiai/oiiaioiiiai.png" alt="oiiaioiiiai" class="oiiaioiiiai-hidden">
 </body>
 
 <!-- Core theme JS-->
